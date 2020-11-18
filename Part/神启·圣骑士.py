@@ -48,11 +48,11 @@ class 神启·圣骑士技能1(主动技能):
     def BUFF面板(self):
         temp = []
         temp.append(self.名称)
-        temp.append(int(round((self.力智[self.等级] + self.BUFF力量) * self.BUFF力量per, 0)))
-        temp.append(int(round((self.力智[self.等级] + self.BUFF智力) * self.BUFF智力per, 0)))
-        temp.append(int(round((self.三攻[self.等级] + self.BUFF物攻) * self.BUFF物攻per, 0)))
-        temp.append(int(round((self.三攻[self.等级] + self.BUFF魔攻) * self.BUFF魔攻per, 0)))
-        temp.append(int(round((self.三攻[self.等级] + self.BUFF独立) * self.BUFF独立per, 0)))
+        temp.append(int(round((self.力智[self.等级] * 1.131 + self.BUFF力量) * self.BUFF力量per, 0)))
+        temp.append(int(round((self.力智[self.等级] * 1.131 + self.BUFF智力) * self.BUFF智力per, 0)))
+        temp.append(int(round((self.三攻[self.等级] * 1.131 + self.BUFF物攻) * self.BUFF物攻per, 0)))
+        temp.append(int(round((self.三攻[self.等级] * 1.131 + self.BUFF魔攻) * self.BUFF魔攻per, 0)))
+        temp.append(int(round((self.三攻[self.等级] * 1.131 + self.BUFF独立) * self.BUFF独立per, 0)))
         return temp
 
 class 神启·圣骑士技能2(主动技能):
@@ -203,7 +203,7 @@ class 神启·圣骑士角色属性(角色属性):
     角色 = '圣职者(女)'
     职业 = '圣骑士'
 
-    系数类型选择 = ['智力']
+    类型选择 = ['智力']
 
     武器选项 = ['十字架']
 
@@ -247,17 +247,20 @@ class 神启·圣骑士角色属性(角色属性):
     def BUFF计算(self, x = 0):
         总数据 = self.数据计算()
         关联技能 = self.技能栏[self.技能序号['天堂赞歌']].关联技能
-
+ 
         if self.次数输入[self.技能序号['勇气圣歌']] == '1':
             for j in range(8):
                 总数据[self.技能序号['勇气圣歌']][j] = int(总数据[self.技能序号['勇气祝福']][j] * self.技能栏[self.技能序号['勇气圣歌']].增幅倍率)
-        for j in range(8):
-            if '圣光天启' in 关联技能:
-                总数据[self.技能序号['天堂赞歌']][j] = int(总数据[self.技能序号['圣光天启']][j] * (self.技能栏[self.技能序号['天堂赞歌']].绑定一觉力智per + self.技能栏[self.技能序号['天堂赞歌']].等级 * 0.01))
-                总数据[self.技能序号['圣光天启']][j] = 0
-            elif '救赎彼岸：惩戒圣枪' in 关联技能:
-                总数据[self.技能序号['天堂赞歌']][j] = int(总数据[self.技能序号['圣光天启']][j] * (self.技能栏[self.技能序号['天堂赞歌']].绑定二觉力智per + self.技能栏[self.技能序号['天堂赞歌']].等级 * 0.01))
-        
+        if self.次数输入[self.技能序号['天堂赞歌']] == '1':
+            for j in range(8):
+                if '圣光天启' in 关联技能:
+                    总数据[self.技能序号['天堂赞歌']][j] = int(总数据[self.技能序号['圣光天启']][j] * (self.技能栏[self.技能序号['天堂赞歌']].绑定一觉力智per + self.技能栏[self.技能序号['天堂赞歌']].等级 * 0.01))
+                    总数据[self.技能序号['圣光天启']][j] = 0
+                elif '救赎彼岸：惩戒圣枪' in 关联技能:
+                    总数据[self.技能序号['天堂赞歌']][j] = int(总数据[self.技能序号['圣光天启']][j] * (self.技能栏[self.技能序号['天堂赞歌']].绑定二觉力智per + self.技能栏[self.技能序号['天堂赞歌']].等级 * 0.01))
+        else:
+             for j in range(8):
+                总数据[self.技能序号['天堂赞歌']][j] = 0
         return self.结果返回(x, 总数据)
         
 class 神启·圣骑士(角色窗口):
