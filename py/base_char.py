@@ -1,3 +1,6 @@
+import py.base_equip
+
+
 class 技能:
     名称 = ''
     备注 = ''
@@ -14,6 +17,8 @@ class 技能:
     冷却关联技能 = ['无']
     冷却关联技能2 = ['无']
     冷却关联技能3 = ['无']
+
+    版本 = "GF"
 
     def 等级加成(self, x):
         if self.等级 != 0:
@@ -59,9 +64,8 @@ class 主动技能(技能):
             return int((self.攻击次数 * (self.基础 + self.成长 * self.等级) + self.攻击次数2 * (self.基础2 + self.成长2 * self.等级) + self.攻击次数3 * (
                     self.基础3 + self.成长3 * self.等级)) * (1 + self.TP成长 * self.TP等级) * self.倍率)
 
-    def 等效CD(self, 武器类型):
-        # Will修改
-        return round(self.CD / self.恢复, 1)
+    def 等效CD(self, 武器类型, 输出类型):
+        return round(self.CD / self.恢复 * py.base_equip.武器冷却惩罚(武器类型, 输出类型, self.版本), 1)
 
 
 class 被动技能(技能):
@@ -227,8 +231,8 @@ class 被动技能(技能):
 
 细节2 = {
     #         力智  三攻  属强 徽力智 徽三攻
-    "上衣":    [20,  50,  0,   40,   0],
-    "下装":    [20,  50,  0,   40,   0],
+    "上衣":    [40,  70,  0,   40,   0],
+    "下装":    [40,  70,  0,   40,   0],
     "头肩":    [75,  20,  0,   0,    0],
     "腰带":    [0,   36,  0,   70,   0],
     "鞋":      [0,   36,  0,   0,    40],
@@ -358,7 +362,7 @@ map_EN_ZH = {
     "机械之灵": "Optimus",
     "芙蕾雅": "Freyja",
     "知源_元素爆破师": "Neo_Elemental_Bomber",
-    "知源_冰结师": "Neo_Glacial_Mater",
+    "知源_冰结师": "Neo_Glacial_Master",
     "知源_血法师": "Neo_Blood_Mage",
     "知源_逐风者": "Neo_Swift_Master",
     "知源_次元行者": "Neo_Dimension_Walker",
@@ -373,10 +377,10 @@ map_EN_ZH = {
     "神启_异端审判者": "Neo_Inquisitor",
     "神启_巫女": "Neo_Shaman",
     "神启_诱魔者": "Neo_Mistress",
-    "真_刺客": "Neo_Rogue",
-    "真_死灵术士": "Neo_Necromancer",
-    "真_忍者": "Neo_Kunoichi",
-    "真_影舞者": "Neo_Shadow_Dancer",
+    "隐夜_刺客": "Neo_Rogue",
+    "隐夜_死灵术士": "Neo_Necromancer",
+    "隐夜_忍者": "Neo_Kunoichi",
+    "隐夜_影舞者": "Neo_Shadow_Dancer",
     "大地女神": "Gaia",
     "黑曜神": "Demon_God",
     "破晓女神": "Savior",

@@ -2,6 +2,11 @@ from py.base_char import *
 import py.lite
 
 
+class 主动技能(主动技能):
+    def 等效CD(self, 武器类型, 输出类型):
+        return round(self.CD / self.恢复, 1)
+
+
 class skill0(主动技能):
     名称 = '崩拳'
     所在等级 = 15
@@ -24,6 +29,7 @@ class skill1(主动技能):
     CD = 7.0
     TP成长 = 0.10
     TP上限 = 5
+    演出时间 = 0.5
 
 
 class skill2(主动技能):
@@ -77,10 +83,15 @@ class skill5(主动技能):
     TP成长 = 0.1
     TP上限 = 5
     是否有护石 = 1
+    演出时间 = 0.5
 
-    def 装备护石(self):
-        self.基础 *= 1.24
-        self.成长 *= 1.24
+    护石选项 = ['魔界', '圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.倍率 *= 1.24
+        elif x == 1:
+            self.倍率 *= 1.24 + 0.09
 
 
 class skill6(主动技能):
@@ -98,6 +109,7 @@ class skill6(主动技能):
     CD = 20
     TP成长 = 0.1
     TP上限 = 5
+    演出时间 = 2.0
 
 
 class skill7(主动技能):
@@ -113,12 +125,21 @@ class skill7(主动技能):
     TP上限 = 5
     演出时间 = 1
     是否有护石 = 1
+    演出时间 = 2.2
 
-    def 装备护石(self):
-        self.攻击次数 = 9
-        self.基础 *= 0.92
-        self.成长 *= 0.92
-        self.CD *= 0.85
+    护石选项 = ['魔界', '圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.倍率 *= 0.92
+            self.攻击次数 += 2
+            self.CD *= 0.85
+            self.演出时间 = 2.7
+        elif x == 1:
+            self.倍率 *= 0.99
+            self.攻击次数 += 2
+            self.CD *= 0.85
+            self.演出时间 = 2.7
 
 
 class skill8(主动技能):
@@ -137,11 +158,19 @@ class skill8(主动技能):
     TP成长 = 0.1
     TP上限 = 5
     是否有护石 = 1
+    演出时间 = 4
 
-    def 装备护石(self):
-        self.攻击次数 = 20
-        self.基础2 *= 0.87
-        self.成长2 *= 0.87
+    护石选项 = ['魔界', '圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.演出时间 = 4.4
+            self.倍率 *= 0.87
+            self.攻击次数 = 20
+        elif x == 1:
+            self.演出时间 = 4.4
+            self.倍率 *= 0.98
+            self.攻击次数 = 20
 
 
 class skill9(主动技能):
@@ -152,6 +181,7 @@ class skill9(主动技能):
     基础 = 37261 * 1.1 * 1.007253
     成长 = 11248.5 * 1.1 * 1.007253
     CD = 145.0
+    演出时间 = 0.5
 
 
 class skill10(被动技能):
@@ -177,10 +207,15 @@ class skill11(主动技能):
     TP成长 = 0.1
     TP上限 = 5
     是否有护石 = 1
+    演出时间 = 1.5
 
-    def 装备护石(self):
-        self.基础 *= 1.19
-        self.成长 *= 1.19
+    护石选项 = ['魔界', '圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.倍率 *= 1.19
+        elif x == 1:
+            self.倍率 *= 1.19 + 0.09
 
 
 class skill12(主动技能):
@@ -198,12 +233,17 @@ class skill12(主动技能):
     TP成长 = 0.1
     TP上限 = 5
     是否有护石 = 1
+    演出时间 = 2.2
 
-    def 装备护石(self):
-        self.基础 *= 0
-        self.成长 *= 0
-        self.基础2 *= 1.34
-        self.成长2 *= 1.34
+    护石选项 = ['魔界', '圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.攻击次数 = 0
+            self.攻击次数2 *= 1.34
+        elif x == 1:
+            self.攻击次数 = 0
+            self.攻击次数2 *= 1.34 + 0.08
 
 
 class skill13(被动技能):
@@ -233,6 +273,13 @@ class skill14(主动技能):
     成长3 = 461.1333
     攻击次数3 = 1
     CD = 40.0
+    是否有护石 = 1
+
+    护石选项 = ['圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.攻击次数 *= 2 * 0.83
 
 
 class skill15(主动技能):
@@ -240,9 +287,26 @@ class skill15(主动技能):
     所在等级 = 80
     等级上限 = 40
     基础等级 = 13
-    基础 = 49364.5844
-    成长 = 5573.4156
+    基础 = 4892.76666
+    成长 = 646.233333
+    攻击次数 = 1
+    基础2 = 2473.33333 + 2475.9  # 第二段+第三段
+    成长2 = 326.666666 + 327.1
+    攻击次数2 = 1
+    基础3 = 38686.4
+    成长3 = 5109.6
+    攻击次数3 = 1
     CD = 45.0
+    是否有护石 = 1
+    演出时间 = 2
+
+    护石选项 = ['圣痕']
+
+    def 装备护石(self, x):
+        if x == 0:
+            self.攻击次数 = 0
+            self.攻击次数2 = 0
+            self.攻击次数3 *= 1.66
 
 
 class skill16(主动技能):
@@ -253,6 +317,7 @@ class skill16(主动技能):
     基础 = 87153.5 * 1.006068
     成长 = 26310.5 * 1.006068
     CD = 180.0
+    演出时间 = 1.2
 
 
 class skill17(被动技能):
@@ -276,6 +341,7 @@ class skill18(主动技能):
     基础 = 95264.6
     成长 = 10754.4
     CD = 60.0
+    演出时间 = 6.2
 
 
 class skill19(主动技能):
@@ -287,6 +353,7 @@ class skill19(主动技能):
     基础 = 259160
     成长 = 78240
     CD = 290
+    演出时间 = 6.1
 
     def 加成倍率(self, 武器类型):
         return 0
@@ -311,7 +378,7 @@ class skill20(被动技能):
             if self.等级 == 0:
                 return 1.0
             else:
-                return (1 - 0.01 * self.等级)
+                return 1 - 0.01 * self.等级
         else:
             return 1.0
 
@@ -374,7 +441,7 @@ for i in skill_list:
 
 归元_散打_女符文选项 = ['无']
 for i in skill_list:
-    if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
         归元_散打_女符文选项.append(i.名称)
 
 
@@ -415,3 +482,7 @@ class character(py.lite.char_base):
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
 
+    def CD倍率计算(self):
+        if "武神强踢" in self.attr["技能栏"][skill_sn['真烈空星鸣拳']].关联技能:
+            self.attr["技能栏"][skill_sn['武神强踢buff']].等级 = 0
+        super().CD倍率计算()

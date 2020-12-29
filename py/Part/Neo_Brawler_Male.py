@@ -31,6 +31,9 @@ class 归元_街霸_男主动技能(主动技能):
                         + self.感电倍率 * (self.感电基础 + self.感电成长 * self.等级))
                        * (1 + self.TP成长 * self.TP等级) * self.倍率)
 
+    def 等效CD(self, 武器类型, 输出类型):
+        return round(self.CD / self.恢复, 1)
+
 
 class skill0(被动技能):
     名称 = '基础精通'
@@ -502,7 +505,7 @@ for i in skill_list:
 
 归元_街霸_男符文选项 = ['无']
 for i in skill_list:
-    if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
         归元_街霸_男符文选项.append(i.名称)
 
 

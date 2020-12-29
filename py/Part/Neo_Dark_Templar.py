@@ -2,19 +2,7 @@ from py.base_char import *
 import py.lite
 
 
-class 极诣_暗殿骑士主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '太刀':
-            return round(self.CD / self.恢复 * 1, 1)
-        if 武器类型 == '短剑':
-            return round(self.CD / self.恢复 * 1.05, 1)
-        if 武器类型 == '钝器':
-            return round(self.CD / self.恢复 * 1, 1)
-        if 武器类型 == '巨剑':
-            return round(self.CD / self.恢复 * 1, 1)
-
-
-class skill0(极诣_暗殿骑士主动技能):
+class skill0(主动技能):
     名称 = '暗影之矛'
     所在等级 = 15
     等级上限 = 60
@@ -43,7 +31,7 @@ class skill1(被动技能):
         return round(1.10 + 0.02 * self.等级, 5)
 
 
-class skill2(极诣_暗殿骑士主动技能):
+class skill2(主动技能):
     名称 = '暗影缠袭'
     所在等级 = 20
     等级上限 = 60
@@ -63,7 +51,7 @@ class skill2(极诣_暗殿骑士主动技能):
         return (self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill3(极诣_暗殿骑士主动技能):
+class skill3(主动技能):
     名称 = '暗影漩涡'
     所在等级 = 20
     等级上限 = 60
@@ -95,7 +83,7 @@ class skill4(被动技能):
         return round(1.10 + 0.02 * self.等级, 5)
 
 
-class skill5(极诣_暗殿骑士主动技能):
+class skill5(主动技能):
     名称 = '暗影禁锢'
     所在等级 = 25
     等级上限 = 70
@@ -114,7 +102,7 @@ class skill5(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级]) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill6(极诣_暗殿骑士主动技能):
+class skill6(主动技能):
     名称 = '灵魂摄取'
     所在等级 = 30
     等级上限 = 70
@@ -131,7 +119,7 @@ class skill6(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] * self.攻击次数1) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill7(极诣_暗殿骑士主动技能):
+class skill7(主动技能):
     名称 = '释魂飞弹'
     所在等级 = 30
     等级上限 = 70
@@ -154,7 +142,7 @@ class skill7(极诣_暗殿骑士主动技能):
                 return (self.数据1[self.等级] * self.攻击次数1 * 2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill8(极诣_暗殿骑士主动技能):
+class skill8(主动技能):
     名称 = '魅影暗魂斩'
     所在等级 = 30
     等级上限 = 70
@@ -175,7 +163,7 @@ class skill8(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill9(极诣_暗殿骑士主动技能):
+class skill9(主动技能):
     名称 = '魔镜幻影阵'
     所在等级 = 35
     等级上限 = 70
@@ -244,7 +232,7 @@ class skill9(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] + self.数据4[self.等级] * self.攻击次数4) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill10(极诣_暗殿骑士主动技能):
+class skill10(主动技能):
     名称 = '释魂狂怒'
     所在等级 = 35
     等级上限 = 70
@@ -260,7 +248,7 @@ class skill10(极诣_暗殿骑士主动技能):
         return self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill11(极诣_暗殿骑士主动技能):
+class skill11(主动技能):
     名称 = '暗影囚杀'
     所在等级 = 40
     等级上限 = 70
@@ -328,7 +316,7 @@ class skill11(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2 + self.数据3[self.等级] * self.攻击次数3 * self.护石黑暗气息) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill12(极诣_暗殿骑士主动技能):
+class skill12(主动技能):
     名称 = '暗影盛宴'
     所在等级 = 45
     等级上限 = 60
@@ -399,7 +387,7 @@ class skill13(被动技能):
         return round(1.055 + 0.015 * self.等级, 5)
 
 
-class skill14(极诣_暗殿骑士主动技能):
+class skill14(主动技能):
     名称 = '末日杀戮'
     所在等级 = 50
     等级上限 = 40
@@ -433,7 +421,7 @@ class skill14(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2 + self.数据3[self.等级] * self.攻击次数3 + self.数据4[self.等级] * self.攻击次数4) * self.倍率
 
 
-class skill15(极诣_暗殿骑士主动技能):
+class skill15(主动技能):
     名称 = '魔影轰杀'
     所在等级 = 60
     等级上限 = 40
@@ -488,7 +476,7 @@ class skill15(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] * self.攻击次数1) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill16(极诣_暗殿骑士主动技能):
+class skill16(主动技能):
     名称 = '死亡献祭'
     所在等级 = 70
     等级上限 = 40
@@ -540,7 +528,7 @@ class skill16(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill17(极诣_暗殿骑士主动技能):
+class skill17(主动技能):
     名称 = '天罚死光'
     所在等级 = 75
     等级上限 = 40
@@ -575,7 +563,7 @@ class skill18(被动技能):
         return round(1.24 + 0.02 * self.等级, 5)
 
 
-class skill19(极诣_暗殿骑士主动技能):
+class skill19(主动技能):
     名称 = '天罚之剑'
     所在等级 = 80
     等级上限 = 40
@@ -600,7 +588,7 @@ class skill19(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级]) * self.倍率
 
 
-class skill20(极诣_暗殿骑士主动技能):
+class skill20(主动技能):
     名称 = '神罚·灭世裁决'
     所在等级 = 85
     等级上限 = 40
@@ -632,7 +620,7 @@ class skill21(被动技能):
         return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill22(极诣_暗殿骑士主动技能):
+class skill22(主动技能):
     名称 = '暗影绽放：死亡荆棘'
     所在等级 = 95
     等级上限 = 40
@@ -650,7 +638,7 @@ class skill22(极诣_暗殿骑士主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级]) * self.倍率
 
 
-class skill23(极诣_暗殿骑士主动技能):
+class skill23(主动技能):
     名称 = '冥王降临：净土救赎'
     所在等级 = 100
     等级上限 = 40

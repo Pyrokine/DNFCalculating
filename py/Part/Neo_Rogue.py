@@ -2,15 +2,7 @@ from py.base_char import *
 import py.lite
 
 
-class 真_刺客主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '匕首':
-            return round(self.CD / self.恢复 * 0.9, 1)
-        if 武器类型 == '双剑':
-            return round(self.CD / self.恢复 * 1.1, 1)
-
-
-class skill0(真_刺客主动技能):
+class skill0(主动技能):
     名称 = '终结追击'
     所在等级 = 15
     等级上限 = 30
@@ -109,7 +101,7 @@ class skill4(被动技能):
         return self.加成倍率(武器类型)
 
 
-class skill5(真_刺客主动技能):
+class skill5(主动技能):
     名称 = '双刃穿刺'
     所在等级 = 20
     等级上限 = 60
@@ -135,7 +127,7 @@ class skill5(真_刺客主动技能):
         return ((self.数据[self.等级] + self.数据1[self.等级] + self.数据2[self.等级]) * self.攻击次数 + self.数据3[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.162
 
 
-class skill6(真_刺客主动技能):
+class skill6(主动技能):
     名称 = '绝杀斩'
     所在等级 = 20
     等级上限 = 60
@@ -156,7 +148,7 @@ class skill6(真_刺客主动技能):
         return (self.数据[self.等级] * self.攻击次数 + (self.数据1[self.等级] + self.数据2[self.等级] * 3) * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.148
 
 
-class skill7(真_刺客主动技能):
+class skill7(主动技能):
     名称 = '旋舞斩'
     所在等级 = 20
     等级上限 = 60
@@ -176,7 +168,7 @@ class skill7(真_刺客主动技能):
         return (self.数据[self.等级] * self.攻击次数 + self.数据1[self.等级] * self.攻击次数3) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.147
 
 
-class skill8(真_刺客主动技能):
+class skill8(主动技能):
     名称 = '旋刃'
     所在等级 = 25
     等级上限 = 60
@@ -201,7 +193,7 @@ class skill8(真_刺客主动技能):
         return ((self.数据[self.等级] * 3 + self.数据1[self.等级] * 3 + self.数据2[self.等级] * 3) * self.攻击次数 + self.数据3[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.161
 
 
-class skill9(真_刺客主动技能):
+class skill9(主动技能):
     名称 = '剑刃风暴'
     所在等级 = 30
     等级上限 = 60
@@ -222,7 +214,7 @@ class skill9(真_刺客主动技能):
         return (self.数据[self.等级] * self.旋转次数 * self.攻击次数 + self.数据1[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.05
 
 
-class skill10(真_刺客主动技能):
+class skill10(主动技能):
     名称 = '螺旋穿刺'
     所在等级 = 35
     等级上限 = 60
@@ -255,7 +247,7 @@ class skill10(真_刺客主动技能):
         return ((self.数据[self.等级] * self.旋转次数 * self.旋转倍率 + self.数据1[self.等级]) * self.攻击次数 + self.数据2[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.141
 
 
-class skill11(真_刺客主动技能):
+class skill11(主动技能):
     名称 = '雷光刃影'
     所在等级 = 35
     等级上限 = 60
@@ -278,7 +270,7 @@ class skill11(真_刺客主动技能):
         return ((self.数据[self.等级] + self.数据1[self.等级]) * self.攻击次数 + self.数据2[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级)
 
 
-class skill12(真_刺客主动技能):
+class skill12(主动技能):
     名称 = '疾风乱舞'
     所在等级 = 40
     等级上限 = 60
@@ -318,7 +310,7 @@ class skill12(真_刺客主动技能):
         return ((self.数据[self.等级] * self.乱舞数 + self.数据1[self.等级] * self.分身乱舞数 + self.数据2[self.等级]) * self.攻击次数 + self.数据3[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.05
 
 
-class skill13(真_刺客主动技能):
+class skill13(主动技能):
     名称 = '绝命瞬狱杀'
     所在等级 = 45
     等级上限 = 60
@@ -355,7 +347,7 @@ class skill13(真_刺客主动技能):
         return ((self.数据[self.等级] + self.数据1[self.等级] + self.数据2[self.等级] + self.数据3[self.等级]) * self.攻击次数 + self.数据4[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.132
 
 
-class skill14(真_刺客主动技能):
+class skill14(主动技能):
     名称 = '月轮舞'
     所在等级 = 50
     等级上限 = 40
@@ -371,7 +363,7 @@ class skill14(真_刺客主动技能):
         return self.数据[self.等级] * self.攻击次数 * self.倍率 * 1.179
 
 
-class skill15(真_刺客主动技能):
+class skill15(主动技能):
     名称 = '旋刃冲击'
     所在等级 = 60
     等级上限 = 40
@@ -407,7 +399,7 @@ class skill15(真_刺客主动技能):
         return (self.数据[self.等级] * self.攻击次数 + self.数据1[self.等级] * self.攻击次数2 + self.数据[self.等级] * self.攻击次数4) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.155
 
 
-class skill16(真_刺客主动技能):
+class skill16(主动技能):
     名称 = '陨落螺旋刺'
     所在等级 = 70
     等级上限 = 40
@@ -442,7 +434,7 @@ class skill16(真_刺客主动技能):
         return ((self.数据[self.等级] * 3 * self.倍率1 + self.数据1[self.等级] * self.倍率2) * self.攻击次数 + self.数据2[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.142
 
 
-class skill17(真_刺客主动技能):
+class skill17(主动技能):
     名称 = '乱空杀'
     所在等级 = 75
     等级上限 = 40
@@ -468,7 +460,7 @@ class skill17(真_刺客主动技能):
         return ((self.数据[self.等级] * 6 + self.数据1[self.等级]) * self.攻击次数 + self.数据2[self.等级] * self.攻击次数2) * self.倍率 * 1.158
 
 
-class skill18(真_刺客主动技能):
+class skill18(主动技能):
     名称 = '月影突袭'
     所在等级 = 80
     等级上限 = 40
@@ -491,7 +483,7 @@ class skill18(真_刺客主动技能):
         return (self.数据[self.等级] * 10 * self.攻击次数 + self.数据1[self.等级] * self.攻击次数2) * self.倍率 * 1.156
 
 
-class skill19(真_刺客主动技能):
+class skill19(主动技能):
     名称 = '天渊星狱'
     所在等级 = 85
     等级上限 = 40
@@ -529,7 +521,7 @@ class skill20(被动技能):
 
 
 class skill21(被动技能):
-    名称 = '刹那恐怖'
+    名称 = '绝命时刻'
     所在等级 = 95
     等级上限 = 40
     基础等级 = 4
@@ -541,34 +533,38 @@ class skill21(被动技能):
             return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill22(真_刺客主动技能):
-    名称 = '残像瞬影杀'
+class skill22(主动技能):
+    名称 = '幻灭瞬杀'
     所在等级 = 95
     等级上限 = 40
     基础等级 = 6
     基础 = 12277.8
     成长 = 1397.2
+    攻击次数 = 5
+    基础1 = 12277.8
+    成长1 = 1397.2
     攻击次数2 = 1
     CD = 60
 
     def 等效百分比(self, 武器类型):
-        return ((self.基础 + self.成长 * self.等级) * 5 + (self.基础 + self.成长 * self.等级) * self.攻击次数2) * self.倍率
+        return ((self.基础 + self.成长 * self.等级) * self.攻击次数 + (self.基础1 + self.成长1 * self.等级) * self.攻击次数2) * self.倍率
 
 
-class skill23(真_刺客主动技能):
-    名称 = '万象星陨'
+class skill23(主动技能):
+    名称 = '影·万古星辰'
     所在等级 = 100
     等级上限 = 40
     基础等级 = 2
     基础 = 12680
     成长 = 3829
+    攻击次数 = 13
     基础1 = 32971
     成长1 = 9954
     攻击次数2 = 1
     CD = 290
 
     def 等效百分比(self, 武器类型):
-        return ((self.基础 + self.成长 * self.等级) * 13 + (self.基础1 + self.成长1 * self.等级) * self.攻击次数2) * self.倍率
+        return ((self.基础 + self.成长 * self.等级) * self.攻击次数 + (self.基础1 + self.成长1 * self.等级) * self.攻击次数2) * self.倍率
 
     关联技能 = ['无']
 
@@ -600,20 +596,20 @@ for i in skill_list:
     if i.所在等级 == 100:
         skill_sn_awaking3 = skill_sn[i.名称]
 
-真_刺客护石选项 = ['无']
+隐夜_刺客护石选项 = ['无']
 for i in skill_list:
     if i.是否有伤害 == 1 and i.是否有护石 == 1:
-        真_刺客护石选项.append(i.名称)
+        隐夜_刺客护石选项.append(i.名称)
 
-真_刺客符文选项 = ['无']
+隐夜_刺客符文选项 = ['无']
 for i in skill_list:
     if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
-        真_刺客符文选项.append(i.名称)
+        隐夜_刺客符文选项.append(i.名称)
 
 
 class character(py.lite.char_base):
     def 角色賦予(self):
-        self.attr["实际名称"] = '真_刺客'
+        self.attr["实际名称"] = '隐夜_刺客'
         self.attr["角色"] = '暗夜使者'
         self.attr["职业"] = '刺客'
 
@@ -638,8 +634,8 @@ class character(py.lite.char_base):
         self.attr["乱空杀"] = 1
         self.attr["月影突袭"] = 1
         self.attr["天渊星狱"] = 1
-        self.attr["残像瞬影杀"] = 1
-        self.attr["万象星陨"] = 1
+        self.attr["幻灭瞬杀"] = 1
+        self.attr["影·万古星辰"] = 1
 
         self.attr["旋舞斩收招次数"] = 0
         self.attr["剑刃风暴旋转次数"] = 9

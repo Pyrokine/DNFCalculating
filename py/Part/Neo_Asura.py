@@ -370,7 +370,7 @@ class skill23(主动技能):
     CD = 2.5
     关联技能 = ['所有']
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return 2.5
 
     def 加成倍率(self, 武器类型):

@@ -1,23 +1,10 @@
-﻿from math import *
-from decimal import *
+﻿from py.base_char import *
 import py.lite
-
-from py.base_char import *
-
-
-class 知源_冰结师主动技能(主动技能):
-
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '魔杖':
-            return round(self.CD / self.恢复 * 1, 1)
-        if 武器类型 == '法杖':
-            return round(self.CD / self.恢复 * 1.1, 1)
-
 
 知源_冰结师等级 = 100 + 5
 
 
-class skill0(知源_冰结师主动技能):
+class skill0(主动技能):
     名称 = '冰魄剑'
     所在等级 = 15
     等级上限 = 60
@@ -57,7 +44,7 @@ class skill1(被动技能):
             return round(1.10 + 0.01 * self.等级, 5)
 
 
-class skill2(知源_冰结师主动技能):
+class skill2(主动技能):
     名称 = '寒冰连枪'
     所在等级 = 20
     等级上限 = 60
@@ -77,7 +64,7 @@ class skill2(知源_冰结师主动技能):
         return (self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.攻击次数) * self.倍率 * 1.086
 
 
-class skill3(知源_冰结师主动技能):
+class skill3(主动技能):
     名称 = '冰魄旋枪'
     所在等级 = 25
     等级上限 = 60
@@ -97,7 +84,7 @@ class skill3(知源_冰结师主动技能):
         return (self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.攻击次数) * self.倍率 * 1.05
 
 
-class skill4(知源_冰结师主动技能):
+class skill4(主动技能):
     名称 = '冰霜之径'
     所在等级 = 25
     等级上限 = 20
@@ -142,7 +129,7 @@ class skill5(被动技能):
             return (1.12 + (self.等级 - 10) * 0.02)
 
 
-class skill6(知源_冰结师主动技能):
+class skill6(主动技能):
     名称 = '冰魄之弓'
     所在等级 = 30
     等级上限 = 60
@@ -166,7 +153,7 @@ class skill6(知源_冰结师主动技能):
         return (self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.攻击次数 + self.数据2[self.等级] * (1 + self.TP成长 * self.TP等级) * self.攻击次数2) * self.倍率 * 1.05
 
 
-class skill7(知源_冰结师主动技能):
+class skill7(主动技能):
     名称 = '破冰飞刃'
     所在等级 = 30
     等级上限 = 60
@@ -200,7 +187,7 @@ class skill8(被动技能):
             return (2.00 + (self.等级 - 1) * 0.02)
 
 
-class skill9(知源_冰结师主动技能):
+class skill9(主动技能):
     名称 = '旋冰穿刺'
     所在等级 = 35
     等级上限 = 60
@@ -224,7 +211,7 @@ class skill9(知源_冰结师主动技能):
         return (self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.攻击次数 + self.数据2[self.等级] * (1 + self.TP成长 * self.TP等级) * self.攻击次数2) * self.倍率 * 1.109
 
 
-class skill10(知源_冰结师主动技能):
+class skill10(主动技能):
     名称 = '冰魄锤击'
     所在等级 = 35
     等级上限 = 60
@@ -283,7 +270,7 @@ class skill10(知源_冰结师主动技能):
         return temp
 
 
-class skill11(知源_冰结师主动技能):
+class skill11(主动技能):
     名称 = '极冰绽放'
     所在等级 = 40
     等级上限 = 60
@@ -352,7 +339,7 @@ class skill11(知源_冰结师主动技能):
         return temp
 
 
-class skill12(知源_冰结师主动技能):
+class skill12(主动技能):
     名称 = '冰雪风暴'
     所在等级 = 45
     等级上限 = 60
@@ -428,7 +415,7 @@ class skill13(被动技能):
             return round(1.105 + 0.015 * self.等级, 5)
 
 
-class skill14(知源_冰结师主动技能):
+class skill14(主动技能):
     名称 = '千旋冰轮破'
     所在等级 = 50
     等级上限 = 40
@@ -453,7 +440,7 @@ class skill14(知源_冰结师主动技能):
         return (self.数据1[self.等级] * self.攻击次数 + self.数据2[self.等级] * self.攻击次数2 + self.数据3[self.等级] * self.攻击次数3) * self.倍率 * 1.143
 
 
-class skill15(知源_冰结师主动技能):
+class skill15(主动技能):
     名称 = '冰凌破'
     所在等级 = 60
     等级上限 = 40
@@ -509,7 +496,7 @@ class skill15(知源_冰结师主动技能):
         return temp
 
 
-class skill16(知源_冰结师主动技能):
+class skill16(主动技能):
     名称 = '千里冰封'
     所在等级 = 70
     等级上限 = 40
@@ -591,7 +578,7 @@ class skill17(被动技能):
 
 
 # 按技能数据无法与游戏中伤害对应，因此从一级起验证，结果按核对伤害手动增加29百分比
-class skill18(知源_冰结师主动技能):
+class skill18(主动技能):
     名称 = '碎冰破'
     所在等级 = 75
     等级上限 = 40
@@ -638,7 +625,7 @@ class skill18(知源_冰结师主动技能):
         return temp[:-4]
 
 
-class skill19(知源_冰结师主动技能):
+class skill19(主动技能):
     名称 = '极冰领域'
     所在等级 = 80
     等级上限 = 40
@@ -677,7 +664,7 @@ class skill19(知源_冰结师主动技能):
         return temp[:-4]
 
 
-class skill20(知源_冰结师主动技能):
+class skill20(主动技能):
     名称 = '永罪冰狱'
     所在等级 = 85
     等级上限 = 40
@@ -770,7 +757,7 @@ for i in skill_list:
 
 知源_冰结师符文选项 = ['无']
 for i in skill_list:
-    if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
         知源_冰结师符文选项.append(i.名称)
 
 

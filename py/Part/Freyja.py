@@ -1,6 +1,6 @@
 from py.base_char import *
-from math import *
 import py.lite
+from math import *
 
 芙蕾雅等级 = 100 + 5
 
@@ -144,6 +144,10 @@ class skill5(芙蕾雅主动技能):
         else:
             return round(1 + 0.01 * (self.等级 - 18), 3)
 
+    def 等效CD(self, 武器类型, 输出类型):
+        # 经过测试,手雷恢复速度无法享受技能冷却恢复加成
+        return round(self.CD, 1)
+
 
 class skill6(芙蕾雅主动技能):
     名称 = '交叉射击'
@@ -191,6 +195,10 @@ class skill8(芙蕾雅主动技能):
     TP成长 = 0.10
     TP基础 = 5
     TP上限 = 5
+
+    def 等效CD(self, 武器类型, 输出类型):
+        # 经过测试,手雷恢复速度无法享受技能冷却恢复加成
+        return round(self.CD, 1)
 
 
 class skill9(芙蕾雅主动技能):
@@ -623,6 +631,7 @@ class character(py.lite.char_base):
         时间输入 = self.attr["时间输入"]
         武器类型 = self.attr["武器类型"]
         技能栏 = self.attr["技能栏"]
+        类型 = self.attr["类型"]
         打桩模式 = self.attr["打桩模式"]
         技能消耗时间 = 0.0
         爆裂弹间隔 = 0.115
@@ -663,11 +672,11 @@ class character(py.lite.char_base):
                     技能释放次数.append(0)
                 else:
                     if 初始释放次数[skill_sn[i.名称]] == '/CD':
-                        技能释放次数.append(int((时间输入 - 反应时间) / (i.等效CD(武器类型) + i.技能施放时间 * 释放时间系数 + CD延迟) + 1 + i.基础释放次数))
+                        技能释放次数.append(int((时间输入 - 反应时间) / (i.等效CD(武器类型, 类型) + i.技能施放时间 * 释放时间系数 + CD延迟) + 1 + i.基础释放次数))
                         if i.脱手 == 1:
-                            技能消耗时间 += int((时间输入 - 反应时间) / (i.等效CD(武器类型) + i.技能施放时间 * 释放时间系数 + CD延迟) + 1 + i.基础释放次数) * 0.12 * 释放时间系数
+                            技能消耗时间 += int((时间输入 - 反应时间) / (i.等效CD(武器类型, 类型) + i.技能施放时间 * 释放时间系数 + CD延迟) + 1 + i.基础释放次数) * 0.12 * 释放时间系数
                         else:
-                            技能消耗时间 += int((时间输入 - 反应时间) / (i.等效CD(武器类型) + i.技能施放时间 * 释放时间系数 + CD延迟) + 1 + i.基础释放次数) * i.技能施放时间 * 释放时间系数
+                            技能消耗时间 += int((时间输入 - 反应时间) / (i.等效CD(武器类型, 类型) + i.技能施放时间 * 释放时间系数 + CD延迟) + 1 + i.基础释放次数) * i.技能施放时间 * 释放时间系数
                     elif 初始释放次数[skill_sn[i.名称]] != '0':
                         技能释放次数.append(int(初始释放次数[skill_sn[i.名称]]))
                         if i.脱手 == 1:

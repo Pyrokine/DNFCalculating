@@ -1,12 +1,14 @@
 from py.base_char import *
 import py.lite
+from py.base_equip import 武器冷却惩罚
 
 
-class 极诣_流浪武士主动技能(主动技能):
-    武器CD = {'短剑': 1, '光剑': 0.9 * 0.9, '巨剑': 1.1, '钝器': 1.05, '太刀': 0.95}
-
-    def 等效CD(self, 武器类型):
-        return round(self.CD / self.恢复 * self.武器CD[武器类型], 1)
+class 主动技能(主动技能):
+    # 武器CD = {'短剑':1, '光剑':0.9 * 0.9, '巨剑':1.1, '钝器':1.05, '太刀':0.95}
+    def 等效CD(self, 武器类型, 输出类型):
+        if 武器类型 == '光剑':
+            return round(self.CD * 0.9 / self.恢复 * 武器冷却惩罚(武器类型, 输出类型, self.版本), 1)
+        return round(self.CD / self.恢复 * 武器冷却惩罚(武器类型, 输出类型, self.版本), 1)
 
 
 class skill0(被动技能):
@@ -61,7 +63,7 @@ class skill3(被动技能):
             return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill4(极诣_流浪武士主动技能):
+class skill4(主动技能):
     名称 = '四象引'
     所在等级 = 20
     等级上限 = 60
@@ -77,7 +79,7 @@ class skill4(极诣_流浪武士主动技能):
         return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill5(极诣_流浪武士主动技能):
+class skill5(主动技能):
     名称 = '一花渡江'
     所在等级 = 25
     等级上限 = 60
@@ -94,7 +96,7 @@ class skill5(极诣_流浪武士主动技能):
         return self.攻击次数 * self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill6(极诣_流浪武士主动技能):
+class skill6(主动技能):
     名称 = '樱落斩'
     所在等级 = 25
     等级上限 = 60
@@ -124,7 +126,7 @@ class skill6(极诣_流浪武士主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill7(极诣_流浪武士主动技能):
+class skill7(主动技能):
     名称 = '圆舞斩'
     所在等级 = 30
     等级上限 = 60
@@ -152,7 +154,7 @@ class skill7(极诣_流浪武士主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill8(极诣_流浪武士主动技能):
+class skill8(主动技能):
     名称 = '碎岩裂地掌'
     所在等级 = 30
     等级上限 = 60
@@ -169,7 +171,7 @@ class skill8(极诣_流浪武士主动技能):
         return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill9(极诣_流浪武士主动技能):
+class skill9(主动技能):
     名称 = '游龙掌'
     所在等级 = 35
     等级上限 = 60
@@ -186,7 +188,7 @@ class skill9(极诣_流浪武士主动技能):
         return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率 * 10  # 攻击次数为10
 
 
-class skill10(极诣_流浪武士主动技能):
+class skill10(主动技能):
     名称 = '乱花葬'
     所在等级 = 35
     等级上限 = 60
@@ -259,7 +261,7 @@ class skill10(极诣_流浪武士主动技能):
         return temp
 
 
-class skill11(极诣_流浪武士主动技能):
+class skill11(主动技能):
     名称 = '回天璇鸣剑'
     所在等级 = 40
     等级上限 = 60
@@ -284,7 +286,7 @@ class skill11(极诣_流浪武士主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill12(极诣_流浪武士主动技能):
+class skill12(主动技能):
     名称 = '湮烈掌'
     所在等级 = 40
     等级上限 = 60
@@ -346,7 +348,7 @@ class skill12(极诣_流浪武士主动技能):
         return temp
 
 
-class skill13(极诣_流浪武士主动技能):
+class skill13(主动技能):
     名称 = '花舞千魂杀'
     所在等级 = 45
     等级上限 = 60
@@ -407,7 +409,7 @@ class skill13(极诣_流浪武士主动技能):
         return temp
 
 
-class skill14(极诣_流浪武士主动技能):
+class skill14(主动技能):
     名称 = '花开寒影'
     所在等级 = 50
     等级上限 = 40
@@ -429,7 +431,7 @@ class skill14(极诣_流浪武士主动技能):
         return sum * self.倍率
 
 
-class skill15(极诣_流浪武士主动技能):
+class skill15(主动技能):
     名称 = '啸空十字斩'
     所在等级 = 60
     等级上限 = 40
@@ -494,7 +496,7 @@ class skill15(极诣_流浪武士主动技能):
         return temp
 
 
-class skill16(极诣_流浪武士主动技能):
+class skill16(主动技能):
     名称 = '如来神掌'
     所在等级 = 70
     等级上限 = 40
@@ -560,7 +562,7 @@ class skill16(极诣_流浪武士主动技能):
         return temp
 
 
-class skill17(极诣_流浪武士主动技能):
+class skill17(主动技能):
     名称 = '莲花剑舞'
     所在等级 = 75
     等级上限 = 40
@@ -595,7 +597,7 @@ class skill17(极诣_流浪武士主动技能):
             self.倍率 *= 1.33
 
 
-class skill18(极诣_流浪武士主动技能):
+class skill18(主动技能):
     名称 = '樱花劫'
     所在等级 = 80
     等级上限 = 40
@@ -617,7 +619,7 @@ class skill18(极诣_流浪武士主动技能):
             self.CD *= 0.9
 
 
-class skill19(极诣_流浪武士主动技能):
+class skill19(主动技能):
     名称 = '飞花逐月'
     所在等级 = 85
     等级上限 = 40
@@ -640,7 +642,7 @@ class skill19(极诣_流浪武士主动技能):
         return sum * self.倍率
 
 
-class skill20(极诣_流浪武士主动技能):
+class skill20(主动技能):
     名称 = '落英惊鸿掌'
     所在等级 = 95
     等级上限 = 40
@@ -662,7 +664,7 @@ class skill20(极诣_流浪武士主动技能):
         return sum * self.倍率
 
 
-class skill21(极诣_流浪武士主动技能):
+class skill21(主动技能):
     名称 = '轻云出月风静夜'
     所在等级 = 100
     等级上限 = 40
@@ -753,6 +755,7 @@ class character(py.lite.char_base):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
 
     def 额外细节(self):
+        # 副武器
         self.attr["力量"] += 8
         self.attr["物理攻击力"] += 197
         self.attr["魔法攻击力"] += 192

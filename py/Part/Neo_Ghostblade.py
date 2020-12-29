@@ -3,15 +3,7 @@ from py.Equip.equ_list import *
 import py.lite
 
 
-# 2020年7月22日 数组
-
-class 极诣_剑影主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '太刀':
-            return round(self.CD / self.恢复 * 0.95, 1)
-
-
-class skill0(极诣_剑影主动技能):
+class skill0(主动技能):
     名称 = '鬼步'
     所在等级 = 15
     等级上限 = 60
@@ -29,7 +21,7 @@ class skill0(极诣_剑影主动技能):
         return (self.数据1[self.等级] * self.攻击次数1) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill1(极诣_剑影主动技能):
+class skill1(主动技能):
     名称 = '鬼连斩'
     所在等级 = 15
     等级上限 = 60
@@ -77,7 +69,7 @@ class skill2(被动技能):
             return round(1.00 + 0.02 * self.等级, 5)
 
 
-class skill3(极诣_剑影主动技能):
+class skill3(主动技能):
     名称 = '幻鬼：一闪'
     所在等级 = 20
     等级上限 = 60
@@ -106,7 +98,7 @@ class skill4(被动技能):
             return round(1.10 + 0.02 * self.等级, 5)
 
 
-class skill5(极诣_剑影主动技能):
+class skill5(主动技能):
     名称 = '鬼连牙'
     所在等级 = 25
     等级上限 = 60
@@ -122,7 +114,7 @@ class skill5(极诣_剑影主动技能):
         return self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill6(极诣_剑影主动技能):
+class skill6(主动技能):
     名称 = '幻鬼：连斩'
     所在等级 = 25
     等级上限 = 60
@@ -147,7 +139,7 @@ class skill6(极诣_剑影主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级] + self.数据3[self.等级] + self.数据4[self.等级]) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill7(极诣_剑影主动技能):
+class skill7(主动技能):
     名称 = '共鸣：离魂一闪'
     所在等级 = 30
     等级上限 = 60
@@ -166,7 +158,7 @@ class skill7(极诣_剑影主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级]) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill8(极诣_剑影主动技能):
+class skill8(主动技能):
     名称 = '魂破斩'
     所在等级 = 35
     等级上限 = 60
@@ -192,7 +184,7 @@ class skill8(极诣_剑影主动技能):
         return self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill9(极诣_剑影主动技能):
+class skill9(主动技能):
     名称 = '共鸣：鬼灵斩'
     所在等级 = 35
     等级上限 = 60
@@ -208,7 +200,7 @@ class skill9(极诣_剑影主动技能):
         return self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill10(极诣_剑影主动技能):
+class skill10(主动技能):
     名称 = '幻鬼：回天'
     所在等级 = 40
     等级上限 = 60
@@ -236,7 +228,7 @@ class skill10(极诣_剑影主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill11(极诣_剑影主动技能):
+class skill11(主动技能):
     名称 = '冥灵断魂斩'
     所在等级 = 45
     等级上限 = 60
@@ -260,7 +252,7 @@ class skill11(极诣_剑影主动技能):
         return self.数据1[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill12(极诣_剑影主动技能):
+class skill12(主动技能):
     名称 = '冥夜鬼天杀'
     所在等级 = 50
     等级上限 = 40
@@ -288,7 +280,7 @@ class skill13(被动技能):
             return round(1.035 + 0.02 * self.等级, 5)
 
 
-class skill14(极诣_剑影主动技能):
+class skill14(主动技能):
     名称 = '幻鬼：奈落'
     所在等级 = 60
     等级上限 = 40
@@ -314,7 +306,7 @@ class skill14(极诣_剑影主动技能):
         return (self.数据1[self.等级]) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill15(极诣_剑影主动技能):
+class skill15(主动技能):
     名称 = '共鸣：聚渊'
     所在等级 = 70
     等级上限 = 40
@@ -345,7 +337,7 @@ class skill15(极诣_剑影主动技能):
         return (self.数据1[self.等级] + self.数据2[self.等级] + self.数据3[self.等级] * self.攻击次数3) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill16(极诣_剑影主动技能):
+class skill16(主动技能):
     名称 = '幻鬼：大回天'
     所在等级 = 75
     等级上限 = 40
@@ -380,7 +372,7 @@ class skill17(被动技能):
             return round(1.22 + 0.02 * self.等级, 5)
 
 
-class skill18(极诣_剑影主动技能):
+class skill18(主动技能):
     名称 = '裂魂乱舞'
     所在等级 = 80
     等级上限 = 40
@@ -424,7 +416,7 @@ class skill18(极诣_剑影主动技能):
             self.等级] * self.攻击次数5 * self.护石倍率2) * self.倍率
 
 
-class skill19(极诣_剑影主动技能):
+class skill19(主动技能):
     名称 = '鬼隐·夜奈落'
     所在等级 = 85
     等级上限 = 40
@@ -461,7 +453,7 @@ class skill20(被动技能):
             return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill21(极诣_剑影主动技能):
+class skill21(主动技能):
     名称 = '无式·极影剑'
     所在等级 = 95
     等级上限 = 40
@@ -497,7 +489,7 @@ class skill21(极诣_剑影主动技能):
             self.等级] * self.攻击次数6) * self.倍率
 
 
-class skill22(极诣_剑影主动技能):
+class skill22(主动技能):
     名称 = '灭魂极影剑·止煞'
     所在等级 = 100
     等级上限 = 40
@@ -610,7 +602,7 @@ class character(py.lite.char_base):
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
-    
+
     def 武器基础(self):
         装备名称 = self.attr["装备栏"][11]
         if 装备名称:
@@ -624,11 +616,11 @@ class character(py.lite.char_base):
             self.attr["物理攻击力"] += 武器计算(装备属性.等级, 装备属性.品质, self.attr["强化等级"][11], self.attr["武器类型"], "魔法")
             self.attr["魔法攻击力"] += 武器计算(装备属性.等级, 装备属性.品质, self.attr["强化等级"][11], self.attr["武器类型"], "魔法")
             self.attr["独立攻击力"] += 锻造计算(装备属性.等级, 装备属性.品质, self.attr["武器锻造等级"])
-            
+
     def 被动倍率计算(self):
         super().被动倍率计算()
         技能栏 = self.attr["技能栏"]
-        
+
         技能栏[12].被动倍率 *= 1.1
 
         if self.attr["无式极影剑形态"] == 0:

@@ -1,14 +1,6 @@
 from py.base_char import *
-from math import *
 import py.lite
-
-
-class 极诣_鬼泣主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '太刀':
-            return round(self.CD / self.恢复 * 1, 1)
-        if 武器类型 == '短剑':
-            return round(self.CD / self.恢复 * 1.05, 1)
+from math import *
 
 
 class skill0(被动技能):
@@ -26,7 +18,7 @@ class skill0(被动技能):
             return round(self.倍率 * (0.463 + 0.089 * self.等级), 5)
 
 
-class skill1(极诣_鬼泣主动技能):
+class skill1(主动技能):
     名称 = '鬼斩'
     备注 = '(蓄力&噬灵鬼斩)'
     所在等级 = 1
@@ -139,7 +131,7 @@ class skill6(被动技能):
             return round(30 + (self.等级 - 10) * 5)
 
 
-class skill7(极诣_鬼泣主动技能):
+class skill7(主动技能):
     名称 = '月光斩'
     所在等级 = 15
     等级上限 = 60
@@ -166,7 +158,7 @@ class skill7(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill8(极诣_鬼泣主动技能):
+class skill8(主动技能):
     名称 = '鬼影步'
     备注 = '(一轮)'
     所在等级 = 20
@@ -193,7 +185,7 @@ class skill9(被动技能):
             return round(1.0 + 0.1 * self.等级, 5)
 
 
-class skill10(极诣_鬼泣主动技能):
+class skill10(主动技能):
     名称 = '鬼影鞭'
     所在等级 = 30
     等级上限 = 60
@@ -217,7 +209,7 @@ class skill10(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill11(极诣_鬼泣主动技能):
+class skill11(主动技能):
     名称 = '冰霜之萨亚'
     所在等级 = 30
     等级上限 = 60
@@ -233,7 +225,7 @@ class skill11(极诣_鬼泣主动技能):
         return (self.data[self.等级]) * ceil(10 / (1 - 0.07 * self.TP等级)) * self.倍率
 
 
-class skill12(极诣_鬼泣主动技能):
+class skill12(主动技能):
     名称 = '死亡墓碑'
     所在等级 = 35
     等级上限 = 60
@@ -254,7 +246,7 @@ class skill12(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill13(极诣_鬼泣主动技能):
+class skill13(主动技能):
     名称 = '瘟疫之罗刹'
     所在等级 = 35
     等级上限 = 60
@@ -313,7 +305,7 @@ class skill13(极诣_鬼泣主动技能):
         return temp
 
 
-class skill14(极诣_鬼泣主动技能):
+class skill14(主动技能):
     名称 = '鬼斩：狂怒'
     所在等级 = 40
     等级上限 = 60
@@ -369,7 +361,7 @@ class skill14(极诣_鬼泣主动技能):
         return temp
 
 
-class skill15(极诣_鬼泣主动技能):
+class skill15(主动技能):
     名称 = '鬼影闪'
     所在等级 = 40
     等级上限 = 60
@@ -391,7 +383,7 @@ class skill15(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill16(极诣_鬼泣主动技能):
+class skill16(主动技能):
     名称 = '冥炎之卡洛'
     备注 = '(一轮)'
     所在等级 = 45
@@ -413,7 +405,7 @@ class skill16(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill17(极诣_鬼泣主动技能):
+class skill17(主动技能):
     名称 = '冥炎之卡洛(灼烧)'
     备注 = '(1秒3次)'
     所在等级 = 45
@@ -433,7 +425,7 @@ class skill17(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill18(极诣_鬼泣主动技能):
+class skill18(主动技能):
     名称 = '冥炎剑'
     所在等级 = 45
     等级上限 = 1
@@ -507,7 +499,7 @@ class skill19(被动技能):
             return round(1.105 + 0.015 * self.等级, 5)
 
 
-class skill20(极诣_鬼泣主动技能):
+class skill20(主动技能):
     名称 = '第七鬼神：邪神怖拉修'
     所在等级 = 50
     等级上限 = 40
@@ -530,7 +522,7 @@ class skill20(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill21(极诣_鬼泣主动技能):
+class skill21(主动技能):
     名称 = '鬼斩：炼狱'
     所在等级 = 60
     等级上限 = 40
@@ -595,7 +587,7 @@ class skill21(极诣_鬼泣主动技能):
         return temp
 
 
-class skill22(极诣_鬼泣主动技能):
+class skill22(主动技能):
     名称 = '冥祭之沼'
     所在等级 = 70
     等级上限 = 40
@@ -659,7 +651,7 @@ class skill23(被动技能):
             return round(1.20 + 0.02 * self.等级, 5)
 
 
-class skill24(极诣_鬼泣主动技能):
+class skill24(主动技能):
     名称 = '幽魂之布雷德'
     所在等级 = 75
     等级上限 = 40
@@ -692,7 +684,7 @@ class skill24(极诣_鬼泣主动技能):
             self.次数 = [6 * 4, 4 * 1.61, 1.41]
 
 
-class skill25(极诣_鬼泣主动技能):
+class skill25(主动技能):
     名称 = '幽魂降临：式'
     所在等级 = 80
     等级上限 = 40
@@ -719,7 +711,7 @@ class skill25(极诣_鬼泣主动技能):
             self.倍率 *= 1.34
 
 
-class skill26(极诣_鬼泣主动技能):
+class skill26(主动技能):
     名称 = '王者号令：吉格降临'
     所在等级 = 85
     等级上限 = 40
@@ -760,7 +752,7 @@ class skill27(被动技能):
             return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill28(极诣_鬼泣主动技能):
+class skill28(主动技能):
     名称 = '鬼神剑·黄泉摆渡'
     所在等级 = 95
     等级上限 = 40
@@ -784,7 +776,7 @@ class skill28(极诣_鬼泣主动技能):
         return sum * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
-class skill29(极诣_鬼泣主动技能):
+class skill29(主动技能):
     名称 = '黄泉之门：万鬼渡灵'
     所在等级 = 100
     等级上限 = 40

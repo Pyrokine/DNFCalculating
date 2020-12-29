@@ -27,7 +27,7 @@ class skill1(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
     def G系加成倍率(self):
@@ -53,7 +53,7 @@ class skill2(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(6, 1)
 
     def G系加成倍率(self):
@@ -113,7 +113,7 @@ class skill5(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
     def G系加成倍率(self):
@@ -177,7 +177,7 @@ class skill8(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
     def 等效百分比(self, 武器类型):
@@ -242,7 +242,7 @@ class skill10(主动技能):
             self.倍率 *= 1.17
 
         elif x == 1:
-            self.倍率 *= 1.
+            self.倍率 *= 1.25
 
     def 等效百分比(self, 武器类型):
         return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2 + self.数据3[self.等级] * self.攻击次数3) * (1 + self.TP成长 * self.TP等级) * self.倍率
@@ -411,7 +411,7 @@ class skill17(主动技能):
             self.倍率 *= 1.35
             self.CD *= 0.9
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(self.CD, 1)
 
     def 等效百分比(self, 武器类型):
@@ -438,7 +438,7 @@ class skill18(主动技能):
             self.倍率 *= 1.34
             self.CD *= 0.9
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(self.CD, 1)
 
     def 等效百分比(self, 武器类型):
@@ -466,7 +466,7 @@ class skill19(主动技能):
             self.倍率 *= 1.314
             self.CD *= 0.9
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(self.CD, 1)
 
     def 等效百分比(self, 武器类型):
@@ -586,7 +586,7 @@ class skill25(主动技能):
     TP成长 = 0.10
     TP上限 = 3
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
 

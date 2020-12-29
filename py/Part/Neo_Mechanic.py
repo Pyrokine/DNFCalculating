@@ -26,7 +26,7 @@ class skill1(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
     def G系加成倍率(self):
@@ -47,7 +47,7 @@ class skill2(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(6, 1)
 
     def G系加成倍率(self):
@@ -121,7 +121,7 @@ class skill7(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
     def G系加成倍率(self):
@@ -177,7 +177,7 @@ class skill10(主动技能):
     TP成长 = 0.10
     TP上限 = 5
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return round(1, 1)
 
 
@@ -457,7 +457,7 @@ for i in skill_list:
 
 重霄_机械师_男符文选项 = ['无']
 for i in skill_list:
-    if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
         重霄_机械师_男符文选项.append(i.名称)
 
 

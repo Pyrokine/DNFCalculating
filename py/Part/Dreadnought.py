@@ -7,7 +7,7 @@ class skill0(被动技能):
     所在等级 = 1
     等级上限 = 200
     基础等级 = 100
-    关联技能 = ['龙人剑术','普通攻击（一轮）']
+    关联技能 = ['龙人剑术', '普通攻击（一轮）']
 
     def 加成倍率(self, 武器类型):
         if self.等级 == 0:
@@ -261,7 +261,7 @@ class skill11(主动技能):
         elif x == 1:
             self.攻击次数1 = 3.7
             self.CD *= 0.9
-    
+
     def 等效百分比(self, 武器类型):
         return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
@@ -332,7 +332,7 @@ class skill14(主动技能):
         elif x == 1:
             self.倍率 *= 1.30
             self.CD *= 0.9
-        
+
     def 等效百分比(self, 武器类型):
         return (self.数据1[self.等级] * self.攻击次数1) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
@@ -506,7 +506,7 @@ class skill22(主动技能):
     攻击次数2 = 1
     CD = 40.0
     是否有护石 = 1
-    
+
     护石选项 = ['圣痕']
 
     def 装备护石(self, x):
@@ -536,7 +536,7 @@ class skill23(主动技能):
     攻击次数2 = 1
     CD = 50.0
     是否有护石 = 1
-    
+
     护石选项 = ['圣痕']
 
     def 装备护石(self, x):
@@ -606,6 +606,7 @@ class skill27(被动技能):
         else:
             return round(1.10 + 0.05 * self.等级, 5)
 
+
 class skill28(主动技能):
     名称 = '普通攻击（一轮）'
     所在等级 = 1
@@ -614,6 +615,7 @@ class skill28(主动技能):
     基础 = 1114.6981
     成长 = 0
     CD = 1
+
 
 skill_list = []
 i = 0

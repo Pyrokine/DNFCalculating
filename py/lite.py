@@ -595,11 +595,12 @@ class char_base():
         技能序号 = self.attr["技能序号"]
         时间输入 = self.attr["时间输入"]
         武器类型 = self.attr["武器类型"]
+        类型 = self.attr["类型"]
 
         for i in self.attr["技能栏"]:
             if i.是否有伤害 == 1:
                 if 初始释放次数[技能序号[i.名称]] == "/CD":
-                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型) + 1 + i.基础释放次数))
+                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型, 类型) + 1 + i.基础释放次数))
                 elif 初始释放次数[技能序号[i.名称]] != 0:
                     技能释放次数.append(int(初始释放次数[技能序号[i.名称]]))
                 else:

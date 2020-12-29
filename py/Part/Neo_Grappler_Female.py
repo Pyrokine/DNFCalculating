@@ -1,4 +1,3 @@
-from math import *
 from py.base_char import *
 import py.lite
 
@@ -416,7 +415,7 @@ class character(py.lite.char_base):
         self.attr["角色"] = '格斗家(女)'
         self.attr["职业"] = '柔道家'
 
-        self.attr["武器选项"] = ['手套','臂铠','东方棍','爪']
+        self.attr["武器选项"] = ['手套', '臂铠', '东方棍', '爪']
 
         self.attr["类型"] = '物理固伤'
         self.attr["防具类型"] = '轻甲'

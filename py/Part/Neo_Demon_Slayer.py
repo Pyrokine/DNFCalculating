@@ -3,11 +3,6 @@ import py.lite
 
 
 class 极诣_契魔者主动技能(主动技能):
-    武器CD = {'短剑': 1, '巨剑': 1.1, '钝器': 1.05, '太刀': 0.95}
-
-    def 等效CD(self, 武器类型):
-        return round(self.CD / self.恢复 * self.武器CD[武器类型], 1)
-
     数据 = []
     次数 = []
 
@@ -693,7 +688,7 @@ class character(py.lite.char_base):
         self.attr["角色"] = '鬼剑士(女)'
         self.attr["职业"] = '契魔者'
 
-        self.attr["武器选项"] = ['巨剑','钝器','太刀','短剑']
+        self.attr["武器选项"] = ['巨剑', '钝器', '太刀', '短剑']
 
         self.attr["类型"] = '物理百分比'
         self.attr["防具类型"] = '重甲'

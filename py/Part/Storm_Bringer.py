@@ -4,6 +4,11 @@ import py.lite
 风暴骑兵等级 = 100 + 5
 
 
+class 主动技能(主动技能):
+    def 等效CD(self, 武器类型, 输出类型):
+        return round(self.CD / self.恢复, 1)
+
+
 class skill0(主动技能):
     名称 = 'M3喷火器'
     所在等级 = 15

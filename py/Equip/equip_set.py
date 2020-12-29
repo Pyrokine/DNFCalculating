@@ -956,7 +956,7 @@ class 套装效果31(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.46
+        character.attr["技能攻击力"] *= 1.458
 
     def 进图属性(self, character):
         pass

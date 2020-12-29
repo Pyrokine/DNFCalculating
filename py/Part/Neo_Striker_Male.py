@@ -1,24 +1,21 @@
 from py.base_char import *
 import py.lite
+from py.base_equip import 武器冷却惩罚
 
 
-class 归元_散打_男主动技能(主动技能):
-
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '拳套':
-            return round(self.CD / self.恢复 * 1.0, 1)
-        if 武器类型 == '臂铠':
-            return round(self.CD / self.恢复 * 1.1, 1)
+class 觉醒技能(主动技能):
+    def 等效CD(self, 武器类型, 输出类型):
+        return round(self.CD / 0.9 * 0.85 / self.恢复 * 武器冷却惩罚(武器类型, 输出类型, self.版本), 1)
 
 
 # CDR: 拳套精通(10%) + 烈焰焚步(15%)
 # 不包含觉醒
-class 拳套精通(归元_散打_男主动技能):
-    def 等效CD(self, 武器类型):
+class 拳套精通(主动技能):
+    def 等效CD(self, 武器类型, 输出类型):
         if 武器类型 == '拳套':
-            return round(self.CD / self.恢复 * (1 - 0.1) * (1 - 0.15), 1)
+            return round(self.CD / 0.9 * 0.9 * 0.85 / self.恢复 * 武器冷却惩罚(武器类型, 输出类型, self.版本), 1)
         if 武器类型 == '臂铠':
-            return round(self.CD / self.恢复 * 1.1, 1)
+            return round(self.CD / 0.9 * 0.85 / self.恢复 * 武器冷却惩罚(武器类型, 输出类型, self.版本), 1)
 
 
 class skill0(拳套精通):
@@ -178,7 +175,7 @@ class skill9(被动技能):
 
 
 # 不适用拳套掌握CDR
-class skill10(归元_散打_男主动技能):
+class skill10(觉醒技能):
     名称 = '烈焰焚步'
     所在等级 = 50
     等级上限 = 40
@@ -189,7 +186,7 @@ class skill10(归元_散打_男主动技能):
     关联技能 = ['所有']
 
     # 手搓 -5% CD
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         if 武器类型 == '拳套':
             return round(self.CD / self.恢复 * (1 - 0.05), 1)
 
@@ -292,7 +289,7 @@ class skill15(拳套精通):
 
 
 # 不适用拳套掌握CDR
-class skill16(归元_散打_男主动技能):
+class skill16(觉醒技能):
     名称 = '极武霸皇踢'
     所在等级 = 85
     等级上限 = 40
@@ -326,7 +323,7 @@ class skill18(拳套精通):
 
 
 # 不适用拳套掌握CDR
-class skill19(归元_散打_男主动技能):
+class skill19(觉醒技能):
     名称 = '焚火逐日拳'
     所在等级 = 100
     等级上限 = 40

@@ -1,15 +1,8 @@
-﻿from math import *
-from py.base_char import *
+﻿from py.base_char import *
 import py.lite
 
 
-class 神启_巫女主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        return round(self.CD / self.恢复 * 1.05, 1)
-        # 念珠1.05
-
-
-class skill0(神启_巫女主动技能):
+class skill0(主动技能):
     名称 = '罪业加身'
     所在等级 = 10
     等级上限 = 60
@@ -21,7 +14,7 @@ class skill0(神启_巫女主动技能):
     TP上限 = 5
 
 
-class skill1(神启_巫女主动技能):
+class skill1(主动技能):
     名称 = '唤雷符'
     所在等级 = 15
     等级上限 = 60
@@ -33,7 +26,7 @@ class skill1(神启_巫女主动技能):
     TP上限 = 5
 
 
-class skill2(神启_巫女主动技能):
+class skill2(主动技能):
     名称 = '念珠连射'
     备注 = '(TP为基础精通)'
     所在等级 = 15
@@ -46,7 +39,7 @@ class skill2(神启_巫女主动技能):
     TP上限 = 3
 
 
-class skill3(神启_巫女主动技能):
+class skill3(主动技能):
     名称 = '木槵子经'
     所在等级 = 15
     等级上限 = 60
@@ -58,7 +51,7 @@ class skill3(神启_巫女主动技能):
     TP上限 = 5
 
 
-class skill4(神启_巫女主动技能):
+class skill4(主动技能):
     名称 = '束灵符'
     所在等级 = 20
     等级上限 = 60
@@ -70,7 +63,7 @@ class skill4(神启_巫女主动技能):
     TP上限 = 5
 
 
-class skill5(神启_巫女主动技能):
+class skill5(主动技能):
     名称 = '驱邪咒'
     所在等级 = 25
     等级上限 = 60
@@ -114,7 +107,7 @@ class skill7(被动技能):
             return round(1.00 + 0.02 * self.等级, 5)
 
 
-class skill8(神启_巫女主动技能):
+class skill8(主动技能):
     名称 = '和合之玉'
     所在等级 = 30
     等级上限 = 60
@@ -126,7 +119,7 @@ class skill8(神启_巫女主动技能):
     TP上限 = 5
 
 
-class skill9(神启_巫女主动技能):
+class skill9(主动技能):
     名称 = '聚魂吸星符'
     所在等级 = 35
     等级上限 = 60
@@ -148,7 +141,7 @@ class skill9(神启_巫女主动技能):
             self.CD *= 0.95
 
 
-class skill10(神启_巫女主动技能):
+class skill10(主动技能):
     名称 = '龙魂之怒'
     所在等级 = 40
     等级上限 = 60
@@ -160,7 +153,7 @@ class skill10(神启_巫女主动技能):
     TP上限 = 5
 
 
-class skill11(神启_巫女主动技能):
+class skill11(主动技能):
     名称 = '百八念珠'
     所在等级 = 40
     等级上限 = 60
@@ -182,7 +175,7 @@ class skill11(神启_巫女主动技能):
             self.CD *= 0.83
 
 
-class skill12(神启_巫女主动技能):
+class skill12(主动技能):
     名称 = '不动珠箔阵'
     所在等级 = 45
     等级上限 = 60
@@ -204,7 +197,7 @@ class skill12(神启_巫女主动技能):
             self.CD *= 0.9
 
 
-class skill13(神启_巫女主动技能):
+class skill13(主动技能):
     名称 = '神龙如意珠'
     备注 = '(1次)'
     是否主动 = 0
@@ -216,7 +209,7 @@ class skill13(神启_巫女主动技能):
     CD = 0.5
     关联技能 = ['所有']
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return 0.5
 
     def 加成倍率(self, 武器类型):
@@ -226,7 +219,7 @@ class skill13(神启_巫女主动技能):
             return round(1.115 + 0.015 * self.等级, 5)
 
 
-class skill14(神启_巫女主动技能):
+class skill14(主动技能):
     名称 = '神谕：神龙雷雨祭'
     所在等级 = 50
     等级上限 = 40
@@ -236,7 +229,7 @@ class skill14(神启_巫女主动技能):
     CD = 140
 
 
-class skill15(神启_巫女主动技能):
+class skill15(主动技能):
     名称 = '因果业火符'
     所在等级 = 60
     等级上限 = 40
@@ -256,7 +249,7 @@ class skill15(神启_巫女主动技能):
             self.倍率 *= 1.33
 
 
-class skill16(神启_巫女主动技能):
+class skill16(主动技能):
     名称 = '夺命大念阵'
     所在等级 = 70
     等级上限 = 40
@@ -289,7 +282,7 @@ class skill17(被动技能):
             return round(1.23 + 0.02 * self.等级, 5)
 
 
-class skill18(神启_巫女主动技能):
+class skill18(主动技能):
     名称 = '退魔阴阳符'
     所在等级 = 75
     等级上限 = 40
@@ -305,7 +298,7 @@ class skill18(神启_巫女主动技能):
             self.倍率 *= 1.32
 
 
-class skill19(神启_巫女主动技能):
+class skill19(主动技能):
     名称 = '天坠阴阳玉'
     所在等级 = 80
     等级上限 = 40
@@ -322,7 +315,7 @@ class skill19(神启_巫女主动技能):
             self.CD *= 0.86
 
 
-class skill20(神启_巫女主动技能):
+class skill20(主动技能):
     名称 = '龙威如狱_龙恩如海'
     所在等级 = 85
     等级上限 = 40
@@ -333,7 +326,7 @@ class skill20(神启_巫女主动技能):
 
 
 class skill21(被动技能):
-    名称 = '代行者的权能'
+    名称 = '乾坤之境'
     所在等级 = 95
     等级上限 = 40
     基础等级 = 4
@@ -347,7 +340,7 @@ class skill21(被动技能):
 
 
 class skill22(主动技能):
-    名称 = '吞天神龙阵'
+    名称 = '天泽神龙阵'
     所在等级 = 95
     等级上限 = 40
     基础等级 = 6
@@ -357,7 +350,7 @@ class skill22(主动技能):
 
 
 class skill23(主动技能):
-    名称 = '天女降世'
+    名称 = '神龙之舞·天一'
     所在等级 = 100
     等级上限 = 40
     基础等级 = 2

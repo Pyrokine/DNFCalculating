@@ -4,11 +4,6 @@ import copy
 
 
 class 极诣_驭剑士主动技能(主动技能):
-    武器CD = {'短剑': 1, '巨剑': 1.1, '钝器': 1.05, '太刀': 0.95}
-
-    def 等效CD(self, 武器类型):
-        return round(self.CD / self.恢复 * self.武器CD[武器类型], 1)
-
     数据 = []
     次数 = []
 
@@ -231,7 +226,7 @@ class skill6(极诣_驭剑士主动技能):
     数据 = [data1, data2, data3, data4]
     次数 = [0, 0, 0, 0]
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         return 1.0
 
 
@@ -323,6 +318,10 @@ class skill11(极诣_驭剑士主动技能):
     def __init__(self):
         self.次数 = [1, 8, 1]
 
+    def 等效百分比(self, 武器类型):
+        return self.data1[self.等级] * self.次数[0] * self.倍率 + \
+               self.data2[self.等级] * (self.次数[1] + self.TP等级) * self.倍率 + self.data3[self.等级] * self.次数[2] * self.倍率
+
 
 class skill12(极诣_驭剑士主动技能):
     名称 = '魔剑奥义'
@@ -350,7 +349,7 @@ class skill12(极诣_驭剑士主动技能):
     TP上限 = 5
     短精CD = 1
 
-    def 等效CD(self, 武器类型):
+    def 等效CD(self, 武器类型, 输出类型):
         if 武器类型 != '短剑':
             return round(5 * (1 - 0.1 * self.TP等级), 1)
         else:
@@ -995,7 +994,7 @@ class character(py.lite.char_base):
             # 1.3倍CD估算次数
             次数输入 = copy.copy(self.attr["次数输入"])
             if 次数输入[skill_sn['魔剑奥义']] == '/CD':
-                次数输入[skill_sn['魔剑奥义']] = str(2 * int(self.attr["时间输入"] / (技能栏[skill_sn['魔剑奥义']].等效CD(武器类型) * 1.3) + 1))
+                次数输入[skill_sn['魔剑奥义']] = str(2 * int(self.attr["时间输入"] / (技能栏[skill_sn['魔剑奥义']].等效CD(武器类型, self.attr["类型"]) * 1.3) + 1))
             self.attr["次数输入"] = copy.copy(次数输入)
         elif 武器类型 == '钝器':
             temp = 技能栏[skill_sn['波动之钝器精通']]

@@ -1,23 +1,15 @@
-﻿from math import *
-from py.base_char import *
+﻿from py.base_char import *
 import py.lite
 
 
 class 知源_元素师主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '法杖':
-            return round(self.CD / self.恢复 * 1.1, 1)
-        if 武器类型 == '魔杖':
-            return round(self.CD / self.恢复 * 1, 1)
-
-    def 实际技能次数(self, 输出时间, 武器类型):
-
-        技能CD = self.等效CD(武器类型)
+    def 实际技能次数(self, 输出时间, 武器类型, 输出类型):
+        技能CD = self.等效CD(武器类型, 输出类型)
         # 能够打满的技能次数计算
-        技能次数 = int((输出时间 - self.演出时间) / self.等效CD(武器类型) + 1 + self.基础释放次数)
-        剩余时间 = 输出时间 - (技能次数 - 1 - self.基础释放次数) * self.等效CD(武器类型) - 技能CD - (技能次数 - 1) * 0.5
+        技能次数 = int((输出时间 - self.演出时间) / self.等效CD(武器类型, 输出类型) + 1 + self.基础释放次数)
+        剩余时间 = 输出时间 - (技能次数 - 1 - self.基础释放次数) * self.等效CD(武器类型, 输出类型) - 技能CD - (技能次数 - 1) * 0.5
         # 最后一次技能小数点技能次数计算
-        if 剩余时间 > 0 and 剩余时间 < self.演出时间:
+        if 0 < 剩余时间 < self.演出时间:
             技能次数 += self.最后一次伤害估算(剩余时间)
         return round(技能次数, 2)
 
@@ -414,8 +406,8 @@ class skill15(知源_元素师主动技能):
         self.演出时间 *= 0.8
 
     def 最后一次伤害估算(self, 剩余时间):
-        实际攻击次数 = int((剩余时间 - 1) / (self.演出时间 - 1) * self.攻击次数)
-        实际百分比 = ((self.数据[self.等级] * 实际攻击次数 * (1 + self.TP成长 * self.TP等级))) * self.倍率
+        实际攻击次数 = int((0 if (剩余时间 - 1) < 0 else (剩余时间 - 1)) / (self.演出时间 - 1) * self.攻击次数)
+        实际百分比 = (self.数据[self.等级] * 实际攻击次数 * (1 + self.TP成长 * self.TP等级)) * self.倍率
         return round(实际百分比 / self.等效百分比(''), 2)
 
 
@@ -608,11 +600,12 @@ class character(py.lite.char_base):
         次数输入 = self.attr["技能释放次数"]
         时间输入 = self.attr["时间输入"]
         武器类型 = self.attr["武器类型"]
+        类型 = self.attr["类型"]
 
         for i in self.attr["技能栏"]:
             if i.是否有伤害 == 1:
                 if 次数输入[skill_sn[i.名称]] == '/CD':
-                    技能释放次数.append(i.实际技能次数(时间输入, 武器类型))
+                    技能释放次数.append(i.实际技能次数(时间输入, 武器类型, 类型))
                 elif 次数输入[skill_sn[i.名称]] != '0':
                     技能释放次数.append(int(次数输入[skill_sn[i.名称]]))
                 else:

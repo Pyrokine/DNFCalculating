@@ -1,4 +1,3 @@
-from math import *
 from py.base_char import *
 import py.lite
 
@@ -223,9 +222,13 @@ class skill12(主动技能):
 
     def 装备护石(self, x):
         if x == 0:
-            self.倍率 *= 1.28
+            self.最小值 = 2
+            self.基础 = self.基础 / 25 * 1.28
+            self.成长 = self.成长 / 25 * 1.28
         elif x == 1:
-            self.倍率 *= 1.37
+            self.最小值 = 2
+            self.基础 = self.基础 / 25 * 1.37
+            self.成长 = self.成长 / 25 * 1.37
 
 
 class skill13(主动技能):
@@ -438,11 +441,12 @@ class character(py.lite.char_base):
         次数输入 = self.attr["技能释放次数"]
         时间输入 = self.attr["时间输入"]
         武器类型 = self.attr["武器类型"]
+        类型 = self.attr["类型"]
 
         for i in self.attr["技能栏"]:
             if i.是否有伤害 == 1:
                 if 次数输入[skill_sn[i.名称]] == '/CD':
-                    技能释放次数.append(int(int(i.能量 * (1 + (时间输入 - 2) / i.等效CD(武器类型))) / i.最小值))
+                    技能释放次数.append(int(int(i.能量 * (1 + (时间输入 - 2) / i.等效CD(武器类型, 类型))) / i.最小值))
                 elif 次数输入[skill_sn[i.名称]] != '0':
                     技能释放次数.append(int(次数输入[skill_sn[i.名称]]))
                 else:

@@ -1,4 +1,3 @@
-from math import *
 from py.base_char import *
 import py.lite
 
@@ -555,35 +554,35 @@ class character(py.lite.char_base):
         时间输入 = self.attr["时间输入"]
         武器类型 = self.attr["武器类型"]
         技能栏 = self.attr["技能栏"]
+        类型 = self.attr["类型"]
 
         for i in 技能栏:
             if i.名称 == '毁灭狂欢':
                 if 初始释放次数[skill_sn[i.名称]] == '/CD':
-                    i.歼灭次数 += (int((时间输入 - i.演出时间) / i.等效CD(武器类型) + 1 + i.基础释放次数))
+                    i.歼灭次数 += (int((时间输入 - i.演出时间) / i.等效CD(武器类型, 类型) + 1 + i.基础释放次数))
                 else:
                     i.歼灭次数 += (int(初始释放次数[skill_sn[i.名称]]) + i.基础释放次数)
         for i in 技能栏:
             if i.是否有伤害 == 1 and i.名称 != '月影秘步' and i.名称 != '锁定射击':
                 if 初始释放次数[skill_sn[i.名称]] == '/CD':
-                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型) + 1 + i.基础释放次数))
+                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型, 类型) + 1 + i.基础释放次数))
                 else:
                     技能释放次数.append(int(初始释放次数[skill_sn[i.名称]]))
             elif i.名称 == '月影秘步':
                 if 初始释放次数[skill_sn[i.名称]] == '/CD':
-                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型) + 1 + i.基础释放次数) * 3)
+                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型, 类型) + 1 + i.基础释放次数) * 3)
                 else:
                     技能释放次数.append(int(初始释放次数[skill_sn[i.名称]]))
             elif i.名称 == '锁定射击':
                 if 初始释放次数[skill_sn[i.名称]] == '/CD' and 技能栏[skill_sn['锁定射击']].锁定护石 == 1:
-                    技能释放次数.append(int(int((时间输入 - i.演出时间) / i.等效CD(武器类型) + 1 + i.基础释放次数) * 12) + (int(技能栏[skill_sn['毁灭狂欢']].歼灭次数 * 6)))
+                    技能释放次数.append(int(int((时间输入 - i.演出时间) / i.等效CD(武器类型, 类型) + 1 + i.基础释放次数) * 12) + (int(技能栏[skill_sn['毁灭狂欢']].歼灭次数 * 6)))
                 elif 初始释放次数[skill_sn[i.名称]] == '/CD' and 技能栏[skill_sn['锁定射击']].锁定护石 == 0:
-                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型) + 1 + i.基础释放次数) * 12)
+                    技能释放次数.append(int((时间输入 - i.演出时间) / i.等效CD(武器类型, 类型) + 1 + i.基础释放次数) * 12)
                 else:
                     技能释放次数.append(int(初始释放次数[skill_sn[i.名称]]))
             else:
                 技能释放次数.append(0)
         return 技能释放次数
-
 
     def 技能等级初始化(self):
         super().技能等级初始化()

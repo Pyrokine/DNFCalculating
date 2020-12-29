@@ -2,31 +2,7 @@ from py.base_char import *
 import py.lite
 
 
-# 武器选择
-class 归元_柔道家_男主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '臂铠':
-            return round(self.CD / self.恢复 * 1.1, 1)
-        if 武器类型 == '手套':
-            return round(self.CD / self.恢复 * 0.9, 1)
-        if 武器类型 == '东方棍':
-            return round(self.CD / self.恢复 * 1, 1)
-        if 武器类型 == '爪':
-            return round(self.CD / self.恢复 * 1, 1)
-
-
-# class Buff技能(归元_柔道家_男主动技能):
-#	名称="暴力抓取"
-#	所在等级=15
-#	等级上限=20
-#	基础等级=10	
-#	def 加成倍率(self):
-#        if self.等级==0:
-#            return 1.0
-#        else:
-#            return round(2.08,5)
-
-class skill0(归元_柔道家_男主动技能):
+class skill0(主动技能):
     名称 = '膝击'
     所在等级 = 15
     等级上限 = 60
@@ -68,7 +44,7 @@ class skill2(被动技能):
             return 1.0
 
 
-class skill3(归元_柔道家_男主动技能):
+class skill3(主动技能):
     名称 = '抛投'
     所在等级 = 20
     等级上限 = 60
@@ -95,7 +71,7 @@ class skill4(被动技能):
             return round(1.33 + 0.02 * self.等级, 5)
 
 
-class skill5(归元_柔道家_男主动技能):
+class skill5(主动技能):
     名称 = '野蛮冲撞'
     所在等级 = 25
     等级上限 = 60
@@ -109,7 +85,7 @@ class skill5(归元_柔道家_男主动技能):
     TP上限 = 5
 
 
-class skill6(归元_柔道家_男主动技能):
+class skill6(主动技能):
     名称 = '无情摔击'
     所在等级 = 25
     等级上限 = 60
@@ -123,7 +99,7 @@ class skill6(归元_柔道家_男主动技能):
     TP上限 = 5
 
 
-class skill7(归元_柔道家_男主动技能):
+class skill7(主动技能):
     名称 = '空绞锤'
     所在等级 = 30
     等级上限 = 60
@@ -137,7 +113,7 @@ class skill7(归元_柔道家_男主动技能):
     TP上限 = 5
 
 
-class skill8(归元_柔道家_男主动技能):
+class skill8(主动技能):
     名称 = '霹雳旋踢'
     所在等级 = 30
     等级上限 = 60
@@ -151,7 +127,7 @@ class skill8(归元_柔道家_男主动技能):
     TP上限 = 5
 
 
-class skill9(归元_柔道家_男主动技能):
+class skill9(主动技能):
     名称 = '浮空凌云踢'
     所在等级 = 35
     等级上限 = 60
@@ -165,7 +141,7 @@ class skill9(归元_柔道家_男主动技能):
     TP上限 = 5
 
 
-class skill10(归元_柔道家_男主动技能):
+class skill10(主动技能):
     名称 = '疾波猛坠'
     所在等级 = 35
     等级上限 = 60
@@ -200,7 +176,7 @@ class skill10(归元_柔道家_男主动技能):
             # self.冲击波次数 += 1
 
 
-class skill11(归元_柔道家_男主动技能):
+class skill11(主动技能):
     名称 = '地狱风火轮'
     所在等级 = 40
     等级上限 = 60
@@ -229,7 +205,7 @@ class skill11(归元_柔道家_男主动技能):
             self.成长3 *= 1.52
 
 
-class skill12(归元_柔道家_男主动技能):
+class skill12(主动技能):
     名称 = '裂石破天'
     所在等级 = 45
     等级上限 = 60
@@ -264,7 +240,7 @@ class skill13(被动技能):
             return round(1.025 + 0.02 * self.等级, 5)
 
 
-class skill14(归元_柔道家_男主动技能):
+class skill14(主动技能):
     名称 = '死亡旋律'
     所在等级 = 50
     等级上限 = 40
@@ -280,7 +256,7 @@ class skill14(归元_柔道家_男主动技能):
     CD = 145.0
 
 
-class skill15(归元_柔道家_男主动技能):
+class skill15(主动技能):
     名称 = '彗星冲击'
     所在等级 = 60
     等级上限 = 40
@@ -302,7 +278,7 @@ class skill15(归元_柔道家_男主动技能):
             self.倍率 *= 1.09
 
 
-class skill16(归元_柔道家_男主动技能):
+class skill16(主动技能):
     名称 = '武莲华'
     所在等级 = 70
     等级上限 = 40
@@ -350,7 +326,7 @@ class skill17(被动技能):
             return round(1.22 + 0.02 * self.等级, 5)
 
 
-class skill18(归元_柔道家_男主动技能):
+class skill18(主动技能):
     名称 = '黑震旋风'
     所在等级 = 75
     等级上限 = 40
@@ -368,7 +344,7 @@ class skill18(归元_柔道家_男主动技能):
             self.倍率 *= 1.33
 
 
-class skill19(归元_柔道家_男主动技能):
+class skill19(主动技能):
     名称 = '疾风闪电'
     所在等级 = 80
     等级上限 = 40
@@ -394,7 +370,7 @@ class skill19(归元_柔道家_男主动技能):
             self.倍率 *= 1.35
 
 
-class skill20(归元_柔道家_男主动技能):
+class skill20(主动技能):
     名称 = '一字传承：极义震天破'
     所在等级 = 85
     等级上限 = 40
@@ -417,7 +393,7 @@ class skill21(被动技能):
             return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill22(归元_柔道家_男主动技能):
+class skill22(主动技能):
     名称 = '黑震流·陨灭'
     所在等级 = 95
     等级上限 = 40
@@ -427,7 +403,7 @@ class skill22(归元_柔道家_男主动技能):
     CD = 60.0
 
 
-class skill23(归元_柔道家_男主动技能):
+class skill23(主动技能):
     名称 = '黑震流·山岳崩颓'
     所在等级 = 100
     等级上限 = 40
@@ -482,7 +458,7 @@ class character(py.lite.char_base):
         self.attr["角色"] = '格斗家(男)'
         self.attr["职业"] = '柔道家'
 
-        self.attr["武器选项"] = ['臂铠','手套','东方棍','爪']
+        self.attr["武器选项"] = ['臂铠', '手套', '东方棍', '爪']
 
         self.attr["类型"] = '物理百分比'
         self.attr["防具类型"] = '轻甲'

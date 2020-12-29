@@ -1,23 +1,8 @@
-from math import *
 from py.base_char import *
 import py.lite
 
 
-class 神启_蓝拳圣使主动技能(主动技能):
-    def 等效CD(self, 武器类型):
-        if 武器类型 == '图腾':
-            return round(self.CD / self.恢复 * 0.9, 1)
-        if 武器类型 == '镰刀':
-            return round(self.CD / self.恢复 * 0.95, 1)
-        if 武器类型 == '战斧':
-            return round(self.CD / self.恢复 * 1.1, 1)
-        if 武器类型 == '十字架':
-            return round(self.CD / self.恢复 * 1, 1)
-        if 武器类型 == '念珠':
-            return round(self.CD / self.恢复 * 0.95, 1)
-
-
-class skill0(神启_蓝拳圣使主动技能):
+class skill0(主动技能):
     名称 = '直拳冲击'
     所在等级 = 5
     等级上限 = 60
@@ -61,7 +46,7 @@ class skill2(被动技能):
             return round(1.10 + 0.015 * (self.等级 - 10), 5)
 
 
-class skill3(神启_蓝拳圣使主动技能):
+class skill3(主动技能):
     名称 = '圣拳锤击'
     所在等级 = 15
     等级上限 = 60
@@ -76,7 +61,7 @@ class skill3(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill4(神启_蓝拳圣使主动技能):
+class skill4(主动技能):
     名称 = '俯冲翔拳'
     所在等级 = 20
     等级上限 = 60
@@ -88,7 +73,7 @@ class skill4(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill5(神启_蓝拳圣使主动技能):
+class skill5(主动技能):
     名称 = '俯冲直拳'
     所在等级 = 20
     等级上限 = 60
@@ -100,7 +85,7 @@ class skill5(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill6(神启_蓝拳圣使主动技能):
+class skill6(主动技能):
     名称 = '俯冲腹拳'
     所在等级 = 20
     等级上限 = 60
@@ -112,7 +97,7 @@ class skill6(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill7(神启_蓝拳圣使主动技能):
+class skill7(主动技能):
     名称 = '瞬拳'
     所在等级 = 25
     等级上限 = 60
@@ -127,7 +112,7 @@ class skill7(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill8(神启_蓝拳圣使主动技能):
+class skill8(主动技能):
     名称 = '圣拳连击'
     所在等级 = 25
     等级上限 = 60
@@ -145,7 +130,7 @@ class skill8(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill9(神启_蓝拳圣使主动技能):
+class skill9(主动技能):
     名称 = '神圣反击'
     所在等级 = 30
     等级上限 = 11
@@ -155,7 +140,7 @@ class skill9(神启_蓝拳圣使主动技能):
     CD = 6
 
 
-class skill10(神启_蓝拳圣使主动技能):
+class skill10(主动技能):
     名称 = '破碎之锤'
     所在等级 = 30
     等级上限 = 60
@@ -170,7 +155,7 @@ class skill10(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill11(神启_蓝拳圣使主动技能):
+class skill11(主动技能):
     名称 = '漩涡重拳'
     所在等级 = 35
     等级上限 = 60
@@ -199,7 +184,7 @@ class skill11(神启_蓝拳圣使主动技能):
             self.成长2 *= 1.35
 
 
-class skill12(神启_蓝拳圣使主动技能):
+class skill12(主动技能):
     名称 = '刺拳猛击'
     所在等级 = 35
     等级上限 = 60
@@ -218,7 +203,7 @@ class skill12(神启_蓝拳圣使主动技能):
     TP上限 = 5
 
 
-class skill13(神启_蓝拳圣使主动技能):
+class skill13(主动技能):
     名称 = '神圣组合拳'
     所在等级 = 40
     等级上限 = 60
@@ -254,7 +239,7 @@ class skill13(神启_蓝拳圣使主动技能):
             self.成长3 *= 1.26
 
 
-class skill14(神启_蓝拳圣使主动技能):
+class skill14(主动技能):
     名称 = '极速飓风拳'
     所在等级 = 45
     等级上限 = 60
@@ -301,7 +286,7 @@ class skill15(被动技能):
             return round(1.025 + 0.02 * self.等级, 5)
 
 
-class skill16(神启_蓝拳圣使主动技能):
+class skill16(主动技能):
     名称 = '泯灭神击'
     所在等级 = 50
     等级上限 = 40
@@ -311,7 +296,7 @@ class skill16(神启_蓝拳圣使主动技能):
     CD = 145.0
 
 
-class skill17(神启_蓝拳圣使主动技能):
+class skill17(主动技能):
     名称 = '破碎之拳'
     所在等级 = 60
     等级上限 = 40
@@ -345,7 +330,7 @@ class skill17(神启_蓝拳圣使主动技能):
             self.CD *= 0.88
 
 
-class skill18(神启_蓝拳圣使主动技能):
+class skill18(主动技能):
     名称 = '破坏之拳'
     所在等级 = 70
     等级上限 = 40
@@ -367,7 +352,7 @@ class skill18(神启_蓝拳圣使主动技能):
             self.成长 *= 1.28
 
 
-class skill19(神启_蓝拳圣使主动技能):
+class skill19(主动技能):
     名称 = '仲裁怒击'
     所在等级 = 75
     等级上限 = 40
@@ -397,7 +382,7 @@ class skill20(被动技能):
             return round(1.22 + 0.02 * self.等级, 5)
 
 
-class skill21(神启_蓝拳圣使主动技能):
+class skill21(主动技能):
     名称 = '超重拳'
     所在等级 = 80
     等级上限 = 40
@@ -414,7 +399,7 @@ class skill21(神启_蓝拳圣使主动技能):
             self.成长 *= 1.35
 
 
-class skill22(神启_蓝拳圣使主动技能):
+class skill22(主动技能):
     名称 = '制裁：怒火疾风'
     所在等级 = 85
     等级上限 = 40
@@ -437,7 +422,7 @@ class skill23(被动技能):
             return round(1.18 + 0.02 * self.等级, 5)
 
 
-class skill24(神启_蓝拳圣使主动技能):
+class skill24(主动技能):
     名称 = '浩势审判'
     所在等级 = 95
     等级上限 = 40
@@ -453,7 +438,7 @@ class skill24(神启_蓝拳圣使主动技能):
     CD = 60.0
 
 
-class skill25(神启_蓝拳圣使主动技能):
+class skill25(主动技能):
     名称 = '正义执行：雷梅迪奥斯圣座'
     所在等级 = 100
     等级上限 = 40

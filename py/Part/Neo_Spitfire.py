@@ -1,6 +1,6 @@
-from math import *
 from py.base_char import *
 import py.lite
+from math import *
 
 
 class 重霄_弹药专家_男主动技能(主动技能):
@@ -11,8 +11,13 @@ class 重霄_弹药专家_男主动技能(主动技能):
         if self.等级 == 0:
             return 0
         else:
-            return round((self.攻击次数 * (self.基础 + self.成长 * self.等级) + self.攻击次数2 * (self.基础2 + self.成长2 * self.等级) + self.攻击次数3 * (
-                    self.基础3 + self.成长3 * self.等级)) * (1 + self.TP成长 * self.TP等级) * self.倍率, 2)
+            return round((self.攻击次数 * (self.基础 + self.成长 * self.等级) +
+                          self.攻击次数2 * (self.基础2 + self.成长2 * self.等级) +
+                          self.攻击次数3 * (self.基础3 + self.成长3 * self.等级)) *
+                         (1 + self.TP成长 * self.TP等级) * self.倍率, 2)
+
+    def 等效CD(self, 武器类型, 输出类型):
+        return round(self.CD / self.恢复, 1)
 
 
 class skill0(被动技能):
@@ -551,13 +556,14 @@ class character(py.lite.char_base):
         时间输入 = self.attr["时间输入"]
         武器类型 = self.attr["武器类型"]
         技能栏 = self.attr["技能栏"]
+        类型 = self.attr["类型"]
 
         技能消耗时间 = 0.0
         爆裂弹间隔 = 0.115
 
         每轮射击次数 = 0.5 * (16 + floor(0.5 * (min(技能栏[skill_sn['弹夹改装']].等级, 20) - 10)))
 
-        if (武器类型 != '手弩'):
+        if 武器类型 != '手弩':
             爆裂弹间隔 = 0.14
             每轮射击次数 = 0.5 * (9 + floor(0.5 * (min(技能栏[skill_sn['弹夹改装']].等级, 20) - 9)))
 
@@ -567,11 +573,11 @@ class character(py.lite.char_base):
                     技能释放次数.append(0)
                 else:
                     if 初始释放次数[skill_sn[i.名称]] == '/CD':
-                        技能释放次数.append(int((时间输入) / (i.等效CD(武器类型) + i.技能施放时间) + 1 + i.基础释放次数))
+                        技能释放次数.append(int(时间输入 / (i.等效CD(武器类型, 类型) + i.技能施放时间) + 1 + i.基础释放次数))
                         if i.脱手 == 1:
-                            技能消耗时间 += int((时间输入) / (i.等效CD(武器类型) + i.技能施放时间) + 1 + i.基础释放次数) * 0.2
+                            技能消耗时间 += int(时间输入 / (i.等效CD(武器类型, 类型) + i.技能施放时间) + 1 + i.基础释放次数) * 0.2
                         else:
-                            技能消耗时间 += int((时间输入) / (i.等效CD(武器类型) + i.技能施放时间) + 1 + i.基础释放次数) * i.技能施放时间
+                            技能消耗时间 += int(时间输入 / (i.等效CD(武器类型, 类型) + i.技能施放时间) + 1 + i.基础释放次数) * i.技能施放时间
                     elif 初始释放次数[skill_sn[i.名称]] != '0':
                         技能释放次数.append(int(初始释放次数[skill_sn[i.名称]]))
                     else:

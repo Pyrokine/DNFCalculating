@@ -1,10 +1,8 @@
-from math import *
 from py.base_char import *
 import py.lite
 
 
 # 技能后的倍率是魔化后的倍率
-
 class skill0(主动技能):
     名称 = '恶魔之手'
     所在等级 = 10
