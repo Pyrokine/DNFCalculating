@@ -727,15 +727,15 @@ for i in skill_list:
     if i.所在等级 == 100:
         skill_sn_awaking3 = skill_sn[i.名称]
 
-黑曜神护石选项 = ['无']
+option_talismans = ['无']
 for i in skill_list:
     if i.是否有伤害 == 1 and i.是否有护石 == 1:
-        黑曜神护石选项.append(i.名称)
+        option_talismans.append(i.名称)
 
-黑曜神符文选项 = ['无', '军团列阵', '魔幻旋风', '毁灭突进', '翔空剑', '碎灵屠戮', '聚灵升空剑', '黑暗冲击', '午夜嘉年华', '绚丽耀光', '魔灵乱舞']
+option_rune = ['无', '军团列阵', '魔幻旋风', '毁灭突进', '翔空剑', '碎灵屠戮', '聚灵升空剑', '黑暗冲击', '午夜嘉年华', '绚丽耀光', '魔灵乱舞']
 
 
-class character(py.lite.char_base):
+class character(py.lite.CharBase):
     def 角色賦予(self):
         self.attr["实际名称"] = '黑曜神'
         self.attr["角色"] = '守护者'

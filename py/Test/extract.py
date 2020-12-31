@@ -48,7 +48,7 @@ equip_list = [
     '心痛如绞的诀别', '崩溃世界的忧伤', '蓬勃生命的落幕', '悲剧人生的归寂'
 ]
 
-character = py.lite.char_base()
+character = py.lite.CharBase()
 
 equip_dict = {}
 for i in equip_list:

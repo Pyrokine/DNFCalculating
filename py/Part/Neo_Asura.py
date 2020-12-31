@@ -473,15 +473,15 @@ skill_sn_awaking1 = 15
 skill_sn_awaking2 = 26
 skill_sn_awaking3 = 29
 
-极诣_阿修罗护石选项 = ['无']
+option_talismans = ['无']
 for i in skill_list:
     if i.是否有伤害 == 1 and i.是否有护石 == 1:
-        极诣_阿修罗护石选项.append(i.名称)
+        option_talismans.append(i.名称)
 
-极诣_阿修罗符文选项 = ['无', '邪光斩', '波动爆发', '冰刃·波动剑', '鬼印珠', '爆炎·波动剑', '无双波', '邪光波动阵', '不动明王阵', '极冰·裂波剑', '极炎·裂波剑', '天雷·波动剑', '天雷·降魔杵']
+option_rune = ['无', '邪光斩', '波动爆发', '冰刃·波动剑', '鬼印珠', '爆炎·波动剑', '无双波', '邪光波动阵', '不动明王阵', '极冰·裂波剑', '极炎·裂波剑', '天雷·波动剑', '天雷·降魔杵']
 
 
-class character(py.lite.char_base):
+class character(py.lite.CharBase):
     def 角色賦予(self):
         self.attr["实际名称"] = '极诣_阿修罗'
         self.attr["角色"] = '鬼剑士(男)'

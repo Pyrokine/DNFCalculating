@@ -1,11 +1,9 @@
 from py.Equip.equ_list import *
 import py.base_char
-import py.base_equip
 import copy
-import importlib
 
 
-class char_base():
+class CharBase:
     attr = []
 
     def printDetail(self):
@@ -217,8 +215,8 @@ class char_base():
         exec('self.attr["二觉序号"] = py.Part.{0}.skill_sn_awaking2'.format(char_name_en))
         exec('self.attr["三觉序号"] = py.Part.{0}.skill_sn_awaking3'.format(char_name_en))
 
-        exec('self.attr["护石选项"] = py.Part.{0}.{1}护石选项'.format(char_name_en, char_name_zh))
-        exec('self.attr["符文选项"] = py.Part.{0}.{1}符文选项'.format(char_name_en, char_name_zh))
+        exec('self.attr["护石选项"] = py.Part.{0}.option_talismans'.format(char_name_en, char_name_zh))
+        exec('self.attr["符文选项"] = py.Part.{0}.option_rune'.format(char_name_en, char_name_zh))
 
         self.技能等级初始化()
 
@@ -645,17 +643,3 @@ class char_base():
         self.attr = copy.deepcopy(py.base_char.屬性)
         self.角色賦予()
         self.角色数据输入()
-
-
-if __name__ == "__main__":
-    char_name = "黑暗武士"
-    importlib.import_module("py.Part." + char_name)
-    exec('character = py.Part.{0}.character()'.format(char_name))
-    character.初始化()
-    character.角色基础数据生成()
-    sum_damage = character.计算伤害()
-    character.printSkills()
-    character.printDetail()
-    print(sum_damage)
-
-# print(character_attr.伤害计算2())

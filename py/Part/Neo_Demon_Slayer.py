@@ -671,18 +671,18 @@ for i in skill_list:
     if i.所在等级 == 100:
         skill_sn_awaking3 = skill_sn[i.名称]
 
-极诣_契魔者护石选项 = ['无']
+option_talismans = ['无']
 for i in skill_list:
     if i.是否有伤害 == 1 and i.是否有护石 == 1:
-        极诣_契魔者护石选项.append(i.名称)
+        option_talismans.append(i.名称)
 
-极诣_契魔者符文选项 = ['无']
+option_rune = ['无']
 for i in skill_list:
-    if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
-        极诣_契魔者符文选项.append(i.名称)
+    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+        option_rune.append(i.名称)
 
 
-class character(py.lite.char_base):
+class character(py.lite.CharBase):
     def 角色賦予(self):
         self.attr["实际名称"] = '极诣_契魔者'
         self.attr["角色"] = '鬼剑士(女)'

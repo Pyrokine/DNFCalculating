@@ -373,18 +373,18 @@ skill_sn_awaking1 = 16
 skill_sn_awaking2 = 16
 skill_sn_awaking3 = 19
 
-缔造者护石选项 = ['无']
+option_talismans = ['无']
 for i in skill_list:
     if i.是否有伤害 == 1 and i.是否有护石 == 1:
-        缔造者护石选项.append(i.名称)
+        option_talismans.append(i.名称)
 
-缔造者符文选项 = ['无']
+option_rune = ['无']
 for i in skill_list:
-    if i.所在等级 >= 1 and i.所在等级 <= 75 and i.是否有伤害 == 1:
-        缔造者符文选项.append(i.名称)
+    if 1 <= i.所在等级 <= 75 and i.是否有伤害 == 1:
+        option_rune.append(i.名称)
 
 
-class character(py.lite.char_base):
+class character(py.lite.CharBase):
     def 角色賦予(self):
         self.attr["实际名称"] = '缔造者'
         self.attr["角色"] = '缔造者'

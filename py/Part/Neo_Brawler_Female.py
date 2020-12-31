@@ -742,18 +742,18 @@ skill_sn_awaking1 = 15
 skill_sn_awaking2 = 22
 skill_sn_awaking3 = 28
 
-归元_街霸_女护石选项 = ['无']
+option_talismans = ['无']
 for i in skill_list:
     if i.是否有伤害 == 1 and i.是否有护石 == 1:
-        归元_街霸_女护石选项.append(i.名称)
+        option_talismans.append(i.名称)
 
-归元_街霸_女符文选项 = ['无']
+option_rune = ['无']
 for i in skill_list:
-    if i.所在等级 >= 20 and i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
-        归元_街霸_女符文选项.append(i.名称)
+    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+        option_rune.append(i.名称)
 
 
-class character(py.lite.char_base):
+class character(py.lite.CharBase):
     def 角色賦予(self):
         self.attr["实际名称"] = '归元_街霸_女'
         self.attr["角色"] = '格斗家(女)'
