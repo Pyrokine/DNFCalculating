@@ -250,10 +250,10 @@ class skill12(被动技能):
     关联技能 = ['伏虎霸王拳']
 
     def 加成倍率(self, 武器类型):
-        if self.等级 == 0:
-            return 1.0
-        else:
-            return round(6.18 + 0.12 * self.等级, 5)
+        return 1.0
+
+    def 技能加成倍率(self, 武器类型):
+        return round(5.18 + 0.12 * self.等级, 5)
 
 
 class skill13(归元_街霸_男主动技能):
@@ -584,3 +584,26 @@ class character(py.lite.CharBase):
             技能栏[skill_sn['逆道·爆狱']].攻击次数2 = 1
             技能栏[skill_sn['逆道·爆狱']].灼伤基础 = 1889 * 5
             技能栏[skill_sn['逆道·爆狱']].灼伤成长 = 214 * 5
+
+    def 计算伤害(self):
+        self.预处理()
+        # 初步计算
+        技能释放次数 = self.技能释放次数计算()
+        技能单次伤害 = self.技能单次伤害计算()
+        技能总伤害 = self.技能总伤害计算(技能释放次数, 技能单次伤害)
+
+        技能栏 = self.attr["技能栏"]
+        武器类型 = self.attr["武器类型"]
+
+        # 霸王拳
+        if 技能栏[skill_sn['狂·霸王拳']].等级 != 0:
+            if 技能总伤害[skill_sn['伏虎霸王拳']] != 0:
+                temp = 技能总伤害[skill_sn['伏虎霸王拳']] * 技能栏[skill_sn['狂·霸王拳']].技能加成倍率(武器类型)
+                if self.is_equip_exist('奔流不息之狂风'):
+                    temp = temp / 0.7
+                if self.is_equip_exist('奔流不息之伽蓝'):
+                    temp *= 0.7
+                技能总伤害[skill_sn['伏虎霸王拳']] += temp
+
+        # 返回结果
+        return sum(技能总伤害)

@@ -210,10 +210,10 @@ class skill10(被动技能):
     关联技能 = ['伏虎霸王拳']
 
     def 加成倍率(self, 武器类型):
-        if self.等级 == 0:
-            return 1.0
-        else:
-            return round(1.40 + 0.02 * self.等级, 5)
+        return 1.0
+
+    def 技能加成倍率(self, 武器类型):
+        return round(0.40 + 0.02 * self.等级, 5)
 
 
 class skill11(归元_街霸_女主动技能):
@@ -847,6 +847,7 @@ class character(py.lite.CharBase):
     def 计算伤害(self):
         self.预处理()
         技能栏 = self.attr["技能栏"]
+        武器类型 = self.attr["武器类型"]
 
         技能释放次数 = self.技能释放次数计算()
 
@@ -859,7 +860,7 @@ class character(py.lite.CharBase):
                     蛇拳次数 = 技能释放次数[skill_sn[n]]
                     蛇拳 = n
             if 蛇拳次数 > 3:
-                self.技能栏[skill_sn[蛇拳]].涂毒倍率 *= (蛇拳次数 - 2) / 蛇拳次数
+                技能栏[skill_sn[蛇拳]].涂毒倍率 *= (蛇拳次数 - 2) / 蛇拳次数
 
             for n in ['猛毒擒月炎', '毒雷引爆', '裂地飞沙', '伏虎霸王拳', '擒月炎', '天罗地网', '毒影针', '抛沙', ]:
                 次数 = 技能释放次数[skill_sn[n]]
@@ -870,6 +871,16 @@ class character(py.lite.CharBase):
 
         技能单次伤害 = self.技能单次伤害计算()
         技能总伤害 = self.技能总伤害计算(技能释放次数, 技能单次伤害)
+
+        # 霸王拳
+        if 技能栏[skill_sn['狂·霸王拳']].等级 != 0:
+            if 技能总伤害[skill_sn['伏虎霸王拳']] != 0:
+                temp = 技能总伤害[skill_sn['伏虎霸王拳']] * 技能栏[skill_sn['狂·霸王拳']].技能加成倍率(武器类型)
+                if self.is_equip_exist('奔流不息之狂风'):
+                    temp = temp / 0.7
+                if self.is_equip_exist('奔流不息之伽蓝'):
+                    temp *= 0.7
+                技能总伤害[skill_sn['伏虎霸王拳']] += temp
 
         return sum(技能总伤害)
 

@@ -1,5 +1,6 @@
 from py.base_char import *
 import py.lite
+from py.base_equip import 武器冷却惩罚
 
 
 class skill0(主动技能):
@@ -190,7 +191,7 @@ class skill8(主动技能):
     CD = 8.0
 
     def 等效百分比(self, 武器类型):
-        return ((self.数据[self.等级] * 3 + self.数据1[self.等级] * 3 + self.数据2[self.等级] * 3) * self.攻击次数 + self.数据3[self.等级] * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.161
+        return ((self.数据[self.等级] * 3 + self.数据1[self.等级] * 3 +self.数据2[self.等级] * 3) * self.攻击次数 + self.数据3[self.等级] * 3 * self.攻击次数2) * self.倍率 * (1 + self.TP成长 * self.TP等级) * 1.161
 
 
 class skill9(主动技能):
@@ -362,6 +363,12 @@ class skill14(主动技能):
     def 等效百分比(self, 武器类型):
         return self.数据[self.等级] * self.攻击次数 * self.倍率 * 1.179
 
+    def 等效CD(self, 武器类型, 输出类型):
+        if 武器类型 == '双剑':
+            return round(self.CD / self.恢复, 1)
+        else:
+            return round(self.CD / self.恢复 * 武器冷却惩罚(武器类型, 输出类型), 1)
+
 
 class skill15(主动技能):
     名称 = '旋刃冲击'
@@ -515,9 +522,10 @@ class skill20(被动技能):
           1643, 1682, 1719, 1757, 1794, 1831, 1868, 1907, 1944, 1982, 2019, 2057, 2096, 2133, 2171, 2208, 2246, 2282, 2321, 2358, 2396, 2433, 2471, 2510, 2547, 2585, 2622, 2660, 2698, 2736, 2772,
           2810, 2847, 2885, 2923, 2961]
     匕首数量 = 30
+    倍率 = 1
 
     def 额外百分比(self):
-        return self.数据[self.等级] * self.匕首数量 * 1.152
+        return self.数据[self.等级] * self.匕首数量 * 1.152 * self.倍率
 
 
 class skill21(被动技能):
@@ -670,6 +678,7 @@ class character(py.lite.CharBase):
         技能栏 = self.attr["技能栏"]
         武器 = self.attr["装备栏"][11]
         武器类型 = self.attr["武器类型"]
+        装备栏 = self.attr["装备栏"]
 
         for i in 技能栏:
             if i.是否有伤害 == 1:
@@ -684,6 +693,8 @@ class character(py.lite.CharBase):
                     if 武器 == '血色舞会':
                         i.攻击次数2 *= 1.4
                         i.攻击次数3 *= 1.4
+            if 装备栏[11] == '一叶障目':
+                技能栏[skill_sn['死亡风暴']].倍率 *= 1.32
         elif 武器类型 == '匕首':
             技能栏[2].关联技能 = ['无']
             for i in 技能栏:
@@ -722,10 +733,3 @@ class character(py.lite.CharBase):
         技能栏[skill_sn['剑刃风暴']].旋转次数 = self.attr["剑刃风暴旋转次数"]
         技能栏[skill_sn['螺旋穿刺']].旋转次数 = self.attr["螺旋穿刺旋转次数"]
         技能栏[skill_sn['死亡风暴']].匕首数量 = self.attr["死亡风暴攻击次数"]
-
-        # 刺客符文收招额外加成
-        # for i in range(9):
-        #     if 符文[i].currentText() != '无' and 符文效果[i].currentText() != '无':
-        #         for j in 符文效果[i].currentText().split(','):
-        #             if '攻击' in j:
-        #                 技能栏[skill_serial_num[符文[i].currentText()]].攻击次数2 *= 1 + int(j.replace('攻击', '').replace('%', '')) / 100

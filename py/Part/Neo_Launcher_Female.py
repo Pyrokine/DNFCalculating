@@ -446,16 +446,16 @@ class skill14(主动技能):
     护石选项 = ['魔界', '圣痕']
 
     def 装备护石(self, x):
-        if x == 0:
+        if x == 1:
             self.倍率 *= 0.94
             self.CD *= 0.60
-        elif x == 1:
+        elif x == 0:
             self.倍率 *= 0.85
             self.CD *= 0.60
 
     def 护石描述(self, x):
-        if x == 0:
-            temp = "<font color='#FF00FF'>高功率等离子体发生器</font>"
+        temp = "<font color='#FF00FF'>高功率等离子体发生器</font>"
+        if x == 1:
             temp += "<br><br><font color='#68D5ED'>"
             temp += "[等离子放射器]<br>"
             temp += "立即发射等离子放射器<br>"
@@ -464,8 +464,7 @@ class skill14(主动技能):
             temp += "<br>-护石附加效果：<br>"
             temp += "冷却时间 -40%<br>"
             temp += "总攻击力 -23%"
-        elif x == 1:
-            temp = "<font color='#FF00FF'>高功率等离子体发生器</font>"
+        elif x == 0:
             temp += "<br><br><font color='#68D5ED'>"
             temp += "[等离子放射器]<br>"
             temp += "立即发射等离子放射器<br>"

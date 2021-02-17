@@ -3,6 +3,14 @@ from py.Equip.equ_list import *
 import py.lite
 
 
+class 主动技能(主动技能):
+    def 等效CD(self, 武器类型, 输出类型):
+        if 武器类型 == '矛':
+            return round(self.CD / self.恢复 * 1.05, 1)
+        if 武器类型 == '棍棒':
+            return round(self.CD / self.恢复 * 0.95, 1)
+
+
 class skill0(被动技能):
     名称 = '尼巫的战斗术'
     所在等级 = 15
@@ -118,7 +126,7 @@ class skill5(主动技能):
     演出时间 = 1.1
 
     def 等效百分比(self, 武器类型):
-        return (self.数据0[self.等级] * self.攻击次数 + self.数据1[self.等级] * self.攻击次数2 + self.数据2[self.等级] * self.攻击次数3) * (1 + self.TP成长 * self.TP等级) * self.倍率
+        return (self.数据0[self.等级] * self.攻击次数0 + self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill6(主动技能):
@@ -147,7 +155,7 @@ class skill6(主动技能):
     演出时间 = 0.6
 
     def 等效百分比(self, 武器类型):
-        return (self.数据0[self.等级] * self.攻击次数 + self.数据1[self.等级] * self.攻击次数2 + self.数据2[self.等级] * self.攻击次数3) * (1 + self.TP成长 * self.TP等级) * self.倍率
+        return (self.数据0[self.等级] * self.攻击次数0 + self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill7(主动技能):
@@ -212,7 +220,7 @@ class skill10(主动技能):
     数据 = [0, 9768, 10759, 11750, 12741, 13732, 14723, 15714, 16705, 17696, 18687, 19678, 20669, 21660, 22651, 23642, 24633, 25624, 26615, 27606, 28597, 29588, 30579, 31570, 32561, 33552, 34543, 35534,
           36525, 37516, 38507, 39498, 40489, 41480, 42471, 43462, 44453, 45444, 46435, 47426, 48417, 49408, 50399, 51390, 52381, 53372, 54363, 55354, 56345, 57336, 58328, 59319, 60310, 61301, 62292,
           63284, 64275, 65266, 66257, 67248, 68239, 69230, 70221, 71212, 72203, 73194, 74185, 75176, 76167, 77158, 78149]
-    CD = 17.9
+    CD = 17
     TP成长 = 0.10
     TP上限 = 5
     是否有护石 = 1
@@ -222,11 +230,11 @@ class skill10(主动技能):
 
     def 装备护石(self, x):
         if x == 0:
-            self.倍率 *= 1.242
+            self.倍率 *= 1.23
             self.CD *= 0.92
 
         elif x == 1:
-            self.倍率 *= 1.334
+            self.倍率 *= 1.31
             self.CD *= 0.92
 
     def 等效百分比(self, 武器类型):

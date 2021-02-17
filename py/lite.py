@@ -250,32 +250,31 @@ class CharBase:
         return 武器类型
 
     def 称号基础(self):
-        self.attr["力量"] += 90
-        self.attr["智力"] += 90
+        self.attr["力量"] += 100
+        self.attr["智力"] += 100
         self.attr["物理攻击力"] += 65
         self.attr["魔法攻击力"] += 65
         self.attr["独立攻击力"] += 65
-        self.attr["火属性强化"] += 20
-        self.attr["冰属性强化"] += 20
-        self.attr["光属性强化"] += 20
-        self.attr["暗属性强化"] += 20
-        self.attr["暴击伤害"] += 0.18
-        self.attr["百分比力智"] += 0.04
+        self.attr["火属性强化"] += 22
+        self.attr["冰属性强化"] += 22
+        self.attr["光属性强化"] += 22
+        self.attr["暗属性强化"] += 22
+        self.attr["百分比三攻"] += 0.12
+        self.attr["附加伤害"] += 0.10
 
         self.attr["进图力量"] += 35
         self.attr["进图智力"] += 35
 
     def 宠物基础(self):
-        self.attr["力量"] += 150
-        self.attr["智力"] += 150
-        self.attr["火属性强化"] += 24
-        self.attr["冰属性强化"] += 24
-        self.attr["光属性强化"] += 24
-        self.attr["暗属性强化"] += 24
-        self.attr["附加伤害"] += 0.15
-        self.skill_level_up_batched("所有", 1, 50, 1)
+        self.attr["力量"] += 160
+        self.attr["智力"] += 160
+        self.attr["火属性强化"] += 25
+        self.attr["冰属性强化"] += 25
+        self.attr["光属性强化"] += 25
+        self.attr["暗属性强化"] += 25
+        self.skill_level_up_batched("所有", 1, 80, 1)
         self.attr["加算冷却缩减"] += 0.05
-        self.attr["最终伤害"] += 0.05
+        self.attr["暴击伤害"] += 0.2
         self.attr["百分比力智"] += 0.12
 
     def 额外细节(self):
@@ -324,14 +323,20 @@ class CharBase:
         # 左槽
         self.attr["最终伤害"] += 0.03
 
+        # 腰带、鞋
+        self.skill_level_up_batched("主动", 1, 50, 1)
+        self.skill_level_up_batched("主动", 1, 50, 1)
+
+        # 头肩
+        self.attr["技能攻击力"] *= 1.03
+        # self.skill_level_up_batched("主动", 1, 50, 1)
+
+        # 称号
+        self.attr["技能攻击力"] *= 1.03
+        # self.skill_level_up_batched("主动", 1, 50, 1)
+
         # 光环
         self.attr["百分比三攻"] += 0.05
-
-        # 宝珠：头肩、腰带、鞋、称号、光环
-        self.skill_level_up_batched("主动", 1, 50, 1)
-        self.skill_level_up_batched("主动", 1, 50, 1)
-        self.skill_level_up_batched("主动", 1, 50, 1)
-        self.skill_level_up_batched("主动", 1, 50, 1)
         self.skill_level_up_batched("所有", 1, 80, 1)
 
         # 白金、时装上衣
@@ -443,6 +448,7 @@ class CharBase:
             if 装备名称:
                 装备列表[装备序号[装备名称]].城镇属性(self)
                 装备列表[装备序号[装备名称]].进图属性(self)
+                装备列表[装备序号[装备名称]].变换属性(self)
 
         for i in self.attr["套装栏"]:
             套装列表[套装序号[i]].城镇属性(self)
@@ -466,6 +472,15 @@ class CharBase:
                     for j in i.冷却关联技能:
                         self.attr["技能栏"][self.attr["技能序号"][j]].CD *= i.CD缩减倍率(self.attr["武器类型"])
 
+            if i.非冷却关联技能 != ['无']:
+                if i.非冷却关联技能 == ['所有']:
+                    for j in self.attr["技能栏"]:
+                        if j.是否有伤害 == 1:
+                            j.CD /= i.CD缩减倍率(self.attr["武器类型"])
+                else:
+                    for k in i.非冷却关联技能:
+                        self.attr["技能栏"][self.attr["技能序号"][k]].CD /= i.CD缩减倍率(self.attr["武器类型"])
+
             if i.冷却关联技能2 != ["无"]:
                 if i.冷却关联技能2 == ["所有"]:
                     for j in self.attr["技能栏"]:
@@ -475,6 +490,15 @@ class CharBase:
                     for j in i.冷却关联技能2:
                         self.attr["技能栏"][self.attr["技能序号"][j]].CD *= i.CD缩减倍率2(self.attr["武器类型"])
 
+            if i.非冷却关联技能2 != ['无']:
+                if i.非冷却关联技能2 == ['所有']:
+                    for j in self.attr["技能栏"]:
+                        if j.是否有伤害 == 1:
+                            j.CD /= i.CD缩减倍率2(self.attr["武器类型"])
+                else:
+                    for k in i.非冷却关联技能2:
+                        self.attr["技能栏"][self.attr["技能序号"][k]].CD /= i.CD缩减倍率2(self.attr["武器类型"])
+
             if i.冷却关联技能3 != ["无"]:
                 if i.冷却关联技能3 == ["所有"]:
                     for j in self.attr["技能栏"]:
@@ -483,6 +507,15 @@ class CharBase:
                 else:
                     for j in i.冷却关联技能3:
                         self.attr["技能栏"][self.attr["技能序号"][j]].CD *= i.CD缩减倍率3(self.attr["武器类型"])
+
+            if i.非冷却关联技能3 != ['无']:
+                if i.非冷却关联技能3 == ['所有']:
+                    for j in self.attr["技能栏"]:
+                        if j.是否有伤害 == 1:
+                            j.CD /= i.CD缩减倍率3(self.attr["武器类型"])
+                else:
+                    for k in i.非冷却关联技能3:
+                        self.attr["技能栏"][self.attr["技能序号"][k]].CD /= i.CD缩减倍率3(self.attr["武器类型"])
 
     def 加算冷却计算(self):
         for i in self.attr["技能栏"]:
@@ -507,6 +540,15 @@ class CharBase:
                     for j in i.关联技能:
                         self.attr["技能栏"][self.attr["技能序号"][j]].被动倍率 *= i.加成倍率(self.attr["武器类型"])
 
+            if i.非关联技能 != ['无']:
+                if i.非关联技能 == ['所有']:
+                    for j in self.attr["技能栏"]:
+                        if j.是否有伤害 == 1:
+                            j.被动倍率 /= i.加成倍率(self.attr["武器类型"])
+                else:
+                    for k in i.非关联技能:
+                        self.attr["技能栏"][self.attr["技能序号"][k]].被动倍率 /= i.加成倍率(self.attr["武器类型"])
+
             if i.关联技能2 != ["无"]:
                 if i.关联技能2 == ["所有"]:
                     for j in self.attr["技能栏"]:
@@ -516,6 +558,15 @@ class CharBase:
                     for j in i.关联技能2:
                         self.attr["技能栏"][self.attr["技能序号"][j]].被动倍率 *= i.加成倍率2(self.attr["武器类型"])
 
+            if i.非关联技能2 != ['无']:
+                if i.非关联技能2 == ['所有']:
+                    for j in self.attr["技能栏"]:
+                        if j.是否有伤害 == 1:
+                            j.被动倍率 /= i.加成倍率2(self.attr["武器类型"])
+                else:
+                    for k in i.非关联技能2:
+                        self.attr["技能栏"][self.attr["技能序号"][k]].被动倍率 /= i.加成倍率2(self.attr["武器类型"])
+
             if i.关联技能3 != ["无"]:
                 if i.关联技能3 == ["所有"]:
                     for j in self.attr["技能栏"]:
@@ -524,6 +575,15 @@ class CharBase:
                 else:
                     for j in i.关联技能3:
                         self.attr["技能栏"][self.attr["技能序号"][j]].被动倍率 *= i.加成倍率3(self.attr["武器类型"])
+
+            if i.非关联技能3 != ['无']:
+                if i.非关联技能3 == ['所有']:
+                    for j in self.attr["技能栏"]:
+                        if j.是否有伤害 == 1:
+                            j.被动倍率 /= i.加成倍率3(self.attr["武器类型"])
+                else:
+                    for k in i.非关联技能3:
+                        self.attr["技能栏"][self.attr["技能序号"][k]].被动倍率 /= i.加成倍率3(self.attr["武器类型"])
 
     def 属性倍率计算(self):
         属性倍率组 = [
