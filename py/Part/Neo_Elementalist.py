@@ -152,6 +152,8 @@ class skill6(知源_元素师主动技能):
         return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率
 
     def 最后一次伤害估算(self, 剩余时间):
+        if self.等级 == 0:
+            return 0
         实际攻击次数 = int(剩余时间 / self.演出时间 * self.攻击次数)
         实际百分比 = ((self.数据[self.等级] * 实际攻击次数 * (1 + self.TP成长 * self.TP等级))) * self.倍率
         return round(实际百分比 / self.等效百分比(''), 2)
@@ -189,6 +191,8 @@ class skill7(知源_元素师主动技能):
             self.演出时间 *= 0.6
 
     def 最后一次伤害估算(self, 剩余时间):
+        if self.等级 == 0:
+            return 0
         实际攻击次数1 = int(剩余时间 / self.演出时间 * self.攻击次数1)
         实际攻击次数2 = 1
         实际百分比 = ((self.数据1[self.等级] * 实际攻击次数1 * (1 + self.TP成长 * self.TP等级)) + (self.数据2[self.等级] * 实际攻击次数2 * (1 + self.TP成长 * self.TP等级))) * self.倍率
@@ -261,6 +265,8 @@ class skill9(知源_元素师主动技能):
             self.攻击次数2 *= 1.32
 
     def 最后一次伤害估算(self, 剩余时间):
+        if self.等级 == 0:
+            return 0
         实际攻击次数1 = int(剩余时间 / self.演出时间 * self.攻击次数1)
         实际攻击次数2 = 1
         实际百分比 = ((self.数据1[self.等级] * 实际攻击次数1 * (1 + self.TP成长 * self.TP等级)) + (self.数据2[self.等级] * 实际攻击次数2 * (1 + self.TP成长 * self.TP等级))) * self.倍率
@@ -406,6 +412,8 @@ class skill15(知源_元素师主动技能):
         self.演出时间 *= 0.8
 
     def 最后一次伤害估算(self, 剩余时间):
+        if self.等级 == 0:
+            return 0
         实际攻击次数 = int((0 if (剩余时间 - 1) < 0 else (剩余时间 - 1)) / (self.演出时间 - 1) * self.攻击次数)
         实际百分比 = (self.数据[self.等级] * 实际攻击次数 * (1 + self.TP成长 * self.TP等级)) * self.倍率
         return round(实际百分比 / self.等效百分比(''), 2)
@@ -584,6 +592,11 @@ class character(py.lite.CharBase):
         self.attr["时装上衣技能"] = "属性精通"
 
         self.attr["三觉技能选择"] = "一觉序号"
+
+        self.attr["护石栏"] = ["天雷冲击", "湮灭黑洞", "无"]
+        self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
+        self.attr["符文栏"] = ["天雷冲击", "天雷冲击", "天雷冲击", "天雷冲击", "天雷冲击", "天雷冲击", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

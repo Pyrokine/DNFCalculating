@@ -560,7 +560,7 @@ for i in skill_list:
 
 option_rune = ['无']
 for i in skill_list:
-    if 20 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
+    if 15 <= i.所在等级 <= 80 and i.所在等级 != 50 and i.是否有伤害 == 1:
         option_rune.append(i.名称)
 
 
@@ -599,6 +599,11 @@ class character(py.lite.CharBase):
         self.attr["时装上衣技能"] = "幻鬼之力"
 
         self.attr["三觉技能选择"] = "二觉序号"
+
+        self.attr["护石栏"] = ["冥灵断魂斩", "魂破斩", "无"]
+        self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
+        self.attr["符文栏"] = ["共鸣：鬼灵斩", "共鸣：鬼灵斩", "共鸣：鬼灵斩", "共鸣：鬼灵斩", "共鸣：鬼灵斩", "共鸣：鬼灵斩", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

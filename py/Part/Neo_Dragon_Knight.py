@@ -723,6 +723,11 @@ class character(py.lite.CharBase):
 
         self.attr["三觉技能选择"] = "一觉序号"
 
+        self.attr["护石栏"] = ["魔龙之息", "龙刃无双", "无"]
+        self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
+        self.attr["符文栏"] = ["魔龙之息", "魔龙之息", "魔龙之息", "魔龙之息", "魔龙之息", "魔龙之息", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击-3%,CD-6%", "攻击+3%", "CD-4%", "攻击-3%,CD-6%", "攻击+3%", "CD-4%", "攻击-3%,CD-6%"]
+
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
 
@@ -753,3 +758,48 @@ class character(py.lite.CharBase):
                 技能栏[skill_sn['魔龙天翔(脱手)']].倍率 *= 1.45
                 技能栏[skill_sn['魔龙天翔(脱手)']].CD *= 0.75
                 技能栏[skill_sn['魔龙天翔(脱手)']].倍率 *= 1.45
+
+    def 护石符文计算(self):
+        for i in range(3):
+            if self.attr["护石栏"][i] != '无':
+                if self.attr["护石栏"][i] == '魔龙之息':
+                    if self.attr["护石类型"][i] == "魔界":
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(脱手)"]].装备护石(0)
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(骑乘)"]].装备护石(0)
+                    elif self.attr["护石类型"][i] == "圣痕":
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(脱手)"]].装备护石(1)
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(骑乘)"]].装备护石(1)
+                elif self.attr["护石栏"][i] == '魔龙天翔':
+                    if self.attr["护石类型"][i] == "魔界":
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(脱手)"]].装备护石(0)
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(骑乘)"]].装备护石(0)
+                    elif self.attr["护石类型"][i] == "圣痕":
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(脱手)"]].装备护石(1)
+                        self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(骑乘)"]].装备护石(1)
+                else:
+                    self.attr["技能栏"][self.attr["技能序号"][self.attr["护石栏"][i]]].装备护石(0 if self.attr["护石类型"][i] == "魔界" else 1)
+
+        for i in range(9):
+            if self.attr["护石栏"][i // 3] != '无' and self.attr["符文栏"][i] != '无' and self.attr["符文效果"][i] != '无':
+                if self.attr["符文栏"][i] == '魔龙之息':
+                    for j in self.attr["符文效果"][i].split(","):
+                        if "攻击" in j:
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(脱手)"]].倍率 *= 1 + int(j.replace("攻击", "").replace("%", "")) / 100
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(骑乘)"]].倍率 *= 1 + int(j.replace("攻击", "").replace("%", "")) / 100
+                        elif "CD" in j:
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(脱手)"]].CD *= 1 + int(j.replace("CD", "").replace("%", "")) / 100
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙之息(骑乘)"]].CD *= 1 + int(j.replace("CD", "").replace("%", "")) / 100
+                elif self.attr["符文栏"][i] == '魔龙天翔':
+                    for j in self.attr["符文效果"][i].split(","):
+                        if "攻击" in j:
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(脱手)"]].倍率 *= 1 + int(j.replace("攻击", "").replace("%", "")) / 100
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(骑乘)"]].倍率 *= 1 + int(j.replace("攻击", "").replace("%", "")) / 100
+                        elif "CD" in j:
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(脱手)"]].CD *= 1 + int(j.replace("CD", "").replace("%", "")) / 100
+                            self.attr["技能栏"][self.attr["技能序号"]["魔龙天翔(骑乘)"]].CD *= 1 + int(j.replace("CD", "").replace("%", "")) / 100
+                else:
+                    for j in self.attr["符文效果"][i].split(","):
+                        if "攻击" in j:
+                            self.attr["技能栏"][self.attr["技能序号"][self.attr["符文栏"][i]]].倍率 *= 1 + int(j.replace("攻击", "").replace("%", "")) / 100
+                        elif "CD" in j:
+                            self.attr["技能栏"][self.attr["技能序号"][self.attr["符文栏"][i]]].CD *= 1 + int(j.replace("CD", "").replace("%", "")) / 100

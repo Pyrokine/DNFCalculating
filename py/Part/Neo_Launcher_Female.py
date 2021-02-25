@@ -27,7 +27,7 @@ class skill0(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * (self.攻击次数 + (1 if self.TP等级 >= 5 else 0)) * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(181 / 207, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * (self.攻击次数 + (1 if self.TP等级 >= 5 else 0)) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill1(被动技能):
@@ -71,7 +71,7 @@ class skill2(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * 2 * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(940 / 1048, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * 2 * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill3(主动技能):
@@ -81,11 +81,11 @@ class skill3(主动技能):
     学习间隔 = 2
     等级精通 = 50
     基础等级 = min(int((等级 - 所在等级) / 学习间隔 + 1), 等级精通) + 1
-    数据1 = [(i * 1.0) for i in
+    数据1 = [(i * 1.05) for i in
            [0, 137, 150, 164, 179, 192, 206, 219, 233, 248, 261, 275, 289, 303, 317, 331, 344, 358, 373, 386, 400, 414, 428, 442, 456, 469, 484, 498, 511, 525, 539, 553, 567, 581, 594, 609, 623, 636,
             650,
             664, 678, 692, 706, 719, 734, 748, 761, 775, 789, 803, 817, 831, 844, 859, 873, 886, 900, 915, 928, 942, 956, 969, 984, 998, 1011, 1025, 1040, 1053, 1067, 1080, 1094]]
-    数据2 = [(i * 1.0) for i in
+    数据2 = [(i * 1.05) for i in
            [0, 714, 786, 859, 932, 1005, 1077, 1150, 1222, 1295, 1367, 1440, 1512, 1584, 1657, 1729, 1802, 1874, 1947, 2020, 2093, 2165, 2238, 2310, 2382, 2455, 2527, 2600, 2672, 2745, 2817, 2890,
             2962,
             3035, 3108, 3180, 3253, 3325, 3398, 3470, 3543, 3615, 3688, 3760, 3833, 3905, 3977, 4050, 4123, 4196, 4268, 4341, 4413, 4486, 4558, 4631, 4703, 4775, 4848, 4920, 4993, 5065, 5138, 5211,
@@ -95,7 +95,7 @@ class skill3(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return (self.数据1[self.等级] + self.数据2[self.等级] * 3) * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(750 / 714, 1)  # max(韩服 / 国服, 1)
+        return (self.数据1[self.等级] + self.数据2[self.等级] * 3) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill4(被动技能):
@@ -132,8 +132,7 @@ class skill5(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(2405 / 2541, 1)  # max(韩服 / 国服, 1)
-
+        return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 class skill6(被动技能):
     名称 = '蓄电激光炮'
@@ -167,7 +166,7 @@ class skill7(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(200 / 199, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill8(主动技能):
@@ -188,7 +187,7 @@ class skill8(主动技能):
     TP上限 = 1
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(818 / 819, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率
 
     是否有护石 = 1
     护石选项 = ['魔界', '圣痕']
@@ -250,7 +249,7 @@ class skill9(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(4839 / 5179, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill10(主动技能):
@@ -285,7 +284,7 @@ class skill10(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2 + self.数据3[self.等级] * self.攻击次数3) * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(7636 / 7739, 1)  # max(韩服 / 国服, 1)
+        return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2 + self.数据3[self.等级] * self.攻击次数3) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
     是否有护石 = 1
     护石选项 = ['魔界', '圣痕']
@@ -348,7 +347,7 @@ class skill11(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(17174 / 17355, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
     是否有护石 = 1
     护石选项 = ['魔界', '圣痕']
@@ -420,7 +419,7 @@ class skill13(主动技能):
     CD = 159.5
 
     def 等效百分比(self, 武器类型):
-        return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(19069 / 19054, 1)  # max(韩服 / 国服, 1)
+        return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * (1 + self.TP成长 * self.TP等级) * self.倍率
 
 
 class skill14(主动技能):
@@ -440,7 +439,7 @@ class skill14(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(427 / 411, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * self.攻击次数 * (1 + self.TP成长 * self.TP等级) * self.倍率
 
     是否有护石 = 1
     护石选项 = ['魔界', '圣痕']
@@ -483,7 +482,7 @@ class skill15(主动技能):
     学习间隔 = 2
     等级精通 = 30
     基础等级 = min(int((等级 - 所在等级) / 学习间隔 + 1), 等级精通) + 1
-    数据 = [(i * 1.0) for i in
+    数据 = [(i * 1.05) for i in
           [0, 29856, 32880, 35920, 38944, 41968, 45016, 48032, 51056, 54104, 57120, 60144, 63192, 66208, 69256, 72280, 75296, 78344, 81368, 84384, 87432, 90456, 93496, 96520, 99544, 102584, 105608,
            108632, 111672,
            114696, 117720, 120760, 123784, 126832, 129848, 132872, 135920, 138936, 141960, 145008, 148024, 151072, 154096, 157112, 160160, 163184, 166200, 169248, 172272, 175288, 178336, 181360,
@@ -494,7 +493,7 @@ class skill15(主动技能):
     TP上限 = 5
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率 * max(3411 / 3249, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * (1 + self.TP成长 * self.TP等级) * self.倍率
 
     是否有护石 = 1
     护石选项 = ['魔界', '圣痕']
@@ -569,15 +568,17 @@ class skill17(主动技能):
     CD = 40.0
 
     def 等效百分比(self, 武器类型):
-        return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * self.倍率 * max(3817 / 3839, 1)  # max(韩服 / 国服, 1)
+        return (self.数据1[self.等级] * self.攻击次数1 + self.数据2[self.等级] * self.攻击次数2) * self.倍率
 
     是否有护石 = 1
     护石选项 = ['圣痕']
 
     def 装备护石(self, x):
         if x == 0:
-            self.倍率 *= 1.28
-            self.CD *= 0.9
+            self.倍率 *= 0.64
+            self.CD *= 0.45
+            self.基础释放次数 = 1.0
+            # self.恢复 = 1.0
 
 
 class skill18(主动技能):
@@ -597,7 +598,7 @@ class skill18(主动技能):
     CD = 45.0
 
     def 等效百分比(self, 武器类型):
-        return self.数据[self.等级] * self.倍率 * max(70640 / 70896, 1)  # max(韩服 / 国服, 1)
+        return self.数据[self.等级] * self.倍率
 
     是否有护石 = 1
     护石选项 = ['圣痕']
@@ -667,11 +668,11 @@ class skill19(主动技能):
         sum = 0
         for i in range(7):
             sum += self.数据[i][self.等级] * self.次数[i]
-        return sum * self.倍率 * max(56958 / 56958, 1)  # max(韩服 / 国服, 1)
+        return sum * self.倍率
 
 
 class skill20(被动技能):
-    名称 = '机动装甲'
+    名称 = 'Pandora_01'
     所在等级 = 95
     等级上限 = 40
     学习间隔 = 3
@@ -686,7 +687,7 @@ class skill20(被动技能):
 
 
 class skill21(主动技能):
-    名称 = 'UHT-03冥河烈焰'
+    名称 = 'UHT-03爆炎喷火器'
     所在等级 = 95
     等级上限 = 40
     学习间隔 = 2
@@ -708,7 +709,7 @@ class skill21(主动技能):
 
 
 class skill22(主动技能):
-    名称 = '最终决战模式'
+    名称 = '制胜·最终兵器'
     所在等级 = 100
     等级上限 = 40
     学习间隔 = 5
@@ -801,6 +802,11 @@ class character(py.lite.CharBase):
         self.attr["时装上衣技能"] = "重火器精通"
 
         self.attr["三觉技能选择"] = "二觉序号"
+
+        self.attr["护石栏"] = ["量子爆弹", "FM92mk2SW榴弹", "无"]
+        self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
+        self.attr["符文栏"] = ["量子爆弹", "量子爆弹", "量子爆弹", "量子爆弹", "量子爆弹", "量子爆弹", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

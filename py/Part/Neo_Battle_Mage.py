@@ -688,6 +688,11 @@ class character(py.lite.CharBase):
 
         self.attr["三觉技能选择"] = "二觉序号"
 
+        self.attr["护石栏"] = ["闪击碎霸", "炫纹强压", "无"]
+        self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
+        self.attr["符文栏"] = ["碎霸", "碎霸", "碎霸", "碎霸", "碎霸", "碎霸", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
 
@@ -735,7 +740,7 @@ class character(py.lite.CharBase):
             else:
                 技能释放次数.append(0)
 
-        if '闪击碎霸' in [self.attr["护石第一栏"], self.attr["护石第二栏"], self.attr["护石第三栏"]]:
+        if '闪击碎霸' in self.attr["护石栏"]:
             技能释放次数[skill_sn['碎霸']] += 技能释放次数[skill_sn['闪击碎霸']]
 
         return 技能释放次数

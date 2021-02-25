@@ -454,6 +454,19 @@ class CharBase:
             套装列表[套装序号[i]].城镇属性(self)
             套装列表[套装序号[i]].进图属性(self)
 
+    def 护石符文计算(self):
+        for i in range(3):
+            if self.attr["护石栏"][i] != '无':
+                self.attr["技能栏"][self.attr["技能序号"][self.attr["护石栏"][i]]].装备护石(0 if self.attr["护石类型"][i] == "魔界" else 1)
+
+        for i in range(9):
+            if self.attr["护石栏"][i // 3] != '无' and self.attr["符文栏"][i] != '无' and self.attr["符文效果"][i] != '无':
+                for j in self.attr["符文效果"][i].split(","):
+                    if "攻击" in j:
+                        self.attr["技能栏"][self.attr["技能序号"][self.attr["符文栏"][i]]].倍率 *= 1 + int(j.replace("攻击", "").replace("%", "")) / 100
+                    elif "CD" in j:
+                        self.attr["技能栏"][self.attr["技能序号"][self.attr["符文栏"][i]]].CD *= 1 + int(j.replace("CD", "").replace("%", "")) / 100
+
     def 进图属性强化(self):
         进图属强提升 = self.attr["进图属强"]
         self.attr["火属性强化"] += 进图属强提升
@@ -640,6 +653,7 @@ class CharBase:
         self.装备词条计算()
 
     def 预处理(self):
+        self.护石符文计算()
         self.装备属性计算()
         self.进图属性强化()
         self.CD倍率计算()

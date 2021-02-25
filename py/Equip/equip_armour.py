@@ -1585,10 +1585,10 @@ class 装备155(装备):
 
     def 城镇属性(self, character):
         character.attr["附加伤害"] += 0.17
-        if character.attr["护石第一栏"] != '无':
-            character.skill_change_attr(character.attr["护石第一栏"], 1.55, 0.7)
-        if character.attr["护石第二栏"] != '无':
-            character.skill_change_attr(character.attr["护石第二栏"], 1.45, 0.75)
+        if character.attr["护石栏"][0] != '无':
+            character.skill_change_attr(character.attr["护石栏"][0], 1.55, 0.7)
+        if character.attr["护石栏"][1] != '无':
+            character.skill_change_attr(character.attr["护石栏"][1], 1.45, 0.75)
 
     def 其它属性(self, character):
         character.attr["移动速度"] += 0.04

@@ -472,6 +472,11 @@ class character(py.lite.CharBase):
 
         self.attr["三觉技能选择"] = "一觉序号"
 
+        self.attr["护石栏"] = ["狮子吼", "螺旋念气场", "无"]
+        self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
+        self.attr["符文栏"] = ["狮子吼", "狮子吼", "狮子吼", "狮子吼", "狮子吼", "狮子吼", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
 
@@ -481,6 +486,9 @@ class character(py.lite.CharBase):
 
         技能栏[skill_sn['念兽雷龙出海']].攻击次数 = (1 - self.attr["雷龙开关"])
         技能栏[skill_sn['念兽雷龙出海']].攻击次数2 = self.attr["雷龙开关"]
+
+        if self.is_equip_exist('拥抱晨曦之温暖') or self.is_equip_exist('融化黑暗之温暖'):
+            self.attr["技能栏"][skill_sn['幻影爆碎']].恢复 -= 0.3
 
         super().被动倍率计算()
 
