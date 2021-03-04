@@ -45,10 +45,10 @@ dictionary = {
     "隐夜_死灵术士": "Neo_Necromancer",
     "隐夜_忍者": "Neo_Kunoichi",
     "隐夜_影舞者": "Neo_Shadow_Dancer",
-    "大地女神": "Neo_Elven_Knight",
-    "黑曜神": "Neo_Chaos",
-    "破晓女神": "Neo_Lightbringer",
-    "龙神": "Neo_Dragon_Knight",
+    "皓曦_精灵骑士": "Neo_Elven_Knight",
+    "皓曦_混沌魔灵": "Neo_Chaos",
+    "皓曦_帕拉丁": "Neo_Lightbringer",
+    "皓曦_龙骑士": "Neo_Dragon_Knight",
     "不灭战神": "Warlord",
     "圣武枪魂": "Durandal",
     "屠戮之魂": "Deimos",
@@ -73,5 +73,6 @@ dictionary = {
     "符文": "rune",
     "勋章": "insignia",
     "守护珠": "gem",
+    "辟邪玉": "",
 
 }

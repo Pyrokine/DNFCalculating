@@ -452,7 +452,7 @@ class skill16(主动技能):
 
     def 装备护石(self, x):
         if x == 0:
-            self.攻击次数2 *= (1.2 + 0.2)
+            self.攻击次数2 *= (1.2 + 0.20)
             self.CD *= 0.9
 
 

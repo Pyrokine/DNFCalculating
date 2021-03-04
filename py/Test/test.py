@@ -161,11 +161,11 @@ damage_basic = {
     "极诣_流浪武士": 8004,
     "归元_气功师_男": 9100,
     "归元_散打_男": 7377,
-    "归元_街霸_男": 7924,
+    "归元_街霸_男": 7911,
     "归元_柔道家_男": 7616,
     "归元_气功师_女": 8093,
     "归元_散打_女": 8964,
-    "归元_街霸_女": 7584,
+    "归元_街霸_女": 7514,
     "归元_柔道家_女": 7079,
     "重霄_漫游枪手_男": 7837,
     "重霄_枪炮师_男": 7776,
@@ -175,7 +175,7 @@ damage_basic = {
     "重霄_枪炮师_女": 8086,
     "重霄_机械师_女": 7606,
     "重霄_弹药专家_女": 8444,
-    "知源_元素爆破师": 8685,
+    "知源_元素爆破师": 8800,
     "知源_冰结师": 8224,
     "知源_血法师": 7867,
     "知源_逐风者": 7119,
@@ -195,10 +195,10 @@ damage_basic = {
     "隐夜_死灵术士": 8195,
     "隐夜_忍者": 8323,
     "隐夜_影舞者": 8349,
-    "大地女神": 8552,
-    "黑曜神": 8685,
-    "破晓女神": 6905,
-    "龙神": 8580,
+    "皓曦_精灵骑士": 8552,
+    "皓曦_混沌魔灵": 8681,
+    "皓曦_帕拉丁": 7073,
+    "皓曦_龙骑士": 8580,
     "不灭战神": 7095,
     "圣武枪魂": 6585,
     "屠戮之魂": 6483,
@@ -212,7 +212,7 @@ damage_basic = {
 }
 
 char_list = [i for i in damage_basic]
-# char_list = ["极诣_剑魂"]
+# char_list = ["归元_街霸_女"]
 
 test_list = [
     ["*** 防具五件套 ***", 15, "array1_1", "array1_2", "array1_3"],
@@ -231,10 +231,10 @@ def calc_more_attr(temp_char):
         str(int(temp_char.站街物理攻击力())),
         str(int(temp_char.站街魔法攻击力())),
         str(int(temp_char.站街独立攻击力())),
-        str(temp_char.attr["火属性强化"]),
-        str(temp_char.attr["冰属性强化"]),
-        str(temp_char.attr["光属性强化"]),
-        str(temp_char.attr["暗属性强化"]),
+        str(int(temp_char.attr["火属性强化"])),
+        str(int(temp_char.attr["冰属性强化"])),
+        str(int(temp_char.attr["光属性强化"])),
+        str(int(temp_char.attr["暗属性强化"])),
         str(int(temp_char.attr["伤害增加"] * 100)) + "%",
         str(int(temp_char.attr["暴击伤害"] * 100)) + "%",
         str(int(temp_char.attr["最终伤害"] * 100)) + "%",
@@ -266,7 +266,7 @@ for char_name in char_list:
     sum_damage = int(temp.计算伤害() / 100000000)
 
     result = calc_more_attr(temp)
-    # print(result)
+    print(result)
     print(sum_damage, damage_basic[char_name])
     if sum_damage == damage_basic[char_name]:
         print("伤害基准测试通过")

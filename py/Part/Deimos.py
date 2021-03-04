@@ -340,12 +340,12 @@ class skill15(职业主动技能):
         if x == 0:
             # self.倍率 *= 1.23
             self.攻击次数 += 25
-            self.data0 = [(i * 0.7) for i in self.data0]
+            self.data0 = [(i * 0.70) for i in self.data0]
             self.CD *= 0.9
         elif x == 1:
             # self.倍率 *= 1.23 + 0.08
             self.攻击次数 += 25
-            self.data0 = [(i * 0.7) for i in self.data0]
+            self.data0 = [(i * 0.70) for i in self.data0]
             self.data1 = [(i * 1.13) for i in self.data1]
             self.CD *= 0.9
 

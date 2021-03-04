@@ -5,9 +5,10 @@ import py.base_char
 import py.Test.json_formatter
 
 char_list = [
-    '极诣_剑魂', '极诣_鬼泣', '极诣_狂战士', '极诣_阿修罗', '极诣_剑影', '极诣_驭剑士', '极诣_暗殿骑士', '极诣_契魔者', '极诣_流浪武士', '归元_气功师_男', '归元_散打_男', '归元_街霸_男', '归元_柔道家_男', '归元_气功师_女', '归元_散打_女', '归元_街霸_女', '归元_柔道家_女', '重霄_漫游枪手_男',
-    '重霄_枪炮师_男', '重霄_机械师_男', '重霄_弹药专家_男', '绯红玫瑰', '风暴骑兵', '机械之灵', '芙蕾雅', '知源_元素爆破师', '知源_冰结师', '知源_血法师', '知源_逐风者', '知源_次元行者', '知源_元素师', '知源_召唤师', '知源_战斗法师', '知源_魔道学者', '神启_圣骑士_男_战斗', '神启_蓝拳圣使',
-    '神启_驱魔师', '神启_复仇者', '神启_异端审判者', '神启_巫女', '神启_诱魔者', '真_刺客', '真_死灵术士', '真_忍者', '真_影舞者', '大地女神', '黑曜神', '破晓女神', '龙神', '不灭战神', '圣武枪魂', '屠戮之魂', '幽影夜神', '铁血统帅', '弑心镇魂者', '巅峰狂徒', '未来开拓者', '缔造者', '黑暗武士'
+    '极诣_剑魂', '极诣_鬼泣', '极诣_狂战士', '极诣_阿修罗', '极诣_剑影', '极诣_驭剑士', '极诣_暗殿骑士', '极诣_契魔者', '极诣_流浪武士', '归元_气功师_男', '归元_散打_男', '归元_街霸_男', '归元_柔道家_男', '归元_气功师_女', '归元_散打_女', '归元_街霸_女', '归元_柔道家_女',
+    '重霄_漫游枪手_男', '重霄_枪炮师_男', '重霄_机械师_男', '重霄_弹药专家_男', '重霄_漫游枪手_女', '重霄_枪炮师_女', '重霄_机械师_女', '重霄_弹药专家_女', '知源_元素爆破师', '知源_冰结师', '知源_血法师', '知源_逐风者', '知源_次元行者', '知源_元素师', '知源_召唤师', '知源_战斗法师', '知源_魔道学者',
+    '神启_圣骑士_男_战斗', '神启_蓝拳圣使', '神启_驱魔师', '神启_复仇者', '神启_异端审判者', '神启_巫女', '神启_诱魔者', '隐夜_刺客', '隐夜_死灵术士', '隐夜_忍者', '隐夜_影舞者', '大地女神', '黑曜神', '破晓女神', '龙神', '不灭战神', '圣武枪魂', '屠戮之魂', '幽影夜神',
+    '铁血统帅', '弑心镇魂者', '巅峰狂徒', '未来开拓者', '缔造者', '黑暗武士'
 ]
 
 equip_list = [
@@ -48,15 +49,16 @@ equip_list = [
     '心痛如绞的诀别', '崩溃世界的忧伤', '蓬勃生命的落幕', '悲剧人生的归寂'
 ]
 
-character = py.lite.CharBase()
 
 equip_dict = {}
 for i in equip_list:
     equip_dict[i] = 0
 
 for char_name in char_list:
-    importlib.import_module("py.Part." + char_name)
-    exec('character = py.Part.{0}.character()'.format(char_name))
+    print(char_name)
+    char_name_en = py.base_char.map_EN_ZH[char_name]
+    importlib.import_module("py.Part." + char_name_en)
+    character = eval("py.Part.{0}.character()".format(char_name_en))
     character.初始化()
     character.角色基础数据生成()
 
@@ -74,16 +76,17 @@ for char_name in char_list:
     data["attr"]["细节1"] = py.base_char.细节1
     data["attr"]["细节2"] = py.base_char.细节2
     data["attr"]["细节3"] = py.base_char.细节3
+    data["attr"]["细节4"] = py.base_char.细节4
 
     data["equip"] = equip_dict
 
-    with open("data_test/{0}.json".format(char_name), "w", encoding="utf-8") as f:
+    with open("../user_data_default/{0}.json".format(char_name_en), "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
 
-    with open("data_test/{0}.json".format(char_name), "r", encoding="utf-8") as f:
+    with open("../user_data_default/{0}.json".format(char_name_en), "r", encoding="utf-8") as f:
         content = f.read()
 
     content = py.Test.json_formatter.handle(content)
 
-    with open("data_test/{0}.json".format(char_name), "w", encoding="utf-8") as f:
+    with open("../user_data_default/{0}.json".format(char_name_en), "w", encoding="utf-8") as f:
         f.write(content)

@@ -9,8 +9,8 @@ class 套装效果0(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.14
-        character.attr["技能攻击力"] *= 1.14
+        character.最终伤害加成(0.14)
+        character.技能攻击力加成(0.14)
 
 
 class 套装效果1(套装):
@@ -19,15 +19,12 @@ class 套装效果1(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
-        character.attr["火属性强化"] += 55
-        character.attr["冰属性强化"] += 55
-        character.attr["光属性强化"] += 55
-        character.attr["暗属性强化"] += 55
+        character.百分比力智加成(0.16)
+        character.所有属性强化加成(55)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.10
-        character.attr["释放速度"] += 0.15
+        character.攻击速度增加(0.10)
+        character.释放速度增加(0.15)
 
 
 class 套装效果2(套装):
@@ -36,8 +33,8 @@ class 套装效果2(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.22
-        character.attr["技能攻击力"] *= 1.06
+        character.百分比三攻加成(0.22)
+        character.技能攻击力加成(0.06)
 
 
 class 套装效果3(套装):
@@ -46,9 +43,9 @@ class 套装效果3(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.16
-        character.attr["最终伤害"] += 0.06
-        character.attr["技能攻击力"] *= 1.06
+        character.百分比三攻加成(0.16)
+        character.最终伤害加成(0.06)
+        character.技能攻击力加成(0.06)
 
 
 class 套装效果4(套装):
@@ -57,7 +54,7 @@ class 套装效果4(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.31
+        character.百分比力智加成(0.31)
 
 
 class 套装效果5(套装):
@@ -66,8 +63,8 @@ class 套装效果5(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.17
-        character.attr["最终伤害"] += 0.10
+        character.暴击伤害加成(0.17)
+        character.最终伤害加成(0.10)
 
 
 class 套装效果6(套装):
@@ -76,14 +73,11 @@ class 套装效果6(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.16
-        character.attr["火属性强化"] += 52
-        character.attr["冰属性强化"] += 52
-        character.attr["光属性强化"] += 52
-        character.attr["暗属性强化"] += 52
+        character.伤害增加加成(0.16)
+        character.所有属性强化加成(52)
 
     def 其它属性(self, character):
-        character.attr["命中率"] += 0.05
+        character.命中率增加(0.05)
 
 
 class 套装效果7(套装):
@@ -92,11 +86,8 @@ class 套装效果7(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.18
-        character.attr["火属性强化"] += 40
-        character.attr["冰属性强化"] += 40
-        character.attr["光属性强化"] += 40
-        character.attr["暗属性强化"] += 40
+        character.暴击伤害加成(0.18)
+        character.所有属性强化加成(40)
 
 
 class 套装效果8(套装):
@@ -105,8 +96,8 @@ class 套装效果8(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.14
-        character.attr["最终伤害"] += 0.14
+        character.百分比力智加成(0.14)
+        character.最终伤害加成(0.14)
 
 
 class 套装效果9(套装):
@@ -115,8 +106,8 @@ class 套装效果9(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.15
-        character.attr["附加伤害"] += 0.13
+        character.伤害增加加成(0.15)
+        character.附加伤害加成(0.13)
 
 
 class 套装效果10(套装):
@@ -125,11 +116,11 @@ class 套装效果10(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.08
-        character.attr["伤害增加"] += 0.21
+        character.百分比力智加成(0.08)
+        character.伤害增加加成(0.21)
 
     def 其它属性(self, character):
-        character.attr["回避率"] += 0.06
+        character.回避率增加(0.06)
 
 
 class 套装效果11(套装):
@@ -138,11 +129,11 @@ class 套装效果11(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.23
+        character.百分比力智加成(0.23)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.1
-        character.attr["魔法暴击率"] += 0.1
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
 
 class 套装效果12(套装):
@@ -151,8 +142,8 @@ class 套装效果12(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.15
-        character.attr["暴击伤害"] += 0.15
+        character.伤害增加加成(0.15)
+        character.暴击伤害加成(0.15)
 
 
 class 套装效果13(套装):
@@ -161,12 +152,12 @@ class 套装效果13(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.12
-        character.attr["暴击伤害"] += 0.11
+        character.伤害增加加成(0.12)
+        character.暴击伤害加成(0.11)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.10
-        character.attr["魔法暴击率"] += 0.10
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
 
 class 套装效果14(套装):
@@ -175,8 +166,8 @@ class 套装效果14(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
-        character.attr["暴击伤害"] += 0.15
+        character.百分比力智加成(0.16)
+        character.暴击伤害加成(0.15)
 
 
 class 套装效果15(套装):
@@ -185,8 +176,8 @@ class 套装效果15(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.22
-        character.attr["暴击伤害"] += 0.10
+        character.伤害增加加成(0.22)
+        character.暴击伤害加成(0.10)
 
 
 class 套装效果16(套装):
@@ -195,8 +186,8 @@ class 套装效果16(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.14
-        character.attr["技能攻击力"] *= 1.16
+        character.最终伤害加成(0.14)
+        character.技能攻击力加成(0.16)
 
 
 class 套装效果17(套装):
@@ -205,11 +196,8 @@ class 套装效果17(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.15
-        character.attr["火属性强化"] += 60
-        character.attr["冰属性强化"] += 60
-        character.attr["光属性强化"] += 60
-        character.attr["暗属性强化"] += 60
+        character.技能攻击力加成(0.15)
+        character.所有属性强化加成(60)
 
 
 class 套装效果18(套装):
@@ -218,10 +206,7 @@ class 套装效果18(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["火属性强化"] += 66
-        character.attr["冰属性强化"] += 66
-        character.attr["光属性强化"] += 66
-        character.attr["暗属性强化"] += 66
+        character.所有属性强化加成(66)
 
         character.skill_level_up_batched('所有', 1, 85, 1)
         character.skill_level_up_batched('所有', 100, 100, 1)
@@ -233,7 +218,7 @@ class 套装效果19(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.32
+        character.最终伤害加成(0.32)
 
 
 class 套装效果20(套装):
@@ -242,13 +227,13 @@ class 套装效果20(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.11
-        character.attr["技能攻击力"] *= 1.15
+        character.百分比三攻加成(0.11)
+        character.技能攻击力加成(0.15)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.10
-        character.attr["移动速度"] += 0.10
-        character.attr["释放速度"] += 0.15
+        character.攻击速度增加(0.10)
+        character.移动速度增加(0.10)
+        character.释放速度增加(0.15)
 
 
 class 套装效果21(套装):
@@ -257,16 +242,13 @@ class 套装效果21(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.15
-        character.attr["火属性强化"] += 62
-        character.attr["冰属性强化"] += 62
-        character.attr["光属性强化"] += 62
-        character.attr["暗属性强化"] += 62
+        character.百分比力智加成(0.15)
+        character.所有属性强化加成(62)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.05
-        character.attr["移动速度"] += 0.05
-        character.attr["释放速度"] += 0.08
+        character.攻击速度增加(0.05)
+        character.移动速度增加(0.05)
+        character.释放速度增加(0.08)
 
 
 class 套装效果22(套装):
@@ -275,12 +257,12 @@ class 套装效果22(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.10
-        character.attr["技能攻击力"] *= 1.20
+        character.附加伤害加成(0.10)
+        character.技能攻击力加成(0.20)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 套装效果23(套装):
@@ -289,7 +271,7 @@ class 套装效果23(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.21
+        character.百分比三攻加成(0.21)
         if character.is_equip_exist('天堂之翼'):
             character.skill_change_cooldown(1, 45, 0.30)
             character.skill_change_cooldown(60, 80, 0.30)
@@ -304,13 +286,13 @@ class 套装效果24(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.12
-        character.attr["暴击伤害"] += 0.17
+        character.百分比力智加成(0.12)
+        character.暴击伤害加成(0.17)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.21
-        character.attr["移动速度"] += 0.21
-        character.attr["释放速度"] += 0.315
+        character.攻击速度增加(0.21)
+        character.移动速度增加(0.21)
+        character.释放速度增加(0.315)
 
 
 class 套装效果25(套装):
@@ -319,8 +301,8 @@ class 套装效果25(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.08
-        character.attr["附加伤害"] += 0.21
+        character.技能攻击力加成(0.08)
+        character.附加伤害加成(0.21)
 
 
 class 套装效果26(套装):
@@ -329,11 +311,8 @@ class 套装效果26(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.24
-        character.attr["火属性强化"] += 24
-        character.attr["冰属性强化"] += 24
-        character.attr["光属性强化"] += 24
-        character.attr["暗属性强化"] += 24
+        character.暴击伤害加成(0.24)
+        character.所有属性强化加成(24)
 
 
 class 套装效果27(套装):
@@ -342,7 +321,7 @@ class 套装效果27(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.32
+        character.百分比三攻加成(0.32)
 
 
 class 套装效果28(套装):
@@ -351,7 +330,7 @@ class 套装效果28(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.25
+        character.附加伤害加成(0.25)
         character.skill_change_cooldown(1, 45, 0.15)
         character.skill_change_cooldown(60, 80, 0.15)
         character.skill_change_cooldown(90, 95, 0.15)
@@ -363,13 +342,13 @@ class 套装效果29(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.15
-        character.attr["技能攻击力"] *= 1.13
+        character.伤害增加加成(0.15)
+        character.技能攻击力加成(0.13)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.05
-        character.attr["移动速度"] += 0.05
-        character.attr["释放速度"] += 0.1
+        character.攻击速度增加(0.05)
+        character.移动速度增加(0.05)
+        character.释放速度增加(0.10)
 
 
 class 套装效果30(套装):
@@ -378,13 +357,13 @@ class 套装效果30(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.19
+        character.百分比力智加成(0.19)
         character.skill_level_up_batched('所有', 1, 85, 2)
         character.skill_level_up_batched('所有', 100, 100, 2)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 套装效果31(套装):
@@ -393,7 +372,7 @@ class 套装效果31(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.458
+        character.技能攻击力加成(0.458)
 
 
 class 套装效果32(套装):
@@ -402,8 +381,8 @@ class 套装效果32(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.44
-        character.attr["技能攻击力"] *= 1.04
+        character.技能攻击力加成(0.44)
+        character.技能攻击力加成(0.04)
 
 
 class 套装效果33(套装):
@@ -412,7 +391,7 @@ class 套装效果33(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.46
+        character.技能攻击力加成(0.46)
 
 
 class 套装效果34(套装):
@@ -421,12 +400,12 @@ class 套装效果34(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.22
-        character.attr["百分比三攻"] += 0.23
+        character.技能攻击力加成(0.22)
+        character.百分比三攻加成(0.23)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.15
-        character.attr["释放速度"] += 0.225
+        character.攻击速度增加(0.15)
+        character.释放速度增加(0.225)
 
 
 class 套装效果35(套装):
@@ -435,12 +414,11 @@ class 套装效果35(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        # character.attr["百分比三攻"] += 0.12
-        character.attr["技能攻击力"] *= 1.40
+        character.技能攻击力加成(0.40)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.10
-        character.attr["魔法暴击率"] += 0.10
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
 
 class 套装效果36(套装):
@@ -449,7 +427,7 @@ class 套装效果36(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["属性附加"] += 0.20
+        character.属性附加加成(0.20)
 
 
 class 套装效果37(套装):
@@ -458,14 +436,14 @@ class 套装效果37(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.26
+        character.最终伤害加成(0.26)
         character.skill_change_cooldown(1, 100, 0.15)
-        character.attr["技能攻击力"] *= 1.08
+        character.技能攻击力加成(0.08)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.05
-        character.attr["攻击速度"] += 0.05
-        character.attr["移动速度"] += 0.05
+        character.攻击速度增加(0.05)
+        character.攻击速度增加(0.05)
+        character.移动速度增加(0.05)
 
 
 class 套装效果38(套装):
@@ -474,16 +452,16 @@ class 套装效果38(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.17
-        character.attr["技能攻击力"] *= 1.20
+        character.附加伤害加成(0.17)
+        character.技能攻击力加成(0.20)
         character.skill_change_cooldown(50, 50, 0.30)
         character.skill_change_cooldown(85, 85, 0.30)
         character.skill_change_cooldown(100, 100, 0.17)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.15
-        character.attr["移动速度"] += 0.15
-        character.attr["释放速度"] += 0.20
+        character.攻击速度增加(0.15)
+        character.移动速度增加(0.15)
+        character.释放速度增加(0.20)
 
 
 class 套装效果39(套装):
@@ -492,8 +470,8 @@ class 套装效果39(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.12
-        character.attr["技能攻击力"] *= 1.27
+        character.暴击伤害加成(0.12)
+        character.技能攻击力加成(0.27)
 
 
 class 套装效果40(套装):
@@ -502,8 +480,7 @@ class 套装效果40(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        # character.attr["暴击伤害"] += 0.21
-        character.attr["技能攻击力"] *= 1.45
+        character.技能攻击力加成(0.45)
 
 
 class 套装效果41(套装):
@@ -512,16 +489,13 @@ class 套装效果41(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.12
-        if character.is_equip_exist('战无不胜上衣'):
-            character.attr["附加伤害"] += 0.29
-        else:
-            character.attr["附加伤害"] += 0.28
+        character.技能攻击力加成(0.12)
+        character.附加伤害加成(0.29)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.15
-        character.attr["移动速度"] += 0.15
-        character.attr["释放速度"] += 0.225
+        character.攻击速度增加(0.15)
+        character.移动速度增加(0.15)
+        character.释放速度增加(0.225)
 
 
 class 套装效果42(套装):
@@ -530,13 +504,13 @@ class 套装效果42(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["属性附加"] += 0.12
-        character.attr["技能攻击力"] *= 1.1
+        character.属性附加加成(0.12)
+        character.技能攻击力加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.2
-        character.attr["移动速度"] += 0.2
-        character.attr["释放速度"] += 0.3
+        character.攻击速度增加(0.20)
+        character.移动速度增加(0.20)
+        character.释放速度增加(0.30)
 
 
 class 套装效果43(套装):
@@ -545,13 +519,13 @@ class 套装效果43(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.10
-        character.attr["技能攻击力"] *= 1.32
+        character.伤害增加加成(0.10)
+        character.技能攻击力加成(0.32)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.1
-        character.attr["移动速度"] += -0.02 + 0.05
-        character.attr["释放速度"] += 0.1 + 0.12
+        character.攻击速度增加(0.10)
+        character.移动速度增加(-0.02 + 0.05)
+        character.释放速度增加(0.1 + 0.12)
 
 
 class 套装效果44(套装):
@@ -560,16 +534,14 @@ class 套装效果44(套装):
     类型 = '防具'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.11
-        character.attr["技能攻击力"] *= 1.10
-        character.attr["火属性强化"] += 64
-        character.attr["冰属性强化"] += 64
-        character.attr["光属性强化"] += 64
-        character.attr["暗属性强化"] += 64
+        character.最终伤害加成(0.11)
+        character.技能攻击力加成(0.10)
+        character.所有属性强化加成(64)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.10
-        character.attr["魔法暴击率"] += 0.10
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
+
 
 # endregion
 
@@ -582,7 +554,7 @@ class 套装效果45(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.09
+        character.伤害增加加成(0.09)
 
     def 进图属性(self, character):
         character.skill_level_up_batched('所有', 1, 48, 2)
@@ -594,11 +566,11 @@ class 套装效果46(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.11
-        character.attr["附加伤害"] += 0.10
+        character.暴击伤害加成(0.11)
+        character.附加伤害加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.05
+        character.移动速度增加(0.05)
 
 
 class 套装效果47(套装):
@@ -607,13 +579,13 @@ class 套装效果47(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.14
-        character.attr["技能攻击力"] *= 1.09
+        character.伤害增加加成(0.14)
+        character.技能攻击力加成(0.09)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.03
-        character.attr["移动速度"] += 0.03
-        character.attr["释放速度"] += 0.045
+        character.攻击速度增加(0.03)
+        character.移动速度增加(0.03)
+        character.释放速度增加(0.045)
         if character.is_equip_exist('地狱边缘'):
             character.attr["攻击速度"] -= 0.01
             character.attr["移动速度"] -= 0.01
@@ -626,18 +598,18 @@ class 套装效果48(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.10
-        character.attr["暴击伤害"] += 0.11
+        character.伤害增加加成(0.10)
+        character.暴击伤害加成(0.11)
 
     def 其它属性(self, character):
         if character.is_equip_exist('灭世之怒'):
-            character.attr["攻击速度"] += 0.15
-            character.attr["移动速度"] += 0.15
-            character.attr["释放速度"] += 0.225
+            character.攻击速度增加(0.15)
+            character.移动速度增加(0.15)
+            character.释放速度增加(0.225)
         else:
-            character.attr["攻击速度"] += 0.10
-            character.attr["移动速度"] += 0.10
-            character.attr["释放速度"] += 0.15
+            character.攻击速度增加(0.10)
+            character.移动速度增加(0.10)
+            character.释放速度增加(0.15)
 
 
 class 套装效果49(套装):
@@ -646,8 +618,8 @@ class 套装效果49(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.12
-        character.attr["技能攻击力"] *= 1.10
+        character.伤害增加加成(0.12)
+        character.技能攻击力加成(0.10)
 
 
 class 套装效果50(套装):
@@ -656,8 +628,8 @@ class 套装效果50(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.10
-        character.attr["最终伤害"] += 0.10
+        character.百分比三攻加成(0.10)
+        character.最终伤害加成(0.10)
 
 
 class 套装效果51(套装):
@@ -666,7 +638,7 @@ class 套装效果51(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.23
+        character.百分比三攻加成(0.23)
 
 
 class 套装效果52(套装):
@@ -675,15 +647,12 @@ class 套装效果52(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.18
-        character.attr["火属性强化"] += 25
-        character.attr["冰属性强化"] += 25
-        character.attr["光属性强化"] += 25
-        character.attr["暗属性强化"] += 25
+        character.百分比力智加成(0.18)
+        character.所有属性强化加成(25)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.15
-        character.attr["释放速度"] += 0.225
+        character.攻击速度增加(0.15)
+        character.释放速度增加(0.225)
 
 
 class 套装效果53(套装):
@@ -692,8 +661,8 @@ class 套装效果53(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.10
-        character.attr["最终伤害"] += 0.10
+        character.附加伤害加成(0.10)
+        character.最终伤害加成(0.10)
 
 
 class 套装效果54(套装):
@@ -702,11 +671,11 @@ class 套装效果54(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.22
+        character.附加伤害加成(0.22)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.10
-        character.attr["魔法暴击率"] += 0.10
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
 
 class 套装效果55(套装):
@@ -715,19 +684,19 @@ class 套装效果55(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.07
-        character.attr["附加伤害"] += 0.08
-        character.attr["技能攻击力"] *= 1.05
+        character.伤害增加加成(0.07)
+        character.附加伤害加成(0.08)
+        character.技能攻击力加成(0.05)
 
     def 其它属性(self, character):
         if character.is_equip_exist('命运反抗者'):
-            character.attr["移动速度"] += 0.08
-            character.attr["攻击速度"] += 0.08
-            character.attr["释放速度"] += 0.12
+            character.移动速度增加(0.08)
+            character.攻击速度增加(0.08)
+            character.释放速度增加(0.12)
         else:
-            character.attr["移动速度"] += 0.07
-            character.attr["攻击速度"] += 0.07
-            character.attr["释放速度"] += 0.105
+            character.移动速度增加(0.07)
+            character.攻击速度增加(0.07)
+            character.释放速度增加(0.105)
 
 
 class 套装效果56(套装):
@@ -736,7 +705,7 @@ class 套装效果56(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.23
+        character.最终伤害加成(0.23)
 
 
 class 套装效果57(套装):
@@ -745,7 +714,7 @@ class 套装效果57(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.13
+        character.技能攻击力加成(0.13)
 
     def 进图属性(self, character):
         character.skill_level_up_batched('所有', 60, 80, 2)
@@ -760,20 +729,17 @@ class 套装效果58(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.05
-        character.attr["技能攻击力"] *= 1.12
-        character.attr["火属性强化"] += 32
-        character.attr["冰属性强化"] += 32
-        character.attr["光属性强化"] += 32
-        character.attr["暗属性强化"] += 32
+        character.百分比三攻加成(0.05)
+        character.技能攻击力加成(0.12)
+        character.所有属性强化加成(32)
         character.skill_change_cooldown(1, 45, 0.10)
         character.skill_change_cooldown(60, 80, 0.10)
         character.skill_change_cooldown(90, 95, 0.10)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.05
-        character.attr["物理暴击率"] += 0.15
-        character.attr["魔法暴击率"] += 0.15
+        character.移动速度增加(0.05)
+        character.物理暴击率增加(0.15)
+        character.魔法暴击率增加(0.15)
 
 
 class 套装效果59(套装):
@@ -782,13 +748,13 @@ class 套装效果59(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.21
-        character.attr["技能攻击力"] *= 1.10
+        character.暴击伤害加成(0.21)
+        character.技能攻击力加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.03
-        character.attr["移动速度"] += 0.03
-        character.attr["释放速度"] += 0.045
+        character.攻击速度增加(0.03)
+        character.移动速度增加(0.03)
+        character.释放速度增加(0.045)
         if character.is_equip_exist('地狱边缘'):
             character.attr["攻击速度"] -= 0.01
             character.attr["移动速度"] -= 0.01
@@ -801,7 +767,7 @@ class 套装效果60(套装):
     类型 = '上链左'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.30
+        character.百分比力智加成(0.30)
 
 
 class 套装效果61(套装):
@@ -810,11 +776,11 @@ class 套装效果61(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["属性附加"] += 0.13
+        character.属性附加加成(0.13)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.10
-        character.attr["魔法暴击率"] += 0.1
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
 
 class 套装效果62(套装):
@@ -823,8 +789,8 @@ class 套装效果62(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.17
-        character.attr["技能攻击力"] *= 1.14
+        character.暴击伤害加成(0.17)
+        character.技能攻击力加成(0.14)
 
 
 class 套装效果63(套装):
@@ -833,8 +799,8 @@ class 套装效果63(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.17
-        character.attr["技能攻击力"] *= 1.19
+        character.百分比力智加成(0.17)
+        character.技能攻击力加成(0.19)
 
 
 class 套装效果64(套装):
@@ -843,8 +809,8 @@ class 套装效果64(套装):
     类型 = '镯下右'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.16
-        character.attr["技能攻击力"] *= 1.15
+        character.暴击伤害加成(0.16)
+        character.技能攻击力加成(0.15)
 
 
 class 套装效果65(套装):
@@ -853,18 +819,15 @@ class 套装效果65(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.16
+        character.技能攻击力加成(0.16)
 
     def 进图属性(self, character):
-        character.attr["火属性强化"] += 40
-        character.attr["冰属性强化"] += 40
-        character.attr["光属性强化"] += 40
-        character.attr["暗属性强化"] += 40
+        character.所有属性强化加成(40)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.15
-        character.attr["移动速度"] += 0.15
-        character.attr["释放速度"] += 0.20
+        character.攻击速度增加(0.15)
+        character.移动速度增加(0.15)
+        character.释放速度增加(0.20)
 
 
 class 套装效果66(套装):
@@ -873,8 +836,8 @@ class 套装效果66(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.10
-        character.attr["技能攻击力"] *= 1.18
+        character.暴击伤害加成(0.10)
+        character.技能攻击力加成(0.18)
 
 
 class 套装效果67(套装):
@@ -883,21 +846,21 @@ class 套装效果67(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.10
-        character.attr["技能攻击力"] *= 1.08
-        character.attr["百分比力智"] += 0.07
+        character.附加伤害加成(0.10)
+        character.技能攻击力加成(0.08)
+        character.百分比力智加成(0.07)
         if character.is_equip_exist('命运反抗者'):
-            character.attr["百分比力智"] += 0.052
+            character.百分比力智加成(0.052)
         else:
-            character.attr["百分比力智"] += 0.046666667
+            character.百分比力智加成(0.046666667)
 
     def 其它属性(self, character):
         if character.is_equip_exist('命运反抗者'):
-            character.attr["移动速度"] += 0.066
-            character.attr["攻击速度"] += 0.066
+            character.移动速度增加(0.066)
+            character.攻击速度增加(0.066)
         else:
-            character.attr["移动速度"] += 0.055
-            character.attr["攻击速度"] += 0.055
+            character.移动速度增加(0.055)
+            character.攻击速度增加(0.055)
 
 
 class 套装效果68(套装):
@@ -906,7 +869,9 @@ class 套装效果68(套装):
     类型 = '环鞋指'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.1
+        character.百分比三攻加成(0.29)
+        character.技能攻击力加成(0.10)
+
 
 # endregion
 
@@ -919,8 +884,8 @@ class 套装效果69(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.10
-        character.attr["百分比三攻"] += 0.14
+        character.百分比力智加成(0.10)
+        character.百分比三攻加成(0.14)
 
 
 class 套装效果70(套装):
@@ -929,12 +894,12 @@ class 套装效果70(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.10
-        character.attr["最终伤害"] += 0.10
+        character.百分比三攻加成(0.10)
+        character.最终伤害加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 套装效果71(套装):
@@ -943,17 +908,12 @@ class 套装效果71(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["火属性强化"] += 77
-        character.attr["冰属性强化"] += 77
-        character.attr["光属性强化"] += 77
-        character.attr["暗属性强化"] += 77
-        character.attr["物理攻击力"] += 77
-        character.attr["魔法攻击力"] += 77
-        character.attr["独立攻击力"] += 77
+        character.所有属性强化加成(77)
+        character.三攻固定加成(77)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.07
-        character.attr["魔法暴击率"] += 0.07
+        character.物理暴击率增加(0.07)
+        character.魔法暴击率增加(0.07)
 
 
 class 套装效果72(套装):
@@ -962,8 +922,8 @@ class 套装效果72(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.10
-        character.attr["技能攻击力"] *= 1.12
+        character.暴击伤害加成(0.10)
+        character.技能攻击力加成(0.12)
 
 
 class 套装效果73(套装):
@@ -972,7 +932,7 @@ class 套装效果73(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.20
+        character.暴击伤害加成(0.20)
 
 
 class 套装效果74(套装):
@@ -981,13 +941,13 @@ class 套装效果74(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["属性附加"] += 0.10
+        character.属性附加加成(0.10)
         character.skill_level_up_batched('所有', 100, 100, 1)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.10
-        character.attr["移动速度"] += 0.10
-        character.attr["释放速度"] += 0.15
+        character.攻击速度增加(0.10)
+        character.移动速度增加(0.10)
+        character.释放速度增加(0.15)
 
 
 class 套装效果75(套装):
@@ -996,12 +956,12 @@ class 套装效果75(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.2915
+        character.技能攻击力加成(0.2915)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.005
-        character.attr["移动速度"] += 0.005
-        character.attr["释放速度"] += 0.0075
+        character.攻击速度增加(0.005)
+        character.移动速度增加(0.005)
+        character.释放速度增加(0.0075)
 
 
 class 套装效果76(套装):
@@ -1010,12 +970,13 @@ class 套装效果76(套装):
     类型 = '首饰'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.15
+        character.百分比力智加成(0.15)
         character.skill_change_cooldown(1, 100, 0.10)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
+
 
 # endregion
 
@@ -1028,22 +989,22 @@ class 套装效果77(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.10
-        character.attr["最终伤害"] += 0.08
+        character.百分比三攻加成(0.10)
+        character.最终伤害加成(0.08)
         if character.is_equip_exist('军神的遗书'):
             if character.is_equip_exist('军神的心之所念'):
-                character.attr["暴击伤害"] += 0.05
+                character.暴击伤害加成(0.05)
             if character.is_equip_exist('军神的古怪耳环'):
-                character.attr["暴击伤害"] += 0.05
+                character.暴击伤害加成(0.05)
 
     def 其它属性(self, character):
         if character.is_equip_exist('军神的遗书'):
             if character.is_equip_exist('军神的心之所念'):
-                character.attr["攻击速度"] += 0.05
-                character.attr["移动速度"] += 0.10
-                character.attr["释放速度"] += 0.075
+                character.攻击速度增加(0.05)
+                character.移动速度增加(0.10)
+                character.释放速度增加(0.075)
             if character.is_equip_exist('军神的古怪耳环'):
-                character.attr["移动速度"] += 0.05
+                character.移动速度增加(0.05)
 
 
 class 套装效果78(套装):
@@ -1052,8 +1013,8 @@ class 套装效果78(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.11
-        character.attr["暴击伤害"] += 0.11
+        character.百分比三攻加成(0.11)
+        character.暴击伤害加成(0.11)
 
 
 class 套装效果79(套装):
@@ -1062,8 +1023,8 @@ class 套装效果79(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.15
-        character.attr["技能攻击力"] *= 1.07
+        character.附加伤害加成(0.15)
+        character.技能攻击力加成(0.07)
 
 
 class 套装效果80(套装):
@@ -1072,8 +1033,8 @@ class 套装效果80(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.12
-        character.attr["伤害增加"] += 0.12
+        character.百分比三攻加成(0.12)
+        character.伤害增加加成(0.12)
 
 
 class 套装效果81(套装):
@@ -1082,12 +1043,12 @@ class 套装效果81(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.10
-        character.attr["百分比力智"] += 0.10
+        character.技能攻击力加成(0.10)
+        character.百分比力智加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.10
-        character.attr["释放速度"] += 0.15
+        character.攻击速度增加(0.10)
+        character.释放速度增加(0.15)
 
 
 class 套装效果82(套装):
@@ -1096,12 +1057,12 @@ class 套装效果82(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.10
-        character.attr["技能攻击力"] *= 1.15
+        character.百分比力智加成(0.10)
+        character.技能攻击力加成(0.15)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 套装效果83(套装):
@@ -1110,18 +1071,18 @@ class 套装效果83(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.12
+        character.暴击伤害加成(0.12)
 
     def 进图属性(self, character):
         character.skill_level_up_batched('所有', 1, 85, 1)
         character.skill_level_up_batched('所有', 100, 100, 1)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.10
-        character.attr["移动速度"] += 0.10
-        character.attr["释放速度"] += 0.15
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.攻击速度增加(0.10)
+        character.移动速度增加(0.10)
+        character.释放速度增加(0.15)
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 套装效果84(套装):
@@ -1130,11 +1091,11 @@ class 套装效果84(套装):
     类型 = '特殊'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.10
-        character.attr["技能攻击力"] *= 1.08
+        character.附加伤害加成(0.10)
+        character.技能攻击力加成(0.08)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.10
-        character.attr["魔法暴击率"] += 0.10
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
 # endregion

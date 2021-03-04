@@ -666,7 +666,7 @@ class character(py.lite.CharBase):
 
         self.attr["远古记忆"] = 10
 
-        self.attr["碎霸概率"] = 1
+        self.attr["碎霸触发概率"] = 0.1
 
     def 角色数据输入(self):
         self.attr["技能SP等级"] = [1, 46, 20, 20, 46, 0, 0, 38, 0, 36, 36, 0, 31, 31, 20, 12, 1, 1, 1, 23, 18, 11, 16, 13, 5, 6, 4, 2, 1, 100]
@@ -704,8 +704,10 @@ class character(py.lite.CharBase):
             技能栏[skill_sn['棍棒精通']].关联技能 = ['无']
         elif 武器类型 == '棍棒':
             技能栏[skill_sn['矛精通']].关联技能 = ['无']
-        for i in [16, 17, 15]:
+        for i in [16, 17, 18]:
             技能栏[i].等级 = 技能栏[15].等级
+        if self.attr["装备栏"][11] == "歼灵灭魂矛":
+            self.attr["技能栏"][skill_sn['碎霸']].触发概率 = self.attr["碎霸触发概率"]
         super().被动倍率计算()
         技能栏[skill_sn['炫纹之源：太古神光']].炫纹倍率 = 技能栏[skill_sn['炫纹发射']].等效百分比(武器类型)
 
@@ -758,7 +760,3 @@ class character(py.lite.CharBase):
             self.attr["物理攻击力"] += 武器计算(装备属性.等级, 装备属性.品质, self.attr["强化等级"][11], self.attr["武器类型"], "物理")
             self.attr["魔法攻击力"] += 武器计算(装备属性.等级, 装备属性.品质, self.attr["强化等级"][11], self.attr["武器类型"], "物理")
             self.attr["独立攻击力"] += 锻造计算(装备属性.等级, 装备属性.品质, self.attr["武器锻造等级"])
-
-    def 技能等级初始化(self):
-        super().技能等级初始化()
-        self.attr["技能栏"][skill_sn['碎霸']].触发概率 = round(self.attr["碎霸概率"] / 10, 2)

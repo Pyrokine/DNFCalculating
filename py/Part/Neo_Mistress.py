@@ -625,8 +625,8 @@ class character(py.lite.CharBase):
         super().技能等级初始化()
 
         if self.attr["净化之花冷却Buff"] == 1:
-            self.skill_change_cooldown(1, 48, 0.1)
-            self.skill_change_cooldown(55, 100, 0.1)
+            self.skill_change_cooldown(1, 48, 0.10)
+            self.skill_change_cooldown(55, 100, 0.10)
 
         self.attr["技能栏"][skill_sn['净化之花']].攻击次数1 = self.attr["凈化之花多段段数"]
         self.attr["技能栏"][skill_sn['暴食之噬']].攻击次数1 = self.attr["暴食段数"]

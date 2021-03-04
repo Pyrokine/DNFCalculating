@@ -412,7 +412,7 @@ class character(py.lite.CharBase):
 
         self.attr["主BUFF"] = 1.97
 
-        self.attr["狱血之牙概率"] = 1
+        self.attr["狱血之牙概率"] = 0.1
 
     def 角色数据输入(self):
         self.attr["技能SP等级"] = [10, 1, 20, 11, 4, 46, 46, 43, 41, 41, 38, 38, 36, 33, 31, 12, 23, 18, 16, 13, 5, 6, 2]
@@ -442,6 +442,7 @@ class character(py.lite.CharBase):
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0
 
-    def 技能等级初始化(self):
-        super().技能等级初始化()
-        self.attr["技能栏"][skill_sn['狱血之牙']].触发概率 = round(self.attr["狱血之牙概率"] / 10, 2)
+    def 被动倍率计算(self):
+        super().被动倍率计算()
+        if self.attr["装备栏"][11] == "歼灵灭魂矛":
+            self.attr["技能栏"][skill_sn["狱血之牙"]].触发概率 = self.attr["狱血之牙概率"]

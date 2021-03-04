@@ -15,9 +15,9 @@ class 装备74(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.05
-        character.attr["百分比三攻"] += 0.1
-        character.attr["最终伤害"] += 0.12
+        character.百分比力智加成(0.05)
+        character.百分比三攻加成(0.10)
+        character.最终伤害加成(0.12)
 
     def 进图属性(self, character):
         character.skill_level_up_batched('所有', 1, 45, 1)
@@ -35,9 +35,9 @@ class 装备75(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.04
-        character.attr["伤害增加"] += 0.18
-        character.attr["暴击伤害"] += 0.1
+        character.百分比三攻加成(0.04)
+        character.伤害增加加成(0.18)
+        character.暴击伤害加成(0.10)
 
 
 class 装备76(装备):
@@ -52,8 +52,8 @@ class 装备76(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.06
-        character.attr["暴击伤害"] += 0.28
+        character.伤害增加加成(0.06)
+        character.暴击伤害加成(0.28)
 
 
 class 装备77(装备):
@@ -68,8 +68,8 @@ class 装备77(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.16
-        character.attr["暴击伤害"] += 0.16
+        character.伤害增加加成(0.16)
+        character.暴击伤害加成(0.16)
 
 
 class 装备78(装备):
@@ -84,12 +84,12 @@ class 装备78(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.32
+        character.伤害增加加成(0.32)
         if character.attr["职业"] == '缔造者':
-            character.skill_change_rate(50, -0.3)
+            character.skill_change_rate(50, -0.30)
             character.skill_change_recovery(50, 50, 1.00)
         else:
-            character.skill_change_rate(45, -0.3)
+            character.skill_change_rate(45, -0.30)
             character.skill_change_recovery(45, 45, 1.00)
 
 
@@ -105,8 +105,8 @@ class 装备79(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.14
-        character.attr["伤害增加"] += 0.17
+        character.暴击伤害加成(0.14)
+        character.伤害增加加成(0.17)
         character.skill_change_cooldown(1, 45, 0.10)
 
 
@@ -122,8 +122,8 @@ class 装备80(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.19
-        character.attr["暴击伤害"] += 0.14
+        character.伤害增加加成(0.19)
+        character.暴击伤害加成(0.14)
 
 
 class 装备81(装备):
@@ -138,11 +138,11 @@ class 装备81(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
-        character.attr["暴击伤害"] += 0.15
+        character.百分比力智加成(0.16)
+        character.暴击伤害加成(0.15)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.1
+        character.攻击速度增加(0.10)
 
 
 class 装备82(装备):
@@ -157,10 +157,10 @@ class 装备82(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.34
+        character.最终伤害加成(0.34)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.1
+        character.移动速度增加(0.10)
 
 
 class 装备83(装备):
@@ -175,8 +175,8 @@ class 装备83(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.11
-        character.attr["伤害增加"] += 0.21
+        character.百分比三攻加成(0.11)
+        character.伤害增加加成(0.21)
 
 
 class 装备84(装备):
@@ -191,9 +191,9 @@ class 装备84(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.1
-        character.attr["百分比三攻"] += 0.1
-        character.attr["最终伤害"] += 0.12
+        character.百分比力智加成(0.10)
+        character.百分比三攻加成(0.10)
+        character.最终伤害加成(0.12)
 
 
 class 装备85(装备):
@@ -208,7 +208,7 @@ class 装备85(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.35
+        character.百分比三攻加成(0.35)
 
 
 class 装备86(装备):
@@ -223,7 +223,7 @@ class 装备86(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.34
+        character.伤害增加加成(0.34)
         if character.attr["职业"] == '缔造者':
             character.skill_level_up_batched('所有', 50, 50, 2)
         else:
@@ -242,7 +242,7 @@ class 装备87(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.35
+        character.伤害增加加成(0.35)
 
 
 class 装备88(装备):
@@ -257,13 +257,10 @@ class 装备88(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.28
+        character.百分比力智加成(0.28)
 
     def 进图属性(self, character):
-        character.attr["火属性强化"] += 24
-        character.attr["冰属性强化"] += 24
-        character.attr["光属性强化"] += 24
-        character.attr["暗属性强化"] += 24
+        character.所有属性强化加成(24)
 
 
 class 装备89(装备):
@@ -278,7 +275,7 @@ class 装备89(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.35
+        character.最终伤害加成(0.35)
 
 
 class 装备90(装备):
@@ -293,8 +290,8 @@ class 装备90(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.2
-        character.attr["百分比三攻"] += 0.12
+        character.百分比力智加成(0.20)
+        character.百分比三攻加成(0.12)
 
 
 class 装备91(装备):
@@ -309,20 +306,20 @@ class 装备91(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.35
+        character.百分比三攻加成(0.35)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.04
-        character.attr["移动速度"] += 0.04
-        character.attr["释放速度"] += 0.06
+        character.攻击速度增加(0.04)
+        character.移动速度增加(0.04)
+        character.释放速度增加(0.06)
         if character.is_equip_exist('悲痛者项链'):
-            character.attr["攻击速度"] += -0.01
-            character.attr["移动速度"] += -0.01
-            character.attr["释放速度"] += -0.015
+            character.攻击速度增加(-0.01)
+            character.移动速度增加(-0.01)
+            character.释放速度增加(-0.015)
         if character.is_equip_exist('悲情者遗物'):
-            character.attr["攻击速度"] += -0.01
-            character.attr["移动速度"] += -0.01
-            character.attr["释放速度"] += -0.015
+            character.攻击速度增加(-0.01)
+            character.移动速度增加(-0.01)
+            character.释放速度增加(-0.015)
 
 
 class 装备92(装备):
@@ -337,8 +334,8 @@ class 装备92(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.23
-        character.attr["持续伤害"] += 0.1
+        character.附加伤害加成(0.23)
+        character.持续伤害加成(0.10)
 
 
 class 装备93(装备):
@@ -353,14 +350,14 @@ class 装备93(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.14
-        character.attr["百分比力智"] += 0.12
-        character.attr["伤害增加"] += 0.11
+        character.最终伤害加成(0.14)
+        character.伤害增加加成(0.11)
         character.skill_level_up_batched('所有', 1, 45, 1)
+        character.百分比力智加成(0.12)
 
     def 进图属性(self, character):
-        character.attr["百分比三攻"] += 0.1
-        character.attr["百分比力智"] += 0.05
+        character.百分比三攻加成(0.10)
+        character.百分比力智加成(0.05)
         character.skill_level_up_batched('所有', 1, 45, 1)
 
 
@@ -376,14 +373,12 @@ class 装备94(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.04
-        character.attr["伤害增加"] += 0.18
-        character.attr["百分比力智"] += 0.10
-        character.attr["暴击伤害"] += 0.10
-        character.attr["暴击伤害"] += 0.10
-        character.attr["物理攻击力"] += 170
-        character.attr["魔法攻击力"] += 170
-        character.attr["独立攻击力"] += 170
+        character.暴击伤害加成(0.10)
+        character.百分比三攻加成(0.04)
+        character.伤害增加加成(0.18)
+        character.百分比力智加成(0.10)
+        character.暴击伤害加成(0.10)
+        character.三攻固定加成(170)
 
 
 class 装备95(装备):
@@ -398,10 +393,11 @@ class 装备95(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.06
-        character.attr["百分比三攻"] += 0.08
-        character.attr["百分比力智"] += 0.08
-        character.attr["暴击伤害"] += 0.43
+        character.伤害增加加成(0.06)
+        character.暴击伤害加成(0.28)
+        character.百分比三攻加成(0.08)
+        character.百分比力智加成(0.08)
+        character.暴击伤害加成(0.15)
 
 
 class 装备96(装备):
@@ -416,12 +412,12 @@ class 装备96(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.16
-        character.attr["暴击伤害"] += 0.16
-        character.attr["持续伤害"] += 0.05
-        character.attr["暴击伤害"] += 0.07
-        character.attr["附加伤害"] += 0.04
-        character.attr["伤害增加"] += 0.09
+        character.伤害增加加成(0.16)
+        character.暴击伤害加成(0.16)
+        character.持续伤害加成(0.05)
+        character.暴击伤害加成(0.07)
+        character.附加伤害加成(0.04)
+        character.伤害增加加成(0.09)
 
 
 class 装备97(装备):
@@ -436,17 +432,17 @@ class 装备97(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.3
+        character.伤害增加加成(0.30)
         if character.attr["职业"] == '缔造者':
-            character.skill_change_rate(50, -0.3)
+            character.skill_change_rate(50, -0.30)
             character.skill_change_recovery(50, 50, 1.00)
         else:
-            character.skill_change_rate(45, -0.3)
-            character.skill_change_recovery(1, 45, 1.00)
-        character.skill_level_up_batched('所有', 25, 45, 1)
-        character.attr["附加伤害"] += 0.05
-        character.attr["百分比力智"] += 0.08
-        character.attr["最终伤害"] += 0.06
+            character.skill_change_rate(45, -0.30)
+            character.skill_change_recovery(45, 45, 1.00)
+        character.skill_level_up_batched('所有', 1, 45, 1)
+        character.附加伤害加成(0.05)
+        character.百分比力智加成(0.08)
+        character.最终伤害加成(0.06)
 
 
 class 装备98(装备):
@@ -461,17 +457,14 @@ class 装备98(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.14
-        character.attr["伤害增加"] += 0.09
-        character.attr["技能攻击力"] *= 1.10
+        character.暴击伤害加成(0.14)
+        character.伤害增加加成(0.09)
+        character.技能攻击力加成(0.10)
         character.skill_change_cooldown(1, 45, 0.10)
-        character.attr["百分比三攻"] += 0.03
-        character.attr["最终伤害"] += 0.1
-        character.attr["伤害增加"] += 0.08
-        character.attr["火属性强化"] += 24
-        character.attr["冰属性强化"] += 24
-        character.attr["光属性强化"] += 24
-        character.attr["暗属性强化"] += 24
+        character.百分比三攻加成(0.03)
+        character.最终伤害加成(0.10)
+        character.伤害增加加成(0.08)
+        character.所有属性强化加成(24)
 
 
 class 装备99(装备):
@@ -486,12 +479,12 @@ class 装备99(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.19
-        character.attr["技能攻击力"] *= 0.14
-        character.attr["暴击伤害"] += 0.07
-        character.attr["伤害增加"] += 0.05
-        character.attr["附加伤害"] += 0.06
-        character.attr["最终伤害"] += 0.05
+        character.百分比三攻加成(0.19)
+        character.技能攻击力加成(0.14)
+        character.暴击伤害加成(0.07)
+        character.伤害增加加成(0.05)
+        character.附加伤害加成(0.06)
+        character.最终伤害加成(0.05)
 
 
 class 装备100(装备):
@@ -506,15 +499,16 @@ class 装备100(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.16
-        character.attr["暴击伤害"] += 0.15
-        character.attr["最终伤害"] += 0.1
-        character.attr["技能攻击力"] *= 1.09
-        character.attr["伤害增加"] += 0.04
-        character.attr["百分比力智"] += 0.03
+        character.百分比三攻加成(0.16)
+        character.暴击伤害加成(0.08)
+        character.技能攻击力加成(0.09)
+        character.最终伤害加成(0.10)
+        character.暴击伤害加成(0.08)
+        character.伤害增加加成(0.04)
+        character.百分比力智加成(0.03)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.15
+        character.攻击速度增加(0.15)
 
 
 class 装备101(装备):
@@ -529,14 +523,14 @@ class 装备101(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.34
-        character.attr["附加伤害"] += 0.09
-        character.attr["百分比力智"] += 0.04
-        character.attr["最终伤害"] += 0.04
-        character.attr["百分比三攻"] += 0.07
+        character.最终伤害加成(0.34)
+        character.附加伤害加成(0.09)
+        character.百分比力智加成(0.04)
+        character.最终伤害加成(0.04)
+        character.百分比三攻加成(0.07)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.5
+        character.移动速度增加(0.50)
 
 
 class 装备102(装备):
@@ -551,13 +545,13 @@ class 装备102(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.21
-        character.attr["百分比三攻"] += 0.06
-        character.attr["技能攻击力"] += 1.05
-        character.attr["伤害增加"] += 0.05
-        character.attr["暴击伤害"] += 0.07
-        character.attr["最终伤害"] += 0.06
-        character.attr["附加伤害"] += 0.05
+        character.百分比力智加成(0.21)
+        character.百分比三攻加成(0.06)
+        character.技能攻击力加成(0.05)
+        character.伤害增加加成(0.05)
+        character.暴击伤害加成(0.07)
+        character.最终伤害加成(0.06)
+        character.附加伤害加成(0.05)
 
 
 class 装备103(装备):
@@ -572,13 +566,13 @@ class 装备103(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.1
-        character.attr["百分比三攻"] += 0.1
-        character.attr["最终伤害"] += 0.06
-        character.attr["技能攻击力"] *= 1.06
-        character.attr["附加伤害"] += 0.1
-        character.attr["百分比力智"] += 0.10
-        character.attr["百分比三攻"] += 0.11
+        character.百分比力智加成(0.10)
+        character.百分比三攻加成(0.10)
+        character.最终伤害加成(0.06)
+        character.技能攻击力加成(0.06)
+        character.附加伤害加成(0.10)
+        character.百分比力智加成(0.10)
+        character.百分比三攻加成(0.11)
 
 
 class 装备104(装备):
@@ -593,12 +587,12 @@ class 装备104(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.28
-        character.attr["技能攻击力"] *= 1.06
-        character.attr["伤害增加"] += 0.04
-        character.attr["百分比三攻"] += 0.03
-        character.attr["暴击伤害"] += 0.1
-        character.attr["百分比力智"] += 0.08
+        character.百分比三攻加成(0.28)
+        character.技能攻击力加成(0.06)
+        character.伤害增加加成(0.04)
+        character.百分比三攻加成(0.03)
+        character.暴击伤害加成(0.10)
+        character.百分比力智加成(0.08)
 
 
 class 装备105(装备):
@@ -613,16 +607,16 @@ class 装备105(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.28
-        character.attr["技能攻击力"] *= 1.06
+        character.伤害增加加成(0.28)
+        character.技能攻击力加成(0.06)
         if character.attr["职业"] == '缔造者':
             character.skill_level_up_batched('所有', 50, 50, 2)
         else:
             character.skill_level_up_batched('所有', 45, 45, 2)
-        character.attr["技能攻击力"] *= 1.04
-        character.attr["最终伤害"] += 0.04
-        character.attr["伤害增加"] += 0.09
-        character.attr["暴击伤害"] += 0.07
+        character.技能攻击力加成(0.04)
+        character.最终伤害加成(0.04)
+        character.伤害增加加成(0.09)
+        character.暴击伤害加成(0.07)
 
 
 class 装备106(装备):
@@ -637,10 +631,10 @@ class 装备106(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.35
-        character.attr["暴击伤害"] += 0.1
-        character.attr["百分比三攻"] += 0.1
-        character.attr["附加伤害"] += 0.1
+        character.伤害增加加成(0.35)
+        character.暴击伤害加成(0.10)
+        character.百分比三攻加成(0.10)
+        character.附加伤害加成(0.10)
 
 
 class 装备107(装备):
@@ -655,16 +649,13 @@ class 装备107(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.32
-        character.attr["百分比力智"] += 0.12
-        character.attr["伤害增加"] += 0.09
-        character.attr["最终伤害"] += 0.09
+        character.百分比力智加成(0.32)
+        character.百分比力智加成(0.12)
+        character.伤害增加加成(0.09)
+        character.最终伤害加成(0.09)
 
     def 进图属性(self, character):
-        character.attr["火属性强化"] += 24
-        character.attr["冰属性强化"] += 24
-        character.attr["光属性强化"] += 24
-        character.attr["暗属性强化"] += 24
+        character.所有属性强化加成(24)
 
 
 class 装备108(装备):
@@ -679,12 +670,10 @@ class 装备108(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.35
+        character.最终伤害加成(0.35)
         character.skill_level_up_batched('所有', 5, 100, 1)
-        character.attr["百分比三攻"] += 0.07
-        character.attr["物理攻击力"] += 80
-        character.attr["魔法攻击力"] += 80
-        character.attr["独立攻击力"] += 80
+        character.百分比三攻加成(0.07)
+        character.三攻固定加成(80)
 
 
 class 装备109(装备):
@@ -699,14 +688,11 @@ class 装备109(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.2
-        character.attr["百分比三攻"] += 0.12
-        character.attr["火属性强化"] += 40
-        character.attr["冰属性强化"] += 40
-        character.attr["光属性强化"] += 40
-        character.attr["暗属性强化"] += 40
-        character.attr["伤害增加"] += 0.1
-        character.attr["附加伤害"] += 0.1
+        character.百分比力智加成(0.20)
+        character.百分比三攻加成(0.12)
+        character.所有属性强化加成(40)
+        character.伤害增加加成(0.10)
+        character.附加伤害加成(0.10)
 
 
 class 装备110(装备):
@@ -721,25 +707,22 @@ class 装备110(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.35
+        character.技能攻击力加成(0.35)
         if character.is_equip_exist('悲痛者项链'):
-            character.attr["百分比三攻"] += -0.10
-            character.attr["附加伤害"] += 0.10
+            character.百分比三攻加成(-0.10)
+            character.附加伤害加成(0.10)
         if character.is_equip_exist('悲情者遗物'):
-            character.attr["百分比三攻"] += -0.10
-            character.attr["附加伤害"] += 0.10
+            character.百分比三攻加成(-0.10)
+            character.附加伤害加成(0.10)
         character.skill_level_up_batched('所有', 1, 48, 1)
-        character.attr["物理攻击力"] += 70
-        character.attr["魔法攻击力"] += 70
-        character.attr["独立攻击力"] += 70
-        character.attr["最终伤害"] += 0.05
-        character.attr["力量"] += 160
-        character.attr["智力"] += 160
+        character.三攻固定加成(70)
+        character.最终伤害加成(0.05)
+        character.力智固定加成(160)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.06
-        character.attr["移动速度"] += 0.06
-        character.attr["释放速度"] += 0.09
+        character.攻击速度增加(0.06)
+        character.移动速度增加(0.06)
+        character.释放速度增加(0.09)
 
 
 class 装备111(装备):
@@ -754,12 +737,12 @@ class 装备111(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.23
-        character.attr["持续伤害"] += 0.1
-        character.attr["最终伤害"] += 0.04
-        character.attr["百分比三攻"] += 0.13
-        character.attr["百分比力智"] += 0.04
-        character.attr["技能攻击力"] *= 1.05
+        character.附加伤害加成(0.23)
+        character.持续伤害加成(0.10)
+        character.最终伤害加成(0.04)
+        character.百分比三攻加成(0.13)
+        character.百分比力智加成(0.04)
+        character.技能攻击力加成(0.05)
 
 
 class 装备112(装备):
@@ -774,17 +757,14 @@ class 装备112(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.05
-        character.attr["百分比三攻"] += 0.1
+        character.百分比力智加成(0.05)
+        character.百分比三攻加成(0.10)
 
     def 进图属性(self, character):
-        character.attr["火属性强化"] += 18
-        character.attr["冰属性强化"] += 18
-        character.attr["光属性强化"] += 18
-        character.attr["暗属性强化"] += 18
+        character.所有属性强化加成(18)
 
     def 变换属性(self, character):
-        character.attr["伤害增加"] += 0.12
+        character.伤害增加加成(0.12, 4)
 
 
 class 装备113(装备):
@@ -799,11 +779,11 @@ class 装备113(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.04
-        character.attr["暴击伤害"] += 0.1
+        character.百分比三攻加成(0.04)
+        character.暴击伤害加成(0.10)
 
     def 变换属性(self, character):
-        character.attr["伤害增加"] += 0.18
+        character.伤害增加加成(0.18, 4)
 
 
 class 装备114(装备):
@@ -818,11 +798,11 @@ class 装备114(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.06
-        character.attr["附加伤害"] += 0.1
+        character.伤害增加加成(0.06)
+        character.附加伤害加成(0.10)
 
     def 变换属性(self, character):
-        character.attr["暴击伤害"] += 0.16
+        character.暴击伤害加成(0.16, 4)
 
 
 class 装备115(装备):
@@ -837,10 +817,10 @@ class 装备115(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.16
+        character.最终伤害加成(0.16)
 
     def 变换属性(self, character):
-        character.attr["百分比力智"] += 0.16
+        character.百分比力智加成(0.16, 4)
 
 
 class 装备116(装备):
@@ -855,11 +835,11 @@ class 装备116(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.skill_change_rate(40, -0.3)
+        character.skill_change_rate(40, -0.30)
         character.skill_change_recovery(40, 40, 1.0)
 
     def 变换属性(self, character):
-        character.attr["暴击伤害"] += 0.32
+        character.暴击伤害加成(0.32, 4)
 
 
 class 装备117(装备):
@@ -874,11 +854,11 @@ class 装备117(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.17
+        character.最终伤害加成(0.17)
         character.skill_change_cooldown(35, 45, 0.15)
 
     def 变换属性(self, character):
-        character.attr["百分比力智"] += 0.14
+        character.百分比力智加成(0.14, 4)
 
 
 class 装备118(装备):
@@ -893,10 +873,10 @@ class 装备118(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
+        character.百分比力智加成(0.16)
 
     def 变换属性(self, character):
-        character.attr["最终伤害"] += 0.17
+        character.最终伤害加成(0.17, 4)
 
 
 class 装备119(装备):
@@ -911,7 +891,7 @@ class 装备119(装备):
     类型 = '轻甲'
 
     def 变换属性(self, character):
-        character.attr["百分比力智"] += 0.33
+        character.百分比力智加成(0.33, 4)
 
 
 class 装备120(装备):
@@ -926,7 +906,7 @@ class 装备120(装备):
     类型 = '重甲'
 
     def 变换属性(self, character):
-        character.attr["附加伤害"] += 0.34
+        character.附加伤害加成(0.34, 4)
 
 
 class 装备121(装备):
@@ -941,14 +921,14 @@ class 装备121(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.02
-        character.attr["暴击伤害"] += 0.02
-        character.attr["最终伤害"] += 0.02
-        character.attr["百分比三攻"] += 0.02
-        character.attr["技能攻击力"] *= 1.02
+        character.伤害增加加成(0.02)
+        character.暴击伤害加成(0.02)
+        character.最终伤害加成(0.02)
+        character.百分比三攻加成(0.02)
+        character.技能攻击力加成(0.02)
 
     def 变换属性(self, character):
-        character.attr["附加伤害"] += 0.25
+        character.附加伤害加成(0.25, 4)
 
 
 class 装备122(装备):
@@ -963,11 +943,11 @@ class 装备122(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.1
-        character.attr["百分比三攻"] += 0.1
+        character.最终伤害加成(0.10)
+        character.百分比三攻加成(0.10)
 
     def 变换属性(self, character):
-        character.attr["伤害增加"] += 0.12
+        character.伤害增加加成(0.12, 4)
 
 
 class 装备123(装备):
@@ -982,10 +962,7 @@ class 装备123(装备):
     类型 = '皮甲'
 
     def 变换属性(self, character):
-        if character.is_equip_exist('战无不胜上衣'):
-            character.attr["暴击伤害"] += 0.35
-        else:
-            character.attr["暴击伤害"] += 0.34
+        character.暴击伤害加成(0.35, 4)
 
 
 class 装备124(装备):
@@ -1003,7 +980,7 @@ class 装备124(装备):
         character.skill_level_up_batched('所有', 35, 35, 2)
 
     def 变换属性(self, character):
-        character.attr["暴击伤害"] += 0.34
+        character.暴击伤害加成(0.34, 4)
 
 
 class 装备125(装备):
@@ -1018,7 +995,7 @@ class 装备125(装备):
     类型 = '重甲'
 
     def 变换属性(self, character):
-        character.attr["百分比三攻"] += 0.35
+        character.百分比三攻加成(0.35, 4)
 
 
 class 装备126(装备):
@@ -1033,14 +1010,14 @@ class 装备126(装备):
     类型 = '板甲'
 
     def 进图属性(self, character):
-        character.attr["暗属性强化"] += 24
+        character.暗属性强化加成(24)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.1
-        character.attr["魔法暴击率"] += 0.1
+        character.物理暴击率增加(0.10)
+        character.魔法暴击率增加(0.10)
 
     def 变换属性(self, character):
-        character.attr["最终伤害"] += 0.32
+        character.最终伤害加成(0.32, 4)
 
 
 class 装备127(装备):
@@ -1055,10 +1032,10 @@ class 装备127(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.14
+        character.伤害增加加成(0.14)
 
     def 变换属性(self, character):
-        character.attr["伤害增加"] += 0.21
+        character.伤害增加加成(0.21, 4)
 
 
 class 装备128(装备):
@@ -1076,10 +1053,10 @@ class 装备128(装备):
         character.skill_change_cooldown(60, 80, 0.10)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.1
+        character.移动速度增加(0.10)
 
     def 变换属性(self, character):
-        character.attr["最终伤害"] += 0.32
+        character.最终伤害加成(0.32, 4)
 
 
 class 装备129(装备):
@@ -1094,10 +1071,10 @@ class 装备129(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.17
+        character.附加伤害加成(0.17)
 
     def 变换属性(self, character):
-        character.attr["百分比力智"] += 0.14
+        character.百分比力智加成(0.14, 4)
 
 
 class 装备130(装备):
@@ -1112,10 +1089,10 @@ class 装备130(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.1
+        character.百分比三攻加成(0.10)
 
     def 变换属性(self, character):
-        character.attr["暴击伤害"] += 0.22
+        character.暴击伤害加成(0.22, 4)
 
 
 class 装备131(装备):
@@ -1130,13 +1107,13 @@ class 装备131(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.05
-        character.attr["百分比三攻"] += 0.1
-        character.attr["技能攻击力"] *= 1.13
+        character.百分比力智加成(0.05)
+        character.百分比三攻加成(0.10)
+        character.技能攻击力加成(0.13)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 装备132(装备):
@@ -1151,9 +1128,9 @@ class 装备132(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.04
-        character.attr["暴击伤害"] += 0.10
-        character.attr["技能攻击力"] *= 1.18
+        character.百分比三攻加成(0.04)
+        character.暴击伤害加成(0.10)
+        character.技能攻击力加成(0.18)
 
 
 class 装备133(装备):
@@ -1168,13 +1145,13 @@ class 装备133(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.06
-        character.attr["附加伤害"] += 0.16
-        character.attr["技能攻击力"] *= 1.1
+        character.伤害增加加成(0.06)
+        character.附加伤害加成(0.16)
+        character.技能攻击力加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 装备134(装备):
@@ -1189,8 +1166,8 @@ class 装备134(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.16
-        character.attr["技能攻击力"] *= 1.16
+        character.伤害增加加成(0.16)
+        character.技能攻击力加成(0.16)
 
 
 class 装备135(装备):
@@ -1205,8 +1182,8 @@ class 装备135(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.29
-        character.skill_change_rate(35, -0.3)
+        character.技能攻击力加成(0.29)
+        character.skill_change_rate(35, -0.30)
         character.skill_change_recovery(35, 35, 1.0)
 
 
@@ -1222,8 +1199,8 @@ class 装备136(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.17
-        character.attr["技能攻击力"] *= 1.14
+        character.附加伤害加成(0.17)
+        character.技能攻击力加成(0.14)
         character.skill_change_cooldown(75, 80, 0.15)
 
 
@@ -1239,8 +1216,8 @@ class 装备137(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.12
-        character.attr["技能攻击力"] *= 1.2
+        character.暴击伤害加成(0.12)
+        character.技能攻击力加成(0.20)
 
 
 class 装备138(装备):
@@ -1255,7 +1232,7 @@ class 装备138(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.33
+        character.技能攻击力加成(0.33)
 
 
 class 装备139(装备):
@@ -1270,11 +1247,11 @@ class 装备139(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.12
-        character.attr["技能攻击力"] *= 1.2
+        character.百分比三攻加成(0.12)
+        character.技能攻击力加成(0.20)
 
     def 其它属性(self, character):
-        character.attr["释放速度"] += 0.16
+        character.释放速度增加(0.16)
 
 
 class 装备140(装备):
@@ -1289,7 +1266,7 @@ class 装备140(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.34
+        character.技能攻击力加成(0.34)
 
 
 class 装备141(装备):
@@ -1304,15 +1281,15 @@ class 装备141(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.1
-        character.attr["百分比三攻"] += 0.1
-        character.attr["技能攻击力"] *= 1.12
+        character.暴击伤害加成(0.10)
+        character.百分比三攻加成(0.10)
+        character.技能攻击力加成(0.12)
 
     def 其它属性(self, character):
         if character.is_equip_exist('大祭司的神启礼服'):
-            character.attr["释放速度"] += 0.24
+            character.释放速度增加(0.24)
         else:
-            character.attr["释放速度"] += 0.18
+            character.释放速度增加(0.18)
 
 
 class 装备142(装备):
@@ -1327,10 +1304,7 @@ class 装备142(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        if character.is_equip_exist('战无不胜上衣'):
-            character.attr["技能攻击力"] *= 1.35
-        else:
-            character.attr["技能攻击力"] *= 1.34
+        character.技能攻击力加成(0.35)
 
 
 class 装备143(装备):
@@ -1345,7 +1319,7 @@ class 装备143(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.34
+        character.技能攻击力加成(0.34)
         character.skill_level_up_batched('所有', 60, 60, 2)
 
 
@@ -1361,10 +1335,10 @@ class 装备144(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.34
+        character.技能攻击力加成(0.34)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += -0.1
+        character.攻击速度增加(-0.10)
 
 
 class 装备145(装备):
@@ -1379,13 +1353,13 @@ class 装备145(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["技能攻击力"] *= 1.32
+        character.技能攻击力加成(0.32)
 
     def 进图属性(self, character):
-        character.attr["火属性强化"] += 24
+        character.火属性强化加成(24)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.1
+        character.攻击速度增加(0.10)
 
 
 class 装备146(装备):
@@ -1400,14 +1374,14 @@ class 装备146(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.05
-        character.attr["百分比三攻"] += 0.1
-        character.attr["暴击伤害"] += 0.16
+        character.百分比力智加成(0.05)
+        character.百分比三攻加成(0.10)
+        character.暴击伤害加成(0.16)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.1
-        character.attr["移动速度"] += 0.14
-        character.attr["释放速度"] += 0.15
+        character.攻击速度增加(0.10)
+        character.移动速度增加(0.14)
+        character.释放速度增加(0.15)
 
 
 class 装备147(装备):
@@ -1422,12 +1396,12 @@ class 装备147(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.04
-        character.attr["最终伤害"] += 0.1
-        character.attr["附加伤害"] += 0.18
+        character.百分比三攻加成(0.04)
+        character.最终伤害加成(0.10)
+        character.附加伤害加成(0.18)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备148(装备):
@@ -1442,11 +1416,11 @@ class 装备148(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.28
-        character.attr["伤害增加"] += 0.06
+        character.百分比力智加成(0.28)
+        character.伤害增加加成(0.06)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备149(装备):
@@ -1461,11 +1435,11 @@ class 装备149(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
-        character.attr["伤害增加"] += 0.16
+        character.百分比力智加成(0.16)
+        character.伤害增加加成(0.16)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备150(装备):
@@ -1480,14 +1454,14 @@ class 装备150(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.32
-        character.skill_change_rate(25, -0.3)
+        character.附加伤害加成(0.32)
+        character.skill_change_rate(25, -0.30)
         character.skill_change_recovery(25, 25, 1.0)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.移动速度增加(0.04)
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 装备151(装备):
@@ -1502,12 +1476,12 @@ class 装备151(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.17
-        character.attr["附加伤害"] += 0.14
+        character.百分比三攻加成(0.17)
+        character.附加伤害加成(0.14)
         character.skill_change_cooldown(1, 30, 0.15)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备152(装备):
@@ -1522,11 +1496,11 @@ class 装备152(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.11
-        character.attr["最终伤害"] += 0.21
+        character.百分比力智加成(0.11)
+        character.最终伤害加成(0.21)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备153(装备):
@@ -1541,12 +1515,12 @@ class 装备153(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.3
+        character.伤害增加加成(0.30)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.19
-        character.attr["物理暴击率"] += 0.05
-        character.attr["魔法暴击率"] += 0.05
+        character.移动速度增加(0.19)
+        character.物理暴击率增加(0.05)
+        character.魔法暴击率增加(0.05)
 
 
 class 装备154(装备):
@@ -1561,15 +1535,12 @@ class 装备154(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["火属性强化"] += 70
-        character.attr["冰属性强化"] += 70
-        character.attr["光属性强化"] += 70
-        character.attr["暗属性强化"] += 70
+        character.所有属性强化加成(70)
         character.skill_level_up_batched('所有', 1, 85, 1)
         character.skill_level_up_batched('所有', 100, 100, 1)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备155(装备):
@@ -1584,14 +1555,14 @@ class 装备155(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["附加伤害"] += 0.17
+        character.附加伤害加成(0.17)
         if character.attr["护石栏"][0] != '无':
-            character.skill_change_attr(character.attr["护石栏"][0], 1.55, 0.7)
+            character.skill_change_attr(character.attr["护石栏"][0], 1.55, 0.70)
         if character.attr["护石栏"][1] != '无':
             character.skill_change_attr(character.attr["护石栏"][1], 1.45, 0.75)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备156(装备):
@@ -1606,15 +1577,15 @@ class 装备156(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.1
-        character.attr["百分比三攻"] += 0.1
-        character.attr["附加伤害"] += 0.12
+        character.暴击伤害加成(0.10)
+        character.百分比三攻加成(0.10)
+        character.附加伤害加成(0.12)
 
     def 其它属性(self, character):
         if character.is_equip_exist('大祭司的神启礼服'):
-            character.attr["移动速度"] += 0.18
+            character.移动速度增加(0.18)
         else:
-            character.attr["移动速度"] += 0.12
+            character.移动速度增加(0.12)
 
 
 class 装备157(装备):
@@ -1629,13 +1600,10 @@ class 装备157(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        if character.is_equip_exist('战无不胜上衣'):
-            character.attr["百分比力智"] += 0.35
-        else:
-            character.attr["百分比力智"] += 0.34
+        character.百分比力智加成(0.35)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备158(装备):
@@ -1650,11 +1618,11 @@ class 装备158(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.34
+        character.最终伤害加成(0.34)
         character.skill_level_up_batched('所有', 70, 70, 2)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备159(装备):
@@ -1669,10 +1637,10 @@ class 装备159(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["最终伤害"] += 0.35
+        character.最终伤害加成(0.35)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += -0.06
+        character.移动速度增加(-0.06)
 
 
 class 装备160(装备):
@@ -1687,13 +1655,13 @@ class 装备160(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["暴击伤害"] += 0.32
+        character.暴击伤害加成(0.32)
 
     def 进图属性(self, character):
-        character.attr["光属性强化"] += 24
+        character.光属性强化加成(24)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.14
+        character.移动速度增加(0.14)
 
 
 class 装备161(装备):
@@ -1708,15 +1676,12 @@ class 装备161(装备):
     类型 = '布甲'
 
     def 进图属性(self, character):
-        character.attr["火属性强化"] += 70
-        character.attr["冰属性强化"] += 70
-        character.attr["光属性强化"] += 70
-        character.attr["暗属性强化"] += 70
+        character.所有属性强化加成(70)
         character.skill_level_up_batched('所有', 1, 90, 1)
         character.skill_level_up_batched('所有', 100, 100, 1)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备162(装备):
@@ -1731,14 +1696,14 @@ class 装备162(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.1
-        character.attr["伤害增加"] += 0.19
+        character.百分比三攻加成(0.10)
+        character.伤害增加加成(0.19)
 
     def 进图属性(self, character):
         character.skill_level_up_batched('所有', 1, 45, 1)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.14
+        character.移动速度增加(0.14)
 
 
 class 装备163(装备):
@@ -1753,23 +1718,17 @@ class 装备163(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.29
+        character.百分比三攻加成(0.29)
 
     def 进图属性(self, character):
         if '天命无常[2]' in character.attr["套装栏"]:
             if character.is_equip_exist('命运反抗者'):
-                character.attr["火属性强化"] += 22
-                character.attr["冰属性强化"] += 22
-                character.attr["光属性强化"] += 22
-                character.attr["暗属性强化"] += 22
+                character.所有属性强化加成(22)
             else:
-                character.attr["火属性强化"] += 20
-                character.attr["冰属性强化"] += 20
-                character.attr["光属性强化"] += 20
-                character.attr["暗属性强化"] += 20
+                character.所有属性强化加成(20)
 
     def 其它属性(self, character):
-        character.attr["移动速度"] += 0.04
+        character.移动速度增加(0.04)
 
 
 class 装备164(装备):
@@ -1784,14 +1743,14 @@ class 装备164(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.17
+        character.百分比力智加成(0.17)
         if character.is_equip_exist('心痛如绞的诀别'):
-            character.attr["附加伤害"] += 0.106
+            character.附加伤害加成(0.106)
         else:
-            character.attr["附加伤害"] += 0.10
+            character.附加伤害加成(0.10)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.021
+        character.攻击速度增加(0.021)
 
 
 class 装备165(装备):
@@ -1806,9 +1765,9 @@ class 装备165(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.05
-        character.attr["百分比三攻"] += 0.1
-        character.attr["附加伤害"] += 0.14
+        character.百分比力智加成(0.05)
+        character.百分比三攻加成(0.1)
+        character.附加伤害加成(0.14)
 
 
 class 装备166(装备):
@@ -1823,9 +1782,9 @@ class 装备166(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.04
-        character.attr["最终伤害"] += 0.10
-        character.attr["附加伤害"] += 0.18
+        character.百分比三攻加成(0.04)
+        character.最终伤害加成(0.10)
+        character.附加伤害加成(0.18)
 
 
 class 装备167(装备):
@@ -1840,9 +1799,9 @@ class 装备167(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
-        character.attr["伤害增加"] += 0.06
-        character.attr["附加伤害"] += 0.1
+        character.百分比力智加成(0.16)
+        character.伤害增加加成(0.06)
+        character.附加伤害加成(0.1)
 
 
 class 装备168(装备):
@@ -1857,8 +1816,8 @@ class 装备168(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.16
-        character.attr["暴击伤害"] += 0.16
+        character.百分比力智加成(0.16)
+        character.暴击伤害加成(0.16)
 
 
 class 装备169(装备):
@@ -1873,8 +1832,8 @@ class 装备169(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.32
-        character.skill_change_rate(30, -0.3)
+        character.百分比三攻加成(0.32)
+        character.skill_change_rate(30, -0.30)
         character.skill_change_recovery(30, 30, 1.0)
 
 
@@ -1890,8 +1849,8 @@ class 装备170(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.17
-        character.attr["最终伤害"] += 0.14
+        character.百分比力智加成(0.17)
+        character.最终伤害加成(0.14)
         character.skill_change_cooldown(60, 70, 0.15)
 
 
@@ -1907,8 +1866,8 @@ class 装备171(装备):
     类型 = '皮甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.18
-        character.attr["暴击伤害"] += 0.15
+        character.伤害增加加成(0.18)
+        character.暴击伤害加成(0.15)
 
 
 class 装备172(装备):
@@ -1923,14 +1882,11 @@ class 装备172(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["火属性强化"] += 60
-        character.attr["冰属性强化"] += 60
-        character.attr["光属性强化"] += 60
-        character.attr["暗属性强化"] += 60
-        character.attr["百分比三攻"] += 0.16
+        character.所有属性强化加成(60)
+        character.百分比三攻加成(0.16)
 
     def 其它属性(self, character):
-        character.attr["释放速度"] += 0.15
+        character.释放速度增加(0.15)
 
 
 class 装备173(装备):
@@ -1945,10 +1901,10 @@ class 装备173(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.34
+        character.伤害增加加成(0.34)
 
     def 其它属性(self, character):
-        character.attr["攻击速度"] += 0.1
+        character.攻击速度增加(0.1)
 
 
 class 装备174(装备):
@@ -1963,7 +1919,7 @@ class 装备174(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比三攻"] += 0.2
+        character.百分比三攻加成(0.20)
         character.skill_change_rate(50, 0.25)
         character.skill_change_rate(85, 0.45)
         character.skill_change_cooldown(85, 85, 0.20)
@@ -1982,15 +1938,15 @@ class 装备175(装备):
     类型 = '布甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.1
-        character.attr["百分比三攻"] += 0.1
-        character.attr["暴击伤害"] += 0.12
+        character.百分比力智加成(0.10)
+        character.百分比三攻加成(0.10)
+        character.暴击伤害加成(0.12)
 
     def 其它属性(self, character):
         if character.is_equip_exist('大祭司的神启礼服'):
-            character.attr["攻击速度"] += 0.18
+            character.攻击速度增加(0.18)
         else:
-            character.attr["攻击速度"] += 0.12
+            character.攻击速度增加(0.12)
 
 
 class 装备176(装备):
@@ -2009,16 +1965,7 @@ class 装备176(装备):
         character.skill_level_up_batched('所有', 100, 100, 1)
 
     def 进图属性(self, character):
-        if character.is_equip_exist('战无不胜上衣'):
-            character.attr["火属性强化"] += 72
-            character.attr["冰属性强化"] += 72
-            character.attr["光属性强化"] += 72
-            character.attr["暗属性强化"] += 72
-        else:
-            character.attr["火属性强化"] += 68
-            character.attr["冰属性强化"] += 68
-            character.attr["光属性强化"] += 68
-            character.attr["暗属性强化"] += 68
+        character.所有属性强化加成(72)
 
 
 class 装备177(装备):
@@ -2033,7 +1980,7 @@ class 装备177(装备):
     类型 = '轻甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.34
+        character.百分比力智加成(0.34)
         character.skill_level_up_batched('所有', 40, 40, 2)
 
 
@@ -2049,10 +1996,10 @@ class 装备178(装备):
     类型 = '重甲'
 
     def 城镇属性(self, character):
-        character.attr["百分比力智"] += 0.35
+        character.百分比力智加成(0.35)
 
     def 其它属性(self, character):
-        character.attr["释放速度"] += -0.15
+        character.释放速度增加(-0.15)
 
 
 class 装备179(装备):
@@ -2067,12 +2014,12 @@ class 装备179(装备):
     类型 = '板甲'
 
     def 城镇属性(self, character):
-        character.attr["伤害增加"] += 0.32
+        character.伤害增加加成(0.32)
 
     def 进图属性(self, character):
-        character.attr["冰属性强化"] += 24
+        character.冰属性强化加成(24)
 
     def 其它属性(self, character):
-        character.attr["释放速度"] += 0.15
+        character.释放速度增加(0.15)
 
 # endregion

@@ -1,4 +1,5 @@
 from py.Equip.equ_list import *
+from py.Equip.辟邪玉 import *
 import py.base_char
 import copy
 
@@ -31,6 +32,209 @@ class CharBase:
             except:
                 print(i.名称, i.等级)
 
+    def 附加伤害加成(self, x, 可变=0, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '附加伤害 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["附加伤害"] += self.attr["附加伤害增加增幅"] * x if 辟邪玉加成 == 1 else x
+            if 可变 > 0:
+                self.attr["变换词条"][可变 - 1] = [3, round(x * 100), round(x * 100) + (2 if 可变 > 1 else 4), round(x * 100) + (8 if 可变 > 1 else 16)]
+        return ''
+
+    def 三攻固定加成(self, x=0, y=0, z=0):
+        if self.attr["装备描述"] == 1:
+            return '物攻/魔攻/独立 +{}<br>'.format(x)
+        else:
+            if y == 0 or z == 0:
+                y = x
+                z = x
+            self.attr["物理攻击力"] += x
+            self.attr["魔法攻击力"] += y
+            self.attr["独立攻击力"] += z
+        return ''
+
+    def 力智固定加成(self, x=0, y=0):
+        if self.attr["装备描述"] == 1:
+            return '力量、智力 +{}<br>'.format(x)
+        else:
+            if y == 0:
+                y = x
+            self.attr["力量"] += x
+            self.attr["智力"] += y
+        return ''
+
+    def 持续伤害加成(self, x):
+        if self.attr["装备描述"] == 1:
+            return '持续伤害 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["持续伤害"] += x
+        return ''
+
+    def 属性附加加成(self, x):
+        if self.attr["装备描述"] == 1:
+            return '属性附加伤害 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["属性附加"] += self.attr["属性附加伤害增加增幅"] * x
+        return ''
+
+    def 技能攻击力加成(self, x, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '技能攻击力 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["技能攻击力"] *= 1 + self.attr["技能伤害增加增幅"] * x if 辟邪玉加成 == 1 else x
+        return ''
+
+    def 暴击伤害加成(self, x, 可变=0, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '暴击伤害 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["暴击伤害"] += self.attr["暴击伤害增加增幅"] * x if 辟邪玉加成 == 1 else x
+            if 可变 > 0:
+                self.attr["变换词条"][可变 - 1] = [4, round(x * 100), round(x * 100) + (2 if 可变 > 1 else 4), round(x * 100) + (8 if 可变 > 1 else 16)]
+        return ''
+
+    def 伤害增加加成(self, x, 可变=0, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '伤害增加 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["伤害增加"] += self.attr["伤害增加增幅"] * x if 辟邪玉加成 == 1 else x
+            if 可变 > 0:
+                self.attr["变换词条"][可变 - 1] = [2, round(x * 100), round(x * 100) + (2 if 可变 > 1 else 4), round(x * 100) + (8 if 可变 > 1 else 16)]
+        return ''
+
+    def 最终伤害加成(self, x, 可变=0, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '最终伤害 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["最终伤害"] += self.attr["最终伤害增加增幅"] * x if 辟邪玉加成 == 1 else x
+            if 可变 > 0:
+                self.attr["变换词条"][可变 - 1] = [5, round(x * 100), round(x * 100) + (2 if 可变 > 1 else 4), round(x * 100) + (8 if 可变 > 1 else 16)]
+        return ''
+
+    def 百分比力智加成(self, x, 可变=0, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '力量、智力 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["百分比力智"] += self.attr["力量智力增加增幅"] * x if 辟邪玉加成 == 1 else x
+            if 可变 > 0:
+                self.attr["变换词条"][可变 - 1] = [0, round(x * 100), round(x * 100) + (2 if 可变 > 1 else 4), round(x * 100) + (8 if 可变 > 1 else 16)]
+        return ''
+
+    def 百分比三攻加成(self, x, 可变=0, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '百分比三攻 {}%<br>'.format(('+' if x > 0 else '') + str(round(x * 100)))
+        else:
+            self.attr["百分比三攻"] += self.attr["物理魔法攻击力增加增幅"] * x if 辟邪玉加成 == 1 else x
+            if 可变 > 0:
+                self.attr["变换词条"][可变 - 1] = [1, round(x * 100), round(x * 100) + (2 if 可变 > 1 else 4), round(x * 100) + (8 if 可变 > 1 else 16)]
+        return ''
+
+    def 火属性强化加成(self, x, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '火属性强化 +{}<br>'.format(x)
+        else:
+            if self.attr["状态"] == 0:
+                self.attr["火属性强化"] += self.attr["所有属性强化增加"] * x if 辟邪玉加成 == 1 else x
+            else:
+                self.attr["火属性强化"] += int(self.attr["所有属性强化增加"] * x)
+        return ''
+
+    def 冰属性强化加成(self, x, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '冰属性强化 +{}<br>'.format(x)
+        else:
+            if self.attr["状态"] == 0:
+                self.attr["冰属性强化"] += self.attr["所有属性强化增加"] * x if 辟邪玉加成 == 1 else x
+            else:
+                self.attr["冰属性强化"] += int(self.attr["所有属性强化增加"] * x)
+        return ''
+
+    def 光属性强化加成(self, x, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '光属性强化 +{}<br>'.format(x)
+        else:
+            if self.attr["状态"] == 0:
+                self.attr["光属性强化"] += self.attr["所有属性强化增加"] * x if 辟邪玉加成 == 1 else x
+            else:
+                self.attr["光属性强化"] += int(self.attr["所有属性强化增加"] * x)
+        return ''
+
+    def 暗属性强化加成(self, x, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '暗属性强化 +{}<br>'.format(x)
+        else:
+            if self.attr["状态"] == 0:
+                self.attr["暗属性强化"] += self.attr["所有属性强化增加"] * x if 辟邪玉加成 == 1 else x
+            else:
+                self.attr["暗属性强化"] += int(self.attr["所有属性强化增加"] * x)
+        return ''
+
+    def 所有属性强化加成(self, x, 辟邪玉加成=1):
+        if self.attr["装备描述"] == 1:
+            return '所有属性强化 +{}<br>'.format(x)
+        else:
+            if self.attr["状态"] == 0:
+                temp = self.attr["所有属性强化增加"] * x if 辟邪玉加成 == 1 else x
+            else:
+                temp = int(self.attr["所有属性强化增加"] * x)
+            self.所有属性强化(temp)
+        return ''
+
+    def 所有属性强化(self, x):
+        self.attr["火属性强化"] += x
+        self.attr["冰属性强化"] += x
+        self.attr["光属性强化"] += x
+        self.attr["暗属性强化"] += x
+
+    def 攻击速度增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '攻击速度 {}%<br>'.format(("+" if x > 0 else '') + str(round(x * 100, 2)))
+        else:
+            self.attr["攻击速度"] += x
+        return ''
+
+    def 移动速度增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '移动速度 {}%<br>'.format(("+" if x > 0 else '') + str(round(x * 100, 2)))
+        else:
+            self.attr["移动速度"] += x
+        return ''
+
+    def 释放速度增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '释放速度 {}%<br>'.format(("+" if x > 0 else '') + str(round(x * 100, 2)))
+        else:
+            self.attr["释放速度"] += x
+        return ''
+
+    def 命中率增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '命中率 {}%<br>'.format(("+" if x > 0 else '') + str(round(x * 100)))
+        else:
+            self.attr["命中率"] += x
+        return ''
+
+    def 回避率增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '回避率 {}%<br>'.format(("+" if x > 0 else '') + str(round(x * 100)))
+        else:
+            self.attr["回避率"] += x
+        return ''
+
+    def 物理暴击率增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '物理暴击率 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["物理暴击率"] += x
+        return ''
+
+    def 魔法暴击率增加(self, x):
+        if self.attr["装备描述"] == 1:
+            return '魔法暴击率 +{}%<br>'.format(round(x * 100))
+        else:
+            self.attr["魔法暴击率"] += x
+        return ''
+
     # 检测装备
     def is_equip_exist(self, 装备名称):
         for i in self.attr["装备栏"]:
@@ -39,7 +243,7 @@ class CharBase:
         return False
 
     # 技能等级加成
-    def skill_level_up_batched(self, 加成类型, minLV, maxLV, LV):
+    def skill_level_up_batched(self, 加成类型, minLV, maxLV, LV, 可变=0):
         LV = int(LV)
         if self.attr["远古记忆"] > 0:
             if minLV <= 15 <= maxLV:
@@ -56,6 +260,9 @@ class CharBase:
                 else:
                     if i.是否主动 == 1:
                         i.等级加成(LV)
+
+        if 可变 > 0:
+            self.attr["变换词条"][可变 - 1] = [6, 2, 14 + (2 if 可变 > 1 else 4), 14 + (8 if 可变 > 1 else 16)]
 
     # 单技能等级加成
     def skill_level_up_specified(self, 技能名, LV):
@@ -215,8 +422,8 @@ class CharBase:
         exec('self.attr["二觉序号"] = py.Part.{0}.skill_sn_awaking2'.format(char_name_en))
         exec('self.attr["三觉序号"] = py.Part.{0}.skill_sn_awaking3'.format(char_name_en))
 
-        exec('self.attr["护石选项"] = py.Part.{0}.option_talismans'.format(char_name_en, char_name_zh))
-        exec('self.attr["符文选项"] = py.Part.{0}.option_rune'.format(char_name_en, char_name_zh))
+        exec('self.attr["护石选项"] = py.Part.{0}.option_talismans'.format(char_name_en))
+        exec('self.attr["符文选项"] = py.Part.{0}.option_rune'.format(char_name_en))
 
         self.技能等级初始化()
 
@@ -243,6 +450,7 @@ class CharBase:
             self.attr["细节1"] = py.base_char.细节1
             self.attr["细节2"] = py.base_char.细节2
             self.attr["细节3"] = py.base_char.细节3
+            self.attr["细节4"] = py.base_char.细节4
 
     def 获取武器类型(self, weapon_name):
         武器序号 = 装备序号[weapon_name]
@@ -250,66 +458,58 @@ class CharBase:
         return 武器类型
 
     def 称号基础(self):
-        self.attr["力量"] += 100
-        self.attr["智力"] += 100
-        self.attr["物理攻击力"] += 65
-        self.attr["魔法攻击力"] += 65
-        self.attr["独立攻击力"] += 65
-        self.attr["火属性强化"] += 22
-        self.attr["冰属性强化"] += 22
-        self.attr["光属性强化"] += 22
-        self.attr["暗属性强化"] += 22
-        self.attr["百分比三攻"] += 0.12
-        self.attr["附加伤害"] += 0.10
+        self.力智固定加成(100)
+        self.三攻固定加成(65)
+        self.所有属性强化加成(22)
+        self.百分比三攻加成(0.12)
+        self.附加伤害加成(0.10)
 
         self.attr["进图力量"] += 35
         self.attr["进图智力"] += 35
 
     def 宠物基础(self):
-        self.attr["力量"] += 160
-        self.attr["智力"] += 160
-        self.attr["火属性强化"] += 25
-        self.attr["冰属性强化"] += 25
-        self.attr["光属性强化"] += 25
-        self.attr["暗属性强化"] += 25
+        self.力智固定加成(160)
+        self.所有属性强化加成(25)
         self.skill_level_up_batched("所有", 1, 80, 1)
         self.attr["加算冷却缩减"] += 0.05
-        self.attr["暴击伤害"] += 0.2
-        self.attr["百分比力智"] += 0.12
+        self.暴击伤害加成(0.20, 辟邪玉加成=0)
+        self.百分比力智加成(0.12, 辟邪玉加成=0)
 
     def 额外细节(self):
         pass
 
     def 细节基础(self):
-        细节1 = self.attr["细节1"]
-        for i in 细节1.values():
+        for i in self.attr["细节1"].values():
             self.attr["力量"] += i[0]
             self.attr["智力"] += i[1]
             self.attr["物理攻击力"] += i[2]
             self.attr["魔法攻击力"] += i[3]
             self.attr["独立攻击力"] += i[4]
-            self.attr["火属性强化"] += i[5]
-            self.attr["冰属性强化"] += i[5]
-            self.attr["光属性强化"] += i[5]
-            self.attr["暗属性强化"] += i[5]
+            self.所有属性强化加成(i[5])
 
-        细节3 = self.attr["细节3"]
-        for i in 细节3.values():
+        for i in self.attr["细节3"].values():
+            self.attr["进图力量"] += i[0]
+            self.attr["进图智力"] += i[1]
             self.attr["进图物理攻击力"] += i[2]
             self.attr["进图魔法攻击力"] += i[3]
             self.attr["进图独立攻击力"] += i[4]
+            self.attr["进图属强"] += i[5]
 
-        细节2 = self.attr["细节2"]
-        for i in 细节2.values():
+        for i in self.attr["细节4"].values():
+            self.attr["力量"] += i[0]
+            self.attr["智力"] += i[1]
+            self.attr["物理攻击力"] += i[2]
+            self.attr["魔法攻击力"] += i[3]
+            self.attr["独立攻击力"] += i[4]
+            self.所有属性强化(i[5])
+
+        for i in self.attr["细节2"].values():
             self.attr["力量"] += i[0] + i[3]
             self.attr["智力"] += i[0] + i[3]
             self.attr["物理攻击力"] += i[1] + i[4]
             self.attr["魔法攻击力"] += i[1] + i[4]
             self.attr["独立攻击力"] += i[1] + i[4]
-            self.attr["火属性强化"] += i[2]
-            self.attr["冰属性强化"] += i[2]
-            self.attr["光属性强化"] += i[2]
-            self.attr["暗属性强化"] += i[2]
+            self.所有属性强化加成(i[2])
 
         # 勋章强化
         self.attr["力量"] += 17
@@ -318,25 +518,25 @@ class CharBase:
         self.attr["精神"] += 17
 
         # 宠物装备 - 红
-        self.attr["附加伤害"] += 0.08
+        self.附加伤害加成(0.08)
 
         # 左槽
-        self.attr["最终伤害"] += 0.03
+        self.最终伤害加成(0.03)
 
         # 腰带、鞋
         self.skill_level_up_batched("主动", 1, 50, 1)
         self.skill_level_up_batched("主动", 1, 50, 1)
 
         # 头肩
-        self.attr["技能攻击力"] *= 1.03
+        self.技能攻击力加成(0.03)
         # self.skill_level_up_batched("主动", 1, 50, 1)
 
         # 称号
-        self.attr["技能攻击力"] *= 1.03
+        self.技能攻击力加成(0.03)
         # self.skill_level_up_batched("主动", 1, 50, 1)
 
         # 光环
-        self.attr["百分比三攻"] += 0.05
+        self.百分比三攻加成(0.05)
         self.skill_level_up_batched("所有", 1, 80, 1)
 
         # 白金、时装上衣
@@ -447,12 +647,28 @@ class CharBase:
             装备名称 = self.attr["装备栏"][i]
             if 装备名称:
                 装备列表[装备序号[装备名称]].城镇属性(self)
-                装备列表[装备序号[装备名称]].进图属性(self)
                 装备列表[装备序号[装备名称]].变换属性(self)
 
         for i in self.attr["套装栏"]:
             套装列表[套装序号[i]].城镇属性(self)
             套装列表[套装序号[i]].进图属性(self)
+
+        self.attr["状态"] = 1
+        for i in range(12):
+            装备名称 = self.attr["装备栏"][i]
+            if 装备名称:
+                装备列表[装备序号[装备名称]].进图属性(self)
+
+        for i in self.attr["套装栏"]:
+            套装列表[套装序号[i]].进图属性(self)
+        self.attr["状态"] = 0
+
+    def 辟邪玉计算(self):
+        for i in range(4):
+            [name, value] = self.attr["辟邪玉栏"][i]
+            if "无" != name:
+                辟邪玉列表[辟邪玉序号[name]].当前值 = value
+                辟邪玉列表[辟邪玉序号[name]].穿戴属性(self)
 
     def 护石符文计算(self):
         for i in range(3):
@@ -605,7 +821,7 @@ class CharBase:
             self.attr["光属性强化"] - self.attr["光抗输入"],
             self.attr["暗属性强化"] - self.attr["暗抗输入"]
         ]
-        self.attr["属性倍率"] = 1.05 + 0.0045 * max(属性倍率组)
+        self.attr["属性倍率"] = 1.05 + 0.0045 * int(max(属性倍率组))
 
     def 希洛克武器提升计算(self):
         pass
@@ -653,6 +869,7 @@ class CharBase:
         self.装备词条计算()
 
     def 预处理(self):
+        self.辟邪玉计算()
         self.护石符文计算()
         self.装备属性计算()
         self.进图属性强化()
