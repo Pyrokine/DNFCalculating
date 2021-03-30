@@ -572,6 +572,15 @@ class character(py.lite.CharBase):
         self.attr["防具精通属性"] = ['智力']
 
         self.attr["主BUFF"] = 1.875
+
+        self.attr["技能栏"] = skill_list
+        self.attr["技能序号"] = skill_sn
+        self.attr["一觉序号"] = skill_sn_awaking1
+        self.attr["二觉序号"] = skill_sn_awaking2
+        self.attr["三觉序号"] = skill_sn_awaking3
+        self.attr["护石选项"] = option_talismans
+        self.attr["符文选项"] = option_rune
+
         self.attr["远古记忆"] = 10
 
         self.attr["BUFF属强"] = 0
@@ -602,8 +611,19 @@ class character(py.lite.CharBase):
 
         self.attr["护石栏"] = ["嫉妒之吻", "暴食之噬", "无"]
         self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
-        self.attr["符文栏"] = ["暴食之噬", "嫉妒之吻", "嫉妒之吻", "暴食之噬", "嫉妒之吻", "嫉妒之吻", "无", "无", "无"]
-        self.attr["符文效果"] = ["攻击+5%,CD+3%", "攻击-3%,CD-6%", "CD-4%", "攻击+5%,CD+3%", "攻击-3%,CD-6%", "CD-4%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+        self.attr["符文栏"] = ["嫉妒之吻", "嫉妒之吻", "嫉妒之吻", "嫉妒之吻", "嫉妒之吻", "嫉妒之吻", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%"]
+        self.attr["辟邪玉栏"] = [
+            ["无", 0],
+            ["无", 0],
+            ["无", 0],
+            ["无", 0]
+        ]
+        self.attr["希洛克装备栏"] = ["无", "无", "无"]
+        self.attr["希洛克武器栏"] = [
+            ["无", 6],
+            ["无", 3]
+        ]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

@@ -807,11 +807,19 @@ class character(py.lite.CharBase):
 
         self.attr["主BUFF"] = 2
 
+        self.attr["技能栏"] = skill_list
+        self.attr["技能序号"] = skill_sn
+        self.attr["一觉序号"] = skill_sn_awaking1
+        self.attr["二觉序号"] = skill_sn_awaking2
+        self.attr["三觉序号"] = skill_sn_awaking3
+        self.attr["护石选项"] = option_talismans
+        self.attr["符文选项"] = option_rune
+
         self.attr["远古记忆"] = 10
 
+        self.attr["第二次魔灵炸弹引爆的战士"] = 1
         self.attr["黑暗冲击战士冲击波个数"] = 3
         self.attr["绽放·终章战士黑炎个数"] = 5
-        self.attr["第二次魔灵炸弹引爆的战士"] = 1
 
     def 角色数据输入(self):
         self.attr["技能SP等级"] = [1, 1, 1, 1, 1, 10, 1, 1, 1, 1, 1, 17, 1, 1, 1, 43, 1, 38, 36, 33, 31, 20, 12, 23, 18, 11, 16, 13, 5, 4, 6, 2]
@@ -835,8 +843,19 @@ class character(py.lite.CharBase):
 
         self.attr["护石栏"] = ["碎灵屠戮", "翔空剑", "无"]
         self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
-        self.attr["符文栏"] = ["碎灵屠戮", "翔空剑", "碎灵屠戮", "碎灵屠戮", "翔空剑", "碎灵屠戮", "无", "无", "无"]
-        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+        self.attr["符文栏"] = ["碎灵屠戮", "碎灵屠戮", "碎灵屠戮", "碎灵屠戮", "碎灵屠戮", "碎灵屠戮", "无", "无", "无"]
+        self.attr["符文效果"] = ["攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%"]
+        self.attr["辟邪玉栏"] = [
+            ["无", 0],
+            ["无", 0],
+            ["无", 0],
+            ["无", 0]
+        ]
+        self.attr["希洛克装备栏"] = ["无", "无", "无"]
+        self.attr["希洛克武器栏"] = [
+            ["无", 6],
+            ["无", 3]
+        ]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

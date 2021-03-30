@@ -74,5 +74,5 @@ dictionary = {
     "勋章": "insignia",
     "守护珠": "gem",
     "辟邪玉": "",
-
+    "希洛克": "sirocco"
 }

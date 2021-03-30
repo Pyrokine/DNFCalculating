@@ -782,6 +782,14 @@ class character(py.lite.CharBase):
 
         self.attr["主BUFF"] = 2.04
 
+        self.attr["技能栏"] = skill_list
+        self.attr["技能序号"] = skill_sn
+        self.attr["一觉序号"] = skill_sn_awaking1
+        self.attr["二觉序号"] = skill_sn_awaking2
+        self.attr["三觉序号"] = skill_sn_awaking3
+        self.attr["护石选项"] = option_talismans
+        self.attr["符文选项"] = option_rune
+
         self.attr["远古记忆"] = 10
         self.attr["可绑定技能"] = ['火遁·豪火球之术', '忍法：幻影手里剑', '火遁·飓风煞', '火遁·螺旋手里剑','忍法：替身术','火遁·炎天道','火遁·蟾蜍油炎弹', '火遁·炎舞天璇', '八岐大蛇','火遁·风魔手里剑', '天照']
         self.attr["绑定技能次数"] = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
@@ -809,7 +817,18 @@ class character(py.lite.CharBase):
         self.attr["护石栏"] = ["火遁·蟾蜍油炎弹", "火遁·炎舞天璇", "无"]
         self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
         self.attr["符文栏"] = ["火遁·蟾蜍油炎弹", "火遁·蟾蜍油炎弹", "火遁·蟾蜍油炎弹", "火遁·蟾蜍油炎弹", "火遁·蟾蜍油炎弹", "火遁·蟾蜍油炎弹", "无", "无", "无"]
-        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+        self.attr["符文效果"] = ["攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%"]
+        self.attr["辟邪玉栏"] = [
+            ["无", 0],
+            ["无", 0],
+            ["无", 0],
+            ["无", 0]
+        ]
+        self.attr["希洛克装备栏"] = ["无", "无", "无"]
+        self.attr["希洛克武器栏"] = [
+            ["无", 6],
+            ["无", 3]
+        ]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

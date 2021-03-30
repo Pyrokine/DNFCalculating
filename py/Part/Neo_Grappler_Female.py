@@ -295,6 +295,7 @@ class skill17(主动技能):
     def 装备护石(self, x):
         if x == 0:
             self.倍率 *= 1.3225
+            self.CD *= 0.9
     # 攻击力+15% ；生成总攻击力15%伤害的旋风（多段，15次攻击，每次1%）
 
 
@@ -425,6 +426,14 @@ class character(py.lite.CharBase):
 
         self.attr["主BUFF"] = 2.07
 
+        self.attr["技能栏"] = skill_list
+        self.attr["技能序号"] = skill_sn
+        self.attr["一觉序号"] = skill_sn_awaking1
+        self.attr["二觉序号"] = skill_sn_awaking2
+        self.attr["三觉序号"] = skill_sn_awaking3
+        self.attr["护石选项"] = option_talismans
+        self.attr["符文选项"] = option_rune
+
     def 角色数据输入(self):
         self.attr["技能SP等级"] = [50, 46, 10, 41, 41, 1, 38, 38, 36, 36, 33, 31, 20, 12, 1, 11, 18, 16, 13, 5, 4, 6, 2]
         self.attr["技能TP等级"] = [0, 0, 0, 0, 1, 0, 0, 0, 5, 5, 5, 5, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0]
@@ -448,7 +457,18 @@ class character(py.lite.CharBase):
         self.attr["护石栏"] = ["裂石破天", "螺旋彗星落", "无"]
         self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
         self.attr["符文栏"] = ["裂石破天", "裂石破天", "裂石破天", "裂石破天", "裂石破天", "裂石破天", "无", "无", "无"]
-        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+        self.attr["符文效果"] = ["攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%"]
+        self.attr["辟邪玉栏"] = [
+            ["无", 0],
+            ["无", 0],
+            ["无", 0],
+            ["无", 0]
+        ]
+        self.attr["希洛克装备栏"] = ["无", "无", "无"]
+        self.attr["希洛克武器栏"] = [
+            ["无", 6],
+            ["无", 3]
+        ]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

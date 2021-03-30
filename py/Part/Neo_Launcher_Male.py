@@ -492,6 +492,14 @@ class character(py.lite.CharBase):
 
         self.attr["主BUFF"] = 1.957
 
+        self.attr["技能栏"] = skill_list
+        self.attr["技能序号"] = skill_sn
+        self.attr["一觉序号"] = skill_sn_awaking1
+        self.attr["二觉序号"] = skill_sn_awaking2
+        self.attr["三觉序号"] = skill_sn_awaking3
+        self.attr["护石选项"] = option_talismans
+        self.attr["符文选项"] = option_rune
+
     def 角色数据输入(self):
         self.attr["技能SP等级"] = [51, 10, 44, 44, 1, 42, 1, 39, 37, 37, 34, 32, 20, 12, 24, 19, 11, 17, 14, 5, 4, 7, 2]
         self.attr["技能TP等级"] = [0, 0, 0, 0, 0, 4, 0, 0, 1, 5, 5, 5, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0]
@@ -515,7 +523,18 @@ class character(py.lite.CharBase):
         self.attr["护石栏"] = ["量子爆弹", "X1压缩量子炮", "无"]
         self.attr["护石类型"] = ["魔界", "魔界", "魔界"]
         self.attr["符文栏"] = ["量子爆弹", "量子爆弹", "量子爆弹", "量子爆弹", "量子爆弹", "量子爆弹", "无", "无", "无"]
-        self.attr["符文效果"] = ["攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%"]
+        self.attr["符文效果"] = ["攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%", "攻击+5%,CD+3%", "攻击+3%", "CD-4%"]
+        self.attr["辟邪玉栏"] = [
+            ["无", 0],
+            ["无", 0],
+            ["无", 0],
+            ["无", 0]
+        ]
+        self.attr["希洛克装备栏"] = ["无", "无", "无"]
+        self.attr["希洛克武器栏"] = [
+            ["无", 6],
+            ["无", 3]
+        ]
 
     def 三觉技能选择(self):
         self.attr["技能栏"][self.attr[self.attr["三觉技能选择"]]].被动倍率 = 0

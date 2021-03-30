@@ -1,6 +1,6 @@
 from py.Equip.equ_list import *
 from py.Equip.辟邪玉 import *
-import py.base_char
+from py import base_char as py_base_char
 import copy
 
 
@@ -397,8 +397,8 @@ class CharBase:
         self.attr["刀魂之卡赞"] = 0
 
     def 角色基础数据生成(self):
-        角色数据 = py.base_char.角色基础系数[self.attr["角色"]]
-        职业数据 = py.base_char.职业基础数据[self.attr["职业"] + '-' + self.attr["角色"]]
+        角色数据 = py_base_char.角色基础系数[self.attr["角色"]]
+        职业数据 = py_base_char.职业基础数据[self.attr["职业"] + '-' + self.attr["角色"]]
 
         当前等级 = 100
         唤醒 = 275
@@ -413,17 +413,8 @@ class CharBase:
         self.attr["智力"] = self.attr["基础智力"]
         self.attr["精神"] = self.attr["基础精神"]
 
-        char_name_zh = self.attr["实际名称"]
-        char_name_en = py.base_char.map_EN_ZH[char_name_zh]
-        exec('self.attr["技能栏"] = copy.deepcopy(py.Part.{0}.skill_list)'.format(char_name_en))
-        exec('self.attr["技能序号"] = copy.deepcopy(py.Part.{0}.skill_sn)'.format(char_name_en))
-
-        exec('self.attr["一觉序号"] = py.Part.{0}.skill_sn_awaking1'.format(char_name_en))
-        exec('self.attr["二觉序号"] = py.Part.{0}.skill_sn_awaking2'.format(char_name_en))
-        exec('self.attr["三觉序号"] = py.Part.{0}.skill_sn_awaking3'.format(char_name_en))
-
-        exec('self.attr["护石选项"] = py.Part.{0}.option_talismans'.format(char_name_en))
-        exec('self.attr["符文选项"] = py.Part.{0}.option_rune'.format(char_name_en))
+        self.attr["词条属性映射"] = 词条属性映射
+        self.attr["黑鸦武器属性列表"] = 黑鸦武器属性列表
 
         self.技能等级初始化()
 
@@ -447,10 +438,10 @@ class CharBase:
             self.attr[i] = attr[i]
 
         if not "细节1" in self.attr:
-            self.attr["细节1"] = py.base_char.细节1
-            self.attr["细节2"] = py.base_char.细节2
-            self.attr["细节3"] = py.base_char.细节3
-            self.attr["细节4"] = py.base_char.细节4
+            self.attr["细节1"] = py_base_char.细节1
+            self.attr["细节2"] = py_base_char.细节2
+            self.attr["细节3"] = py_base_char.细节3
+            self.attr["细节4"] = py_base_char.细节4
 
     def 获取武器类型(self, weapon_name):
         武器序号 = 装备序号[weapon_name]
@@ -756,8 +747,8 @@ class CharBase:
             self.attr["进图智力"] += self.attr["远古记忆"] * 15
 
         if self.attr["刀魂之卡赞"] > 0:
-            self.attr["进图力量"] += py.base_char.刀魂之卡赞数据[self.attr["刀魂之卡赞"]]
-            self.attr["进图智力"] += py.base_char.刀魂之卡赞数据[self.attr["刀魂之卡赞"]]
+            self.attr["进图力量"] += py_base_char.刀魂之卡赞数据[self.attr["刀魂之卡赞"]]
+            self.attr["进图智力"] += py_base_char.刀魂之卡赞数据[self.attr["刀魂之卡赞"]]
 
         for i in self.attr["技能栏"]:
             if i.关联技能 != ["无"]:
@@ -828,8 +819,73 @@ class CharBase:
         # TODO
 
     def 希洛克属性计算(self):
-        pass
-        # TODO
+        # 0下装 1戒指 2辅助装备
+        # 属性1
+        if self.attr["希洛克装备栏"][0] != "无":
+            self.最终伤害加成(0.05)
+        if self.attr["希洛克装备栏"][1] != "无":
+            self.百分比三攻加成(0.05)
+        if self.attr["希洛克装备栏"][2] != "无":
+            self.技能攻击力加成(0.05)
+
+        # 属性2
+        if self.attr["希洛克装备栏"][0] == "奈克斯" and self.attr["希洛克装备栏"][1] == "奈克斯":
+            self.伤害增加加成(0.05)
+        if self.attr["希洛克装备栏"][1] == "奈克斯" and self.attr["希洛克装备栏"][2] == "奈克斯":
+            self.暴击伤害加成(0.05)
+        if self.attr["希洛克装备栏"][0] == "奈克斯" and self.attr["希洛克装备栏"][2] == "奈克斯":
+            self.百分比力智加成(0.05)
+
+        if self.attr["希洛克装备栏"][0] == "暗杀者" and self.attr["希洛克装备栏"][1] == "暗杀者":
+            self.伤害增加加成(0.02)
+            self.skill_change_cooldown(1, 45, 0.2)
+        if self.attr["希洛克装备栏"][1] == "暗杀者" and self.attr["希洛克装备栏"][2] == "暗杀者":
+            self.暴击伤害加成(0.03)
+            self.skill_change_cooldown(60, 70, 0.2)
+        if self.attr["希洛克装备栏"][0] == "暗杀者" and self.attr["希洛克装备栏"][2] == "暗杀者":
+            self.百分比力智加成(0.03)
+            self.skill_change_cooldown(75, 80, 0.17)
+
+        if self.attr["希洛克装备栏"][0] == "卢克西" and self.attr["希洛克装备栏"][1] == "卢克西":
+            self.skill_change_rate(50, 0.17)
+            self.skill_change_rate(85, 0.17)
+            self.skill_change_rate(100, 0.10)
+        if self.attr["希洛克装备栏"][1] == "卢克西" and self.attr["希洛克装备栏"][2] == "卢克西":
+            self.skill_change_rate(50, 0.17)
+            self.skill_change_rate(85, 0.17)
+            self.skill_change_rate(100, 0.10)
+        if self.attr["希洛克装备栏"][0] == "卢克西" and self.attr["希洛克装备栏"][2] == "卢克西":
+            self.skill_change_rate(50, 0.17)
+            self.skill_change_rate(85, 0.17)
+            self.skill_change_rate(100, 0.10)
+
+        more_than_two = False
+        if self.attr["希洛克装备栏"][0] == "守门人" and self.attr["希洛克装备栏"][1] == "守门人":
+            more_than_two = True
+            self.attr["进图属强"] += int(self.attr["所有属性强化增加"] * 30)
+        if self.attr["希洛克装备栏"][1] == "守门人" and self.attr["希洛克装备栏"][2] == "守门人":
+            more_than_two = True
+            self.attr["进图属强"] += int(self.attr["所有属性强化增加"] * 30)
+        if self.attr["希洛克装备栏"][0] == "守门人" and self.attr["希洛克装备栏"][2] == "守门人":
+            more_than_two = True
+            self.attr["进图属强"] += int(self.attr["所有属性强化增加"] * 30)
+        if more_than_two:
+            self.attr["细节1"]["宠物附魔"] = [0, 0, 60, 60, 60, 0]
+            self.attr["细节2"]["手镯"][2] = 25
+            self.attr["细节2"]["项链"][2] = 25
+            self.attr["细节2"]["戒指"][2] = 25
+
+        if self.attr["希洛克装备栏"][0] == "洛多斯" and self.attr["希洛克装备栏"][1] == "洛多斯":
+            self.伤害增加加成(0.04)
+        if self.attr["希洛克装备栏"][1] == "洛多斯" and self.attr["希洛克装备栏"][2] == "洛多斯":
+            self.暴击伤害加成(0.04)
+        if self.attr["希洛克装备栏"][0] == "洛多斯" and self.attr["希洛克装备栏"][2] == "洛多斯":
+            self.百分比力智加成(0.04)
+
+        # 武器
+        self.attr["词条属性映射"][self.attr["希洛克武器栏"][0][0]].加成属性(self, int(self.attr["希洛克武器栏"][0][1]) * 0.01)
+        if "无" not in self.attr["希洛克装备栏"]:
+            self.attr["词条属性映射"][self.attr["希洛克武器栏"][1][0]].加成属性(self, int(self.attr["希洛克武器栏"][1][1]) * 0.01)
 
     def 面板系数计算(self):
         面板力量 = int(int((self.attr["力量"] + self.attr["进图力量"])) * (1 + self.attr["百分比力智"]))
@@ -870,6 +926,7 @@ class CharBase:
 
     def 预处理(self):
         self.辟邪玉计算()
+        self.希洛克属性计算()
         self.护石符文计算()
         self.装备属性计算()
         self.进图属性强化()
@@ -931,6 +988,6 @@ class CharBase:
         return sum(技能总伤害)
 
     def 初始化(self):
-        self.attr = copy.deepcopy(py.base_char.屬性)
+        self.attr = copy.deepcopy(py_base_char.屬性)
         self.角色賦予()
         self.角色数据输入()

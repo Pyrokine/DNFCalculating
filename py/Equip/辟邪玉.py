@@ -19,14 +19,14 @@ class 辟邪玉1(辟邪玉):
     名称 = '附加伤害增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["附加伤害增加增幅"] += self.当前值 / 100
+        character.attr["附加伤害增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉2(辟邪玉):
     名称 = '属性附加伤害增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["属性附加伤害增加增幅"] += self.当前值 / 100
+        character.attr["属性附加伤害增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉3(辟邪玉):
@@ -35,49 +35,49 @@ class 辟邪玉3(辟邪玉):
     最大值 = 3
 
     def 穿戴属性(self, character):
-        character.attr["技能伤害增加增幅"] += self.当前值 / 100
+        character.attr["技能伤害增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉4(辟邪玉):
     名称 = '暴击伤害增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["暴击伤害增加增幅"] += self.当前值 / 100
+        character.attr["暴击伤害增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉5(辟邪玉):
     名称 = '伤害增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["伤害增加增幅"] += self.当前值 / 100
+        character.attr["伤害增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉6(辟邪玉):
     名称 = '最终伤害增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["最终伤害增加增幅"] += self.当前值 / 100
+        character.attr["最终伤害增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉7(辟邪玉):
     名称 = '力量智力增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["力量智力增加增幅"] += self.当前值 / 100
+        character.attr["力量智力增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉8(辟邪玉):
     名称 = '物理魔法攻击力增加增幅'
 
     def 穿戴属性(self, character):
-        character.attr["物理魔法攻击力增加增幅"] += self.当前值 / 100
+        character.attr["物理魔法攻击力增加增幅"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉9(辟邪玉):
     名称 = '所有属性强化增加'
 
     def 穿戴属性(self, character):
-        character.attr["所有属性强化增加"] += self.当前值 / 100
+        character.attr["所有属性强化增加"] += round(self.当前值 / 100, 4)
 
 
 class 辟邪玉10(辟邪玉):
@@ -175,5 +175,11 @@ for i in range(19):
     exec('辟邪玉列表.append(辟邪玉' + str(i) + '())')
 
 辟邪玉序号 = dict()
+辟邪玉取值范围 = {}
 for i in range(len(辟邪玉列表)):
     辟邪玉序号[辟邪玉列表[i].名称] = i
+    a, temp = 辟邪玉列表[i].最小值, []
+    while a <= 辟邪玉列表[i].最大值:
+        temp.append(a)
+        a = round(a + 辟邪玉列表[i].间隔, 1)
+    辟邪玉取值范围.update({辟邪玉列表[i].名称: temp})

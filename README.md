@@ -19,7 +19,7 @@
 　　　　　　　　|　　　|--  equip_weapon.py：武器</br>
 　　　　　　　　|--  Part：每个角色的实现，中英文名字对应可以在glossary.py中查看</br>
 　　　　　　　　|--  Test：单元测试</br>
-　　　　　　　　|　　　|--  extract.py：抽取数据生成默认配置用的程序，可能已经过时了</br>
+　　　　　　　　|　　　|--  extract.py：抽取数据生成默认配置用的程序</br>
 　　　　　　　　|　　　|--  json_formatter.py：简单的json格式化函数</br>
 　　　　　　　　|　　　|--  test.py：测试主函数，主要测试默认配置下伤害是否和原计算器相等以及是否出现计算出错和伤害异常的现象</br>
 　　　　　　　　|--  user_data_default：每个角色的默认配置，即网页版新建存档时得到的文件</br>
